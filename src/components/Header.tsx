@@ -73,7 +73,7 @@ export default function Header(){
             style={{
               padding: "5px",
               margin: "0",
-              color: "white",
+              color: 'cyan',
               fontWeight: "bolder",
             }}
           >
