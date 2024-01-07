@@ -10,12 +10,12 @@ const HeaderContainer = styled.div`
   overflow: hidden;
   position: relative;
   min-height: 100px;
-  margin-top: 15px;
+  margin-top: 0px;
 `;
 
 const HeaderText = styled.h1`
   text-transform: uppercase;
-  font-weight: 700;
+  font-weight: 900;
   font-size: 44px;
   color: white;
   padding: 0;
@@ -29,8 +29,8 @@ const HeaderText = styled.h1`
 
 const SubHeaderText = styled.h2`
   text-transform: uppercase;
-  font-weight: 500;
-  font-size: 40px;
+  font-weight: 700;
+  font-size: 30px;
   color: white;
   padding: 0;
   margin: 0;
@@ -61,7 +61,7 @@ export default function Title(){
                 roll.style.bottom = '0px';
             }        
       
-        }, 1200);
+        }, 1500);
 }, [])
 
   
