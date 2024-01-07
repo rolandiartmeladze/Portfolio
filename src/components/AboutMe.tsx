@@ -23,7 +23,7 @@ const Samp = styled.samp`
 const Aboutme = styled.div`
   width: 95%;
   float: right;
-  min-height: 60vh;
+  min-height: 40vh;
   margin-top: 15px;
   margin-left: 200%;
   transition: 1.8s ease-in;
@@ -48,12 +48,17 @@ const Aboutme = styled.div`
 const LogoContainer = styled.div`
   position: absolute;
   width: 10%;
+  height: 25%;
+
   transition: 2s ease-in;
   left: 115%;
 `;
 
 const LogoImage = styled.img<{ isRounded?: boolean }>`
-  width: 80%;
+  width: auto;
+  max-height: 90%;
+  
+
   border-radius: ${({ isRounded }) => (isRounded ? '50%' : '0')};
 `;
 
@@ -83,11 +88,11 @@ const AboutMe: React.FC = () => {
             setTimeout(() => {
                 if (summery) { summery.style.opacity = '1'; }
 
-                AboutMeTitle.forEach((item, index) => {
-                    setTimeout(() => {
-                      setTitle((prevTitle) => prevTitle + item);
-                    }, index * 100);
-                  });
+                    AboutMeTitle.forEach((item, index) => {
+                        setTimeout(() => {
+                        setTitle((prevTitle) => prevTitle + item);
+                        }, index * 100);
+                    });
             
             }, 3000);
 
