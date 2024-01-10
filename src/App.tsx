@@ -1,18 +1,42 @@
-import React from 'react';
+import React, { useEffect,useState } from 'react';
 import './App.css';
 import Header from './components/Header';
 import Title from './components/Title';
 import Photo from './components/Photo';
 import AboutMe from './components/AboutMe';
-
+import GithubRepository from './components/Repositories';
 
 function App() {
+
+
+  const [ismobil, setIsMobil] = useState(false);
+
+  useEffect(() => {
+    const checkIsMobile = () => {
+      const isMobile = window.innerWidth <= 750;
+      setIsMobil(isMobile);
+    };
+  
+    checkIsMobile();
+  
+    window.addEventListener('resize', checkIsMobile);
+  
+    return () => {
+      window.removeEventListener('resize', checkIsMobile);
+    };
+  }, []);
+  
+
+
+
   return (
     <div className="App">
       <Header />
       <Photo />
-      <Title />
-      <AboutMe />
+      <Title  ismobil={ismobil} />
+      <AboutMe ismobil={ismobil} />
+      
+            <GithubRepository />
     </div>
   );
 }
