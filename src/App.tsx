@@ -36,7 +36,7 @@ function App() {
       <Title  ismobil={ismobil} />
       <AboutMe ismobil={ismobil} />
       
-            <GithubRepository />
+{/*             <GithubRepository /> */}
     </div>
   );
 }
