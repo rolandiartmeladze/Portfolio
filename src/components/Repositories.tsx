@@ -22,7 +22,7 @@ export default function GithubRepository(): JSX.Element {
     const fetchData = async (): Promise<void> => {
       try {
         const username = 'rolandiartmeladze';
-        const token = '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';
+        // const token = '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';
 
         const response: AxiosResponse<Repository[]> = await axios.get(
           `https://api.github.com/users/${username}/repos`,
