@@ -117,7 +117,7 @@ const AboutMe: React.FC<abouteme> = ({ismobil}) => {
 
                     }
                 });
-        }, 1500);
+        }, 900);
 
 
   }, []);

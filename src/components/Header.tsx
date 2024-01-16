@@ -44,7 +44,7 @@ export default function Header(){
                 if (header) {
                     header.style.marginTop = '0px';
                 }        
-            }, 1000);
+            }, 700);
     }, [])
 
   

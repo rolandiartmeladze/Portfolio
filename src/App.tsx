@@ -5,6 +5,8 @@ import Title from './components/Title';
 import Photo from './components/Photo';
 import AboutMe from './components/AboutMe';
 import GithubRepository from './components/Repositories';
+import Education from './components/Education';
+
 
 function App() {
 
@@ -35,8 +37,8 @@ function App() {
       <Photo />
       <Title  ismobil={ismobil} />
       <AboutMe ismobil={ismobil} />
-      
-            <GithubRepository />
+      <Education  ismobil={ismobil} />
+            {/* <GithubRepository /> */}
     </div>
   );
 }
