@@ -37,13 +37,8 @@ function App() {
       <Photo />
       <Title  ismobil={ismobil} />
       <AboutMe ismobil={ismobil} />
-<<<<<<< HEAD
       <Education  ismobil={ismobil} />
             {/* <GithubRepository /> */}
-=======
-      
-{/*             <GithubRepository /> */}
->>>>>>> b05a8f221b91335c54ba597bc8c09de701098767
     </div>
   );
 }

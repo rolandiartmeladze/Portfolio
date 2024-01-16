@@ -18,39 +18,39 @@ export default function GithubRepository(): JSX.Element {
 
   var totalLang: number[];
 
-  useEffect(() => {
-    const fetchData = async (): Promise<void> => {
-      try {
-        const username = 'rolandiartmeladze';
-        // const token = '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';
+  // useEffect(() => {
+  //   const fetchData = async (): Promise<void> => {
+  //     try {
+  //       const username = 'rolandiartmeladze';
+  //       const token = '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';
 
-        const response: AxiosResponse<Repository[]> = await axios.get(
-          `https://api.github.com/users/${username}/repos`,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
+  //       const response: AxiosResponse<Repository[]> = await axios.get(
+  //         `https://api.github.com/users/${username}/repos`,
+  //         {
+  //           headers: {
+  //             Authorization: `Bearer ${token}`,
+  //           },
+  //         }
+  //       );
 
-        setDataFromGithub(response.data);
+  //       setDataFromGithub(response.data);
 
-        const languagePromises = response.data.map((repo) =>
-          axios.get<LanguageData>(repo.languages_url)
-        );
+  //       const languagePromises = response.data.map((repo) =>
+  //         axios.get<LanguageData>(repo.languages_url)
+  //       );
 
-        const languageResponses = await Promise.all(languagePromises);
-        const languagesData = languageResponses.map(
-          (response) => response.data
-        );
-        setLang(languagesData);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
+  //       const languageResponses = await Promise.all(languagePromises);
+  //       const languagesData = languageResponses.map(
+  //         (response) => response.data
+  //       );
+  //       setLang(languagesData);
+  //     } catch (error) {
+  //       console.error('Error fetching data:', error);
+  //     }
+  //   };
 
-    fetchData();
-  }, []);
+  //   fetchData();
+  // }, []);
 
   useEffect(() => { countPercent(); }, [lang]);
 
