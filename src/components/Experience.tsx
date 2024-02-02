@@ -234,8 +234,10 @@ const Expconteiner = styled.div<ExpconteinerProps>`
   background: linear-gradient(
     to top,
     rgba(25, 250, 100, 0.7),
-    rgba(25, 20, 100, 0.4),
-    rgba(225, 220, 180, 0)
+    rgba(25, 20, 100, 0.2),
+    rgba(225, 220, 180, 0),
+    rgba(25, 20, 100, 0.2),
+    rgba(25, 250, 100, 0.7)
   );
 border-radius: 5px;
   border: none;
