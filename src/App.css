@@ -2,7 +2,6 @@ body{
   background-color: rgb(26 35 46);
   padding: 0;
   margin: 0;
-
 }
 .App {
   text-align: center;
@@ -13,10 +12,12 @@ body{
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  /* position: relative; */
-  /* height: 100vh; */
+  background-image: url(/src/img/BG4.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center; 
+  background-attachment: fixed;
 }
-
 
 @keyframes App-logo-spin {
   from {

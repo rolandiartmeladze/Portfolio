@@ -4,8 +4,9 @@ import Header from './components/Header';
 import Title from './components/Title';
 import Photo from './components/Photo';
 import AboutMe from './components/AboutMe';
-import GithubRepository from './components/Repositories';
+// import GithubRepository from './components/Repositories';
 import Education from './components/Education';
+import Experience from './components/Experience';
 
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
       <Title  ismobil={ismobil} />
       <AboutMe ismobil={ismobil} />
       <Education  ismobil={ismobil} />
+      <Experience ismobil={ismobil} />
             {/* <GithubRepository /> */}
     </div>
   );
