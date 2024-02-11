@@ -105,3 +105,17 @@
     z-index: 2;
     margin-bottom: 10px;
   }
+
+  @media (max-width: 750px) {
+    .projects-container {
+         flex-direction: column;
+    }
+    .projects-item-active h1 {
+        text-align: left;
+        position: relative;
+        transform: rotate(0deg);
+        bottom: 0;
+z-index: 3;
+    }
+
+  }
