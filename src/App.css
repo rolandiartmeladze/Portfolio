@@ -17,6 +17,7 @@ body{
   background-size: cover;
   background-position: center center; 
   background-attachment: fixed;
+  flex-direction: column;
 }
 
 @keyframes App-logo-spin {

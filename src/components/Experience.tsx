@@ -14,6 +14,7 @@ interface ExperienceItem {
   interface ExpconteinerProps {
     descriptionVisible: boolean;
   }
+
 const Expsection = styled.section`
         display: flex;
         flex-direction: row-reverse;
@@ -228,7 +229,6 @@ const Expconteiner = styled.div<ExpconteinerProps>`
 
   const Showbtn = styled.button`
   left: 30px;
-//   position: absolute;
   color: yellow;
   cursor: pointer;
   background: linear-gradient(
@@ -258,8 +258,8 @@ border-radius: 5px;
 
 
 const Experience: React.FC<{ ismobil: boolean }> = ({ismobil}) => {
-    const [experanceData, setExperanceData] = useState<ExperienceItem[]>(data as ExperienceItem[]);
 
+    const [experanceData, setExperanceData] = useState<ExperienceItem[]>(data as ExperienceItem[]);
     const toggleDescription = (index: number): void => {
       setExperanceData((prevData) => {
         const newData = [...prevData];

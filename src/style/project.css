@@ -1,0 +1,107 @@
+
+.repo-section{
+    width:100%;
+}
+
+.projects-container {
+    height: 98vh;
+    width: 96%;
+    /* background-color: red; */
+    margin: auto;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 10px;
+    margin-bottom: 25px;
+    padding: 8px;
+  }
+  .projects-item {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        background-color: green;
+        border-radius: 30px;
+        overflow: hidden;
+        cursor: pointer;
+        transition: 0.4s ease;
+        position: relative;
+        align-items: center;
+        flex: 6;
+  }
+  
+  .projects-item::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 25%;
+    background-image: linear-gradient(to top,  rgb(165, 42, 42, 0),  rgb(165, 42, 42));
+
+}
+.projects-item::before {
+    position: absolute;
+    content: "";
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 25%;
+    background-image: linear-gradient(to top, rgb(211, 23, 186), rgb(211, 23, 186 , 0));
+
+    z-index: 0;
+}
+  .projects-item-active {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        background-image: linear-gradient(to top, rgba(128, 109, 0), rgba(128, 109, 0, 0.3));
+        border-radius: 30px;
+        overflow: hidden;
+        cursor: pointer;
+        transition: 0.4s ease;
+        position: relative;
+        align-items: center;
+        flex: 1;
+}
+.projects-item p {
+        display: flex;
+        z-index: 1;
+        padding: 8px;
+  }
+  
+  .projects-item-active p {
+        display: none;
+  }
+  
+  .projects-item-active h1 {
+        overflow: hidden;
+        text-align: center;
+        bottom: 5rem;
+        position: absolute;
+        transform: rotate(-90deg);
+        min-width: 150px;
+  }
+  
+  .projects-item h1 {
+        text-align: left;
+        bottom: 0;
+        margin: 0;
+        position: relative;
+        transform: rotate(0deg);
+  }
+
+  .lang-line-active{
+  display: none;
+  }
+  .lang-line-active{
+
+    display: flex;
+    align-items: center;
+    width: 90%;
+
+    padding: 3px;
+    /* height: 45px; */
+    background-image: linear-gradient(to top,  rgb(21, 3, 166, 0.3), rgba(128, 109, 0, 0.0));
+    border-radius: 10px;
+    z-index: 2;
+    margin-bottom: 10px;
+  }

@@ -4,6 +4,7 @@ import reactlogo from '../icon/ReactLogo.png';
 import javascriptlogo from '../icon/javascriptLogo.png';
 import htmllogo from '../icon/html.png';
 
+
 interface LogoWrapperProps {
   id: string;
   src: string;
