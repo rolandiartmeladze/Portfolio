@@ -1,22 +1,31 @@
 {
   "files": {
-    "main.css": "/Portfolio/static/css/main.56604044.css",
-    "main.js": "/Portfolio/static/js/main.c5dd9da8.js",
+    "main.css": "/Portfolio/static/css/main.97fa4df2.css",
+    "main.js": "/Portfolio/static/js/main.4544de95.js",
+    "static/media/Vacation-In-Georgia.png": "/Portfolio/static/media/Vacation-In-Georgia.81453b9a54fd31fc5292.png",
+    "static/media/auto_shipping.png": "/Portfolio/static/media/auto_shipping.2612449c718f5e032775.png",
+    "static/media/Buy-Sell-Count-App.png": "/Portfolio/static/media/Buy-Sell-Count-App.1ce7b1b29d240780f609.png",
+    "static/media/TravelInGeorgia_Test.png": "/Portfolio/static/media/TravelInGeorgia_Test.7561e8aae0459df1234b.png",
+    "static/media/Portfolio.png": "/Portfolio/static/media/Portfolio.04031b43b581c4d8347f.png",
     "static/media/ReactLogo.png": "/Portfolio/static/media/ReactLogo.8a6fc0a24a800d1e0f4a.png",
     "static/media/cv_img.png": "/Portfolio/static/media/cv_img.dff6420c8b0e3d6d1e88.png",
     "static/media/logoStu.png": "/Portfolio/static/media/logoStu.48fb09f1197a667dadef.png",
+    "static/media/Calculatot_Test.png": "/Portfolio/static/media/Calculatot_Test.ffbf55c807fa97dd6e17.png",
+    "static/media/DataCount.png": "/Portfolio/static/media/DataCount.36e2aa5a41552745d244.png",
     "static/media/html.png": "/Portfolio/static/media/html.3cdaa62ed2399d0311e0.png",
     "static/media/experience1.png": "/Portfolio/static/media/experience1.8e4add740d70e2575fdc.png",
     "static/media/BitLogo.jpg": "/Portfolio/static/media/BitLogo.206043e6954c64a8bdc9.jpg",
     "static/media/logoCodehs.webp": "/Portfolio/static/media/logoCodehs.ab2c3f4ebaebf9ff9f9a.webp",
+    "static/media/PongGame.png": "/Portfolio/static/media/PongGame.4fe1ec5311ccbcda8a73.png",
     "static/media/BG4.webp": "/Portfolio/static/media/BG4.6401ca4683069e2f641a.webp",
     "static/media/javascriptLogo.png": "/Portfolio/static/media/javascriptLogo.ee7291c1f58600feece2.png",
+    "static/media/BreackOutGame_Test.png": "/Portfolio/static/media/BreackOutGame_Test.323623659b1264dde3ca.png",
     "index.html": "/Portfolio/index.html",
-    "main.56604044.css.map": "/Portfolio/static/css/main.56604044.css.map",
-    "main.c5dd9da8.js.map": "/Portfolio/static/js/main.c5dd9da8.js.map"
+    "main.97fa4df2.css.map": "/Portfolio/static/css/main.97fa4df2.css.map",
+    "main.4544de95.js.map": "/Portfolio/static/js/main.4544de95.js.map"
   },
   "entrypoints": [
-    "static/css/main.56604044.css",
-    "static/js/main.c5dd9da8.js"
+    "static/css/main.97fa4df2.css",
+    "static/js/main.4544de95.js"
   ]
 }
