@@ -1,25 +1,16 @@
 
 import React, { useState, useEffect } from "react";
 
-import pimg1 from '../img/Capture.png';
+import pimg1 from '../img/DataCount.png';
 import '../style/project.css';
 
 // import pimg2 from '../img/';
 
 import axios, { AxiosResponse } from "axios";
 
-import styled from 'styled-components';
-import { url } from "inspector";
 
 interface LanguageData {
   percentage: number;
-}
-
-interface ProjectContainerProps {
-  isClicked: boolean;
-  flex: 1 | 6; 
-
-  onClick: () => void;
 }
 
 
@@ -29,6 +20,9 @@ interface ReposInter {
         html_url: string;
         languages_url: string;
         languages: LanguageData;
+
+          [key: string]: any;
+          [index: number]: any;
         
 }
 interface LanguageData { [key: string]: number; }
@@ -71,14 +65,13 @@ const [clickedIndex, setClickedIndex] = useState<number | null>(null);
 const handleClick = (index: number) => {
   setClickedIndex(index);
   setLangActive(lang[index])
-  console.log(langactive)
-  console.log(langTotal)
-
+  // console.log(langactive)
+  // console.log(langTotal)
 };
 
-console.log(lang)
 
 
+repodata.map((repo: ReposInter, index) => (console.log(repo.name)));
   return (
 
     <section className="repo-section">
@@ -86,41 +79,37 @@ console.log(lang)
 
       <div className="projects-container">
 
-        {repodata.map((repo: ReposInter, index) => (
-          <article
-                className={index === clickedIndex ? "projects-item" : "projects-item-active"}
-                key={index}
-                onClick={() => handleClick(index)}
-              >
-              <h1> {repo.name} </h1>
-            
-            <p> {repo.description} </p>
-            <div
-  className={index === clickedIndex ? "lang-line-active" : "lang-line"}
->
-
-{index === clickedIndex && lang[index] && (
-  Object.entries(lang[index]).map(([language, percentage]) => (
-    <li
-      style={{
-        listStyle:'none',
-        margin:'5px'
-      }}
-      key={language}
-    >
-      <strong style={{ color: "white" }}>
-        {language}:
-      </strong>{" "}
-      <samp style={{ color: "yellow", fontSize: "120%" }}>
-      {((percentage / (langTotal ?? 1)) * 100).toFixed(1) + "%"} 
-      </samp>      
-    </li>
-  ))
-)}
-</div>
-
-</article>
-        ))}
+      {repodata.map((repo: ReposInter, index) => (
+  <article
+    className={index === clickedIndex ? "projects-item" : "projects-item-active"}
+    key={index}
+    onClick={() => handleClick(index)}
+  >
+    {repo && repo.name && index === clickedIndex ? <img className="projects-img" src={require(`../img/${repo.name}.png`)} alt="projects img" /> : null}
+    {repo && repo.name && <h1>{repo.name}</h1>}
+    {repo && repo.description && <p>{repo.description}</p>}
+    <div className={index === clickedIndex ? "lang-line-active" : "lang-line"}>
+      {index === clickedIndex && lang[index] && (
+        Object.entries(lang[index]).map(([language, percentage]) => (
+          <li
+            style={{
+              listStyle: 'none',
+              margin: '5px'
+            }}
+            key={language}
+          >
+            <strong style={{ color: "white" }}>
+              {language}:
+            </strong>{" "}
+            <samp style={{ color: "yellow", fontSize: "120%" }}>
+              {((percentage / (langTotal ?? 1)) * 100).toFixed(1) + "%"}
+            </samp>
+          </li>
+        ))
+      )}
+    </div>
+  </article>
+))}
       </div>
     </section>
   );

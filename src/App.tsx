@@ -9,6 +9,7 @@ import Education from './components/Education';
 import Experience from './components/Experience';
 import Projects from './components/Projects';
 import Repostest from './components/Repotest';
+import Contact from './components/Contact';
 
 
 
@@ -47,6 +48,7 @@ function App() {
       <Education  ismobil={ismobil} />
       <Experience ismobil={ismobil} />
       <Projects />
+      <Contact />
             {/* <GithubRepository />
 <Repostest /> */}
 
