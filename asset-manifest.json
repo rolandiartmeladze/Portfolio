@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Portfolio/static/css/main.7373bd08.css",
-    "main.js": "/Portfolio/static/js/main.b2e52adb.js",
+    "main.js": "/Portfolio/static/js/main.f56622d6.js",
     "static/media/Vacation-In-Georgia.png": "/Portfolio/static/media/Vacation-In-Georgia.81453b9a54fd31fc5292.png",
     "static/media/auto_shipping.png": "/Portfolio/static/media/auto_shipping.2612449c718f5e032775.png",
     "static/media/Buy-Sell-Count-App.png": "/Portfolio/static/media/Buy-Sell-Count-App.1ce7b1b29d240780f609.png",
@@ -22,10 +22,10 @@
     "static/media/BreackOutGame_Test.png": "/Portfolio/static/media/BreackOutGame_Test.323623659b1264dde3ca.png",
     "index.html": "/Portfolio/index.html",
     "main.7373bd08.css.map": "/Portfolio/static/css/main.7373bd08.css.map",
-    "main.b2e52adb.js.map": "/Portfolio/static/js/main.b2e52adb.js.map"
+    "main.f56622d6.js.map": "/Portfolio/static/js/main.f56622d6.js.map"
   },
   "entrypoints": [
     "static/css/main.7373bd08.css",
-    "static/js/main.b2e52adb.js"
+    "static/js/main.f56622d6.js"
   ]
 }
