@@ -10,7 +10,7 @@ import Experience from './components/Experience';
 import Projects from './components/Projects';
 import Repostest from './components/Repotest';
 import Contact from './components/Contact';
-
+import Skills from './components/Skills';
 
 
 function App() {
@@ -49,6 +49,7 @@ function App() {
       <Experience ismobil={ismobil} />
       <Projects />
       <Contact />
+      <Skills />
             {/* <GithubRepository />
 <Repostest /> */}
 
