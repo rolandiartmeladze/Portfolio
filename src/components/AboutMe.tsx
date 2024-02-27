@@ -51,8 +51,9 @@ const Aboutme = styled.div`
       overflow: hidden;
       border-top-left-radius: 100px;
       z-index: 0;
-      background-color: rgb(8, 202, 41, 0.2);
-          &:before {
+      backdrop-filter: blur(15px);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+            &:before {
             content: '';
             position: absolute;
             top: -40px;
@@ -64,6 +65,34 @@ const Aboutme = styled.div`
             border-top: 40px solid transparent;
           }
 `;
+
+// const Aboutme = styled.div`
+//       // border-left: 10px green solid;
+//       width: 90%;
+//       height: 85vh;
+//       // float: right;
+//       margin: auto;
+//       margin-top: 15px;
+//       margin-left: 200%;
+//       transition: 1.8s ease-in;
+//       position: relative;
+//       overflow: hidden;
+//       // border-top-left-radius: 100px;
+//       z-index: 0;
+//       backdrop-filter: blur(15px);
+//       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+//           //   &:before {
+//           //   content: '';
+//           //   position: absolute;
+//           //   top: -40px;
+//           //   left: 0;
+//           //   width: 100%;
+//           //   height: 20px;
+//           //   background: linear-gradient(to right, rgba(0, 0, 255, 0.4), rgba(255, 255, 0, 0.4), rgba(255, 0, 0, 0.4));
+//           //   z-index: 1;
+//           //   border-top: 40px solid transparent;
+//           // }
+// `;
 
 const Abouttext = styled.p`
   opacity: 0;

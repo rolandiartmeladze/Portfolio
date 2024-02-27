@@ -47,9 +47,10 @@ function App() {
       <AboutMe ismobil={ismobil} />
       <Education  ismobil={ismobil} />
       <Experience ismobil={ismobil} />
-      <Projects />
-      <Contact />
+      <Projects />      
       <Skills />
+
+      <Contact />
             {/* <GithubRepository />
 <Repostest /> */}
 
