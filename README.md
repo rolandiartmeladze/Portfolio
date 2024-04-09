@@ -1,8 +1,6 @@
-<h1 align="center">Hi 👋, I'm Ani Avazneli</h1>
-<h3 align="center">Software Engineer from Georgia</h3>
-<h4 align="center">:woman_technologist: Hello I’m Ani, result-oriented software engineer. The thing I like most about programming is creating
-something from almost nothing. I’m curious and I like to study, so diving into new technologies, languages,
-and libraries is really fascinating for me. As a programmer, I always have new things to learn and I love it.
+<h1 align="center">Hi 👋, I'm Roland Artmeladze</h1>
+<h3 align="center">Full stack Web Developer from Georgia</h3>
+<h4 align="center">:man_technologist: I am a Roland full stack web developer with a passion for tangible results. Developing solutions from scratch is what excites me the most about programming. I'm curious by nature and try to delve into uncharted territory, be it new technologies, languages, or libraries. The dynamic nature of this field ensures that there is always something new to learn and I enjoy it.
 </h4>
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=AniAvazneli&label=Profile%20views&color=3f5427&style=plastic" alt="AniAvazneli" /> </p>
     
