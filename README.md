@@ -5,9 +5,9 @@
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=AniAvazneli&label=Profile%20views&color=3f5427&style=plastic" alt="AniAvazneli" /> </p>
     
       
-- 👨‍💻 All of my projects are available at [https://github.com/AniAvazneli](https://github.com/AniAvazneli)
+- 👨‍💻 All of my projects are available at [https://github.com/rolandiartmeladze](https://github.com/rolandiartmeladze)
 
-- 📫 How to reach me **https://www.linkedin.com/in/aniavazneli/**
+- 📫 How to reach me **https://www.linkedin.com/in/roland-a-96240487/**
 
 <h3 align="center">Connect with me:</h3>
 <p align="center">
