@@ -32,14 +32,14 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/AniAvazneli">
-    <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=aniavazneli&theme=radical" alt="Ani Avazneli's GitHub Contribution"/>
+  <a href="https://github.com/rolandiartmeladze">
+    <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=rolandiartmeladze&theme=radical" alt="Ani Avazneli's GitHub Contribution"/>
   </a>
 </p>
 <a> 
   
-  <a href="https://github.com/AniAvazneli"><img alt="AniAvazneli's Github Stats" src="https://denvercoder1-github-readme-stats.vercel.app/api?username=AniAvazneli&show_icons=true&count_private=true&theme=react&border_color=7F3FBF&bg_color=0D1117&title_color=CDB4DB&icon_color=CDB4DB" height="192px" width="49.5%"/></a>
-  <a href="https://github.com/AniAvazneli"><img alt="AniAvazneli's Top Languages" src="https://denvercoder1-github-readme-stats.vercel.app/api/top-langs/?username=AniAvazneli&langs_count=8&layout=compact&theme=react&border_color=7F3FBF&bg_color=0D1117&title_color=CDB4DB&icon_color=CDB4DB" height="192px" width="49.5%"/></a>
+  <a href="https://github.com/rolandiartmeladze"><img alt="rolandiartmeladze's Github Stats" src="https://denvercoder1-github-readme-stats.vercel.app/api?username=rolandiartmeladze&show_icons=true&count_private=true&theme=react&border_color=7F3FBF&bg_color=0D1117&title_color=CDB4DB&icon_color=CDB4DB" height="192px" width="49.5%"/></a>
+  <a href="https://github.com/rolandiartmeladze"><img alt="rolandiartmeladze's Top Languages" src="https://denvercoder1-github-readme-stats.vercel.app/api/top-langs/?username=rolandiartmeladze&langs_count=8&layout=compact&theme=react&border_color=7F3FBF&bg_color=0D1117&title_color=CDB4DB&icon_color=CDB4DB" height="192px" width="49.5%"/></a>
   <br/>
 </a>
 
