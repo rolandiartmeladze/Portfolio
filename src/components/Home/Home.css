@@ -128,5 +128,16 @@ h2{
     margin-top: 5px; 
     padding: 0;
 }
+.anime-con{
+width: 96%;
+padding: 0px 2%;
+margin: auto;
+margin-top: 25px;
+display: flex;
+flex-wrap: wrap;
+}
+.anime-con svg{
+    margin: 5px;
+}
 
 }
