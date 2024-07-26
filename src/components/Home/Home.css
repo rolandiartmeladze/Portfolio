@@ -93,13 +93,12 @@ b{
 p{
     backdrop-filter: blur(3px);
     font-size: 100%;
-    width: 96%;
+    width: 94%;
     margin: 0px auto;
 
     margin-top: 12px;
     font-weight: 400;
     padding: 8px;
-    text-align: center;
 
     border-radius: 0px;
 
@@ -109,6 +108,9 @@ p{
 b{
     font-size: 105%;
     font-weight: 600;
+}
+h1{
+    font-size: 35px;
 }
 
 }
