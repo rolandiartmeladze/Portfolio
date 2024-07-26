@@ -36,3 +36,42 @@ h2{
     margin-top: 8px; 
     float: left;
 }
+
+p{
+    backdrop-filter: blur(3px);
+    /* background: inherit; */
+    background-color: rgb(0, 0, 0, 0.0);
+    font-size: 24px;
+    width: 80%;
+    margin: 0px auto;
+    margin-top: 25px;
+    font-weight: 600;
+    
+    /* margin-right: 15px; */
+    padding: 15px;
+    text-align: left;
+    color: rgb(255, 255, 255);
+    border-radius: 10px;
+    box-shadow: 0px 2px 4px -2px white;
+}
+
+b{
+    font-size: 28px;
+    font-weight: 900;
+    color:yellow;
+}
+
+.anime-con{
+    /* background-color: red; */
+    float: left;
+    display: inline;
+    width: 100%;
+    margin-top: 25px;
+    margin-left: 10px;
+    padding: 4px;
+}
+.anime-con svg{
+
+    margin: 0px 5px;
+    width: 25px;
+}
