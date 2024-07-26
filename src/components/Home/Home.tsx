@@ -73,7 +73,13 @@ const Summary =()=>{
     const iconsRef = useRef<HTMLDivElement[]>([]);
 
    useEffect(() => {
-    
+    const item = document.getElementById('icons-line');
+    setTimeout(() => {
+        if(item){
+            item.style.opacity = '1';       
+        }
+    }, 2300);
+
     const iconsline = iconsRef.current;
     if (animation) {
       iconsline.forEach((item, index) => {
