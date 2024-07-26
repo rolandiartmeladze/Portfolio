@@ -54,16 +54,16 @@ const Summary =()=>{
 
     return(
         <p>
-            {/* As a beginner full-stack web developer, I'm driven by the opportunity to create meaningful solutions from 
+            As a beginner full-stack web developer, I'm driven by the opportunity to create meaningful solutions from 
             scratch or tackle practical challenges head-on. My expertise lies in frontend development, where I use <b>HTML</b>, 
             <b>CSS</b>, <b>JavaScript</b>, and <b>React</b> to bring user visions to life with precision and style. Recently, 
             I've embraced <b>TypeScript</b> for enhanced code quality and scalability. On the backend, I've successfully 
             developed <b>Node.js</b> <b>Express</b> applications, building reliable server-side solutions. Additionally, I proficiently 
             manage databases using <b>MongoDB</b> and <b>Mongoose Atlas</b> for seamless data integration. I thrive on 
-            pushing boundaries and exploring emerging technologies to deliver effective results in collaborative environments. */}
+            pushing boundaries and exploring emerging technologies to deliver effective results in collaborative environments.
        
        
-            As a passionate beginner <b>full-stack web developer</b>, I am driven by the excitement of creating meaningful 
+            {/* As a passionate beginner <b>full-stack web developer</b>, I am driven by the excitement of creating meaningful 
             solutions from the ground up and addressing real-world challenges head-on. My expertise lies 
             predominantly in frontend development, where I leverage <b>HTML</b>, <b>CSS</b>, <b>JavaScript</b>, and <b>React</b> to 
             transform user visions into engaging, responsive, and visually appealing web applications. 
@@ -83,7 +83,7 @@ const Summary =()=>{
             collaborative environments, where I can contribute my technical skills and creative problem-solving 
             abilities to build exceptional products. Whether working independently or as part of a team, I am 
             committed to continuous learning and growth, always seeking new challenges that will allow me to 
-            expand my knowledge and make a meaningful impact.
+            expand my knowledge and make a meaningful impact. */}
         </p>
     );
 
