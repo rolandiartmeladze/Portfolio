@@ -10,40 +10,37 @@ interface Props{
 }
 
 const YouName = () => {
+    const nameRef = useRef<HTMLHeadingElement | null>(null);
     const title = 'Roland Artmeladze';
-    const [name, setName] = useState('');
-        useEffect(() => {
-            title.split('').forEach((item, index) => {
-                setTimeout(() => {
-                    setName(prev => prev + item);
-                }, index * 70);
-            });
-        }, [title]);
 
-    return(<h1>{name}</h1>);
+    useEffect(() => {    
+        const element  = nameRef.current;
+            if(element){
+                setTimeout(() => {
+                    element.style.transform = 'scale(1)'
+                }, 800);
+            }
+    }, []);
+
+    return(<h1  ref={nameRef}>{title}</h1>);
 };
 
 
 const YouRole = () => {
-    const roletitle = 'Full Stake Web Developer';
-    const [role, setRole] = useState('');
+    const roleRef = useRef<HTMLHeadingElement | null>(null);
+    const roletitle = 'Full Stack Web Developer';
+  
+    useEffect(() => {
+      const element = roleRef.current;
+      if (element) {
+        setTimeout(() => {
+          element.style.transform = 'translate(0px)';
+        }, 900);
+      }
+    }, []);
+  
+    return <h2 ref={roleRef}>{roletitle}</h2>};
 
-               useEffect(() => {
-                    setTimeout(() => {
-                        roletitle.split('').forEach((item, index) => {
-                            setTimeout(() => {
-                                setRole(prev => prev + item);
-                            }, index * 50);
-
-                        });
-                    }, 1000);
-
-
-
-                }, [roletitle]);
-
-    return(<h2>{role}</h2>);
-};
 
 const Summary =()=>{
     useEffect(() => {
