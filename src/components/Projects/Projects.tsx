@@ -7,8 +7,8 @@ const Projects = ()=>{
 
     return(
         <section className="Projects-container">
-            <h1>
-                This is Projects Component
+            <h1 style={{}}>
+                Projects
             </h1>
         </section>
     );

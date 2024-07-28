@@ -77,6 +77,8 @@ b{
     justify-content: center;
     opacity: 0;
     transition: 0.5s ease-in-out;
+    margin-bottom: 10px;
+
 }
 .anime-con div{
     transform: scale(0);
@@ -88,6 +90,51 @@ b{
     width: 25px;
 }
 
+.end-line {
+    margin-top: 10px;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+    .end-line samp{
+    padding: 9px 5px;
+    border-radius: 6px;
+    background-color: blueviolet;
+    margin: 5px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+    transition: 0.4s ease-in-out;
+        font-weight: 700;
+}
+.end-line samp::before{
+    position: absolute;
+    content: '';
+    border-radius: 6px;
+    width: 100%;
+    height: 0%;
+    left: 0;
+    background-color: green;
+    transition: 0.4s ease-in-out;
+}
+.end-line samp:hover{
+    height: 100%;
+    background: none;
+    color: black;
+    transform: scale(1.08);
+}
+
+.end-line samp:hover::before{
+    height: 100%;
+    z-index: -1;
+}
+
+.end-line samp svg{
+    width: 20px;
+    margin: 4px;
+}
 
 @media screen and (max-width: 768px){
 
@@ -135,5 +182,8 @@ flex-wrap: wrap;
 .anime-con svg{
     margin: 5px;
 }
+
+
+
 
 }

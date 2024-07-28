@@ -4,3 +4,7 @@
     background-image: url(../../img/Projects_bg2.jpg);
     background-position:bottom;
 }
+
+.Projects-container h1{
+    transform: scale(1);
+}
