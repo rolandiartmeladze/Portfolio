@@ -160,7 +160,7 @@ const Home = () => {
     const IconsProps = {setAnimation, animation}
 
 return(
-        <section>
+        <section className="Home-container">
             <div className="title-cont">
                 {YouName()}
                 {YouRole()}

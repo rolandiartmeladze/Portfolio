@@ -115,4 +115,4 @@ repodata.map((repo: ReposInter, index) => (console.log(repo.name)));
   );
 };
 
-export default Projects;
+// export default Projects;

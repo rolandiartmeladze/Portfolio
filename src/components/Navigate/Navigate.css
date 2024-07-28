@@ -28,6 +28,7 @@
 }
 
 .aside-navigate-item {
+    position: relative;
     color: var(--highlight-color);
     height: 40px;
     width: 40px;
@@ -38,15 +39,32 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    transform: scale(0);
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, color 0.3s ease-in-out;
 }
-
+.aside-navigate-item label{
+position: absolute;
+left: -86px;
+transform: scale(0);
+transition: 0.5s ease-in-out;
+z-index: 3;
+background: inherit;
+backdrop-filter: blur(3px);
+/* background-color: green; */
+padding: 9px 3px;
+width: 80px;
+box-shadow: -3px 0px 5px 0px  yellow;
+border-radius: 6px 0px 0px 6px;
+}
 .aside-navigate-item:hover {
-    transform: scale(1.18);
+    transform: scale(1.18) !important;
     box-shadow: 0 0 6px 0 var(--hover-color) inset;
     color: var(--item-hover-bg-color);
 }
 
+.aside-navigate-item:hover label {
+    transform: scale(1);
+}
 .aside-navigate-item div {
     display: flex;
     width: 80%;

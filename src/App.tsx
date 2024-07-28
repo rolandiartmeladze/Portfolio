@@ -12,7 +12,7 @@ import AboutMe from './components/AboutMe';
 import GithubRepository from './components/Repositories';
 import Education from './components/Education';
 import Experience from './components/Experience';
-import Projects from './components/Projects';
+// import Projects from './components/Projects';
 import Repostest from './components/Repotest';
 import Contact from './components/Contact';
 import Skills from './components/Skills';
@@ -20,6 +20,8 @@ import Skills from './components/Skills';
 
 import Home from './components/Home/Home';
 import Navigate from './components/Navigate/Navigate';
+import Projects from './components/Projects/Projects';
+import Work from './components/Work/Work';
 
 
 function App() {
@@ -56,6 +58,10 @@ function App() {
 
 
 <Route path={'/'} element={<Home />} />
+<Route path={'/Projects'} element={<Projects />} />
+<Route path={'/Experiance'} element={<Work />} />
+
+
 <Route element = {<>
       {/* <Header /> */}
      <Link to={'/'}> <Photo /></Link>
@@ -66,7 +72,7 @@ function App() {
       <AboutMe ismobil={ismobil} />
       <Education  ismobil={ismobil} />
       <Experience ismobil={ismobil} />
-      <Projects />      
+      {/* <Projects />       */}
       <Skills />
 
       <Contact />
