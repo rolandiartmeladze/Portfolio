@@ -86,6 +86,9 @@ border-radius: 6px 0px 0px 6px;
     height: 70%;
 }
 
+.Meniu-btn{
+display: none;
+}
 
 
 @media screen and (max-width: 768px){
@@ -93,15 +96,98 @@ border-radius: 6px 0px 0px 6px;
         top: 7px;
         height: 50px;
         /* background-color: red; */
+        transition: all 0.4s ease-in-out;
     }
     
+    .aside-navigate.active {
+        top: 0;
+        right: 0;
+        width: 45% !important;
+        height: 100% !important;
+        z-index: 5;
+        backdrop-filter: blur(10px);
+        box-shadow: -1px 0px 3px 0.5px red;
+        align-items: flex-start;
+    }
     .aside-navigate-cont{
         transform: scale(0);
     }
 
+    .aside-navigate-cont.active{
+        transform:scale(1);
+        margin-top: 60px;
+    }
+
+    .aside-navigate-item {
+        transform: scale(1);
+
+    }
+
+    .aside-navigate-item.active {
+        width: 96%;
+        box-shadow: none;
+        display: flex;
+        justify-content: flex-end;
+        flex-direction: row-reverse;
+        font-weight: bolder;
+        font-size: 30px;
+
+    }
+
+    .aside-navigate-item.active:hover {
+        transform: scale(1) !important;
+        box-shadow: none;
+        color: var(--item-hover-bg-color);
+    }
+    
+    .aside-navigate-item.active div {
+
+       width: 35px;
+       margin: 5px;
+       box-shadow: none;
+
+
+}
+
+    .aside-navigate-item.active label {
+        position: relative;
+        transform: scale(1);
+        left: 0;
+        box-shadow: none;
+        backdrop-filter: none;
+        background: none;
+        border-radius: 0px;
+        flex-grow: 1;
+        text-align: left;
+        cursor: pointer;
+        position: relative;
+        transition: 0.3s ease-in-out;
+}
+
+.aside-navigate-item.active::after {
+    position: absolute;
+    content: '';
+    left: 0;
+    bottom: -2px;
+    
+    width: 100%;
+    height: 3px;
+    background-color: rgb(255, 255, 255);
+    
+}
+
+.aside-navigate-item.active:hover::after{
+    background-color: yellow;
+
+}
+
+
     .Meniu-btn{
         width: 100%;
         height: 100%;
+        position: absolute;
+        top: 0px;
+        right: 0px;
         max-width: 50px;
         max-height: 50px;
         min-width: 50px;
@@ -113,6 +199,12 @@ border-radius: 6px 0px 0px 6px;
         color:  wheat;
         cursor: pointer;
         transition: 0.3s ease-in-out;
+    }
+    .Meniu-btn.active{
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    color: red;
     }
     .Meniu-btn:hover{
         transform: scale(1.15);

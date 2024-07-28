@@ -17,7 +17,7 @@ const Navigate = () =>{
 
     useEffect(() => {
       const checkIsMobile = () => {
-        const isMobile = window.innerWidth <= 750;
+        const isMobile = window.innerWidth <= 768;
         setIsMobil(isMobile);
       };
     
@@ -31,18 +31,23 @@ const Navigate = () =>{
     }, []);
   
 
-useEffect(()=>{
-    if (element) {
-    setTimeout(() => {
+    const NavigationAnimate =()=>{
+        if (element) {
+            setTimeout(() => {
+                
+                Array.from(element).forEach((el, index) => {
+                  setTimeout(() => {
+                    el.style.transform = 'scale(1)';
+                  }, index * 300);
+                });
+                 
+             }, 2000);
+        }
         
-        Array.from(element).forEach((el, index) => {
-          setTimeout(() => {
-            el.style.transform = 'scale(1)';
-          }, index * 300);
-        });
-         
-     }, 2000);
-}
+    }
+
+useEffect(()=>{
+    NavigationAnimate();
 },[])
 
 
@@ -51,45 +56,45 @@ const MenuActive = ()=>{
 }
 
     return(
-        <nav className="aside-navigate">
-                <div onClick={MenuActive} className="Meniu-btn">
+        <nav className={`aside-navigate ${navAct ? 'active' : ''}`}>
+                <div onClick={MenuActive} className={`Meniu-btn ${navAct ? 'active' : ''}`}>
 
                 
               {ismobil &&  !navAct ? <MdMenu />: <CgMenuMotion />} 
               </div>
-            <ul className="aside-navigate-cont">
+            <ul className={`aside-navigate-cont ${navAct ? 'active' : ''}`}>
             <Link to={'/'}> 
-                    <li className="aside-navigate-item">
+                    <li className={`aside-navigate-item ${navAct ? 'active' : ''}`}>
                         <label>Home</label>
                         <div><FaHome /></div>
                     </li>
                 </Link>
             <Link to={'Projects'}>
-                    <li className="aside-navigate-item">
+                    <li className={`aside-navigate-item ${navAct ? 'active' : ''}`}>
                         <label>Projects</label>
                         <div><GrProjects/> </div>
                     </li>
                 </Link> 
                 <Link to={'Experiance'}>
-                    <li className="aside-navigate-item">
+                    <li className={`aside-navigate-item ${navAct ? 'active' : ''}`}>
                         <label>Experiance</label>
                         <div><MdWork /></div>
                     </li>  
                 </Link>
                 <Link to={'Skills'}>
-                    <li className="aside-navigate-item">
+                    <li className={`aside-navigate-item ${navAct ? 'active' : ''}`}>
                         <label>SkillS</label>
                         <div><MdSettings /></div>
                     </li>   
                 </Link>
                 <Link to={'Education'}>
-                    <li className="aside-navigate-item">
+                    <li className={`aside-navigate-item ${navAct ? 'active' : ''}`}>
                         <label>Education</label>
                         <div><MdCastForEducation /></div>
                     </li>
                 </Link> 
                 <Link to={'Contact'}>      
-                    <li className="aside-navigate-item">
+                    <li className={`aside-navigate-item ${navAct ? 'active' : ''}`}>
                         <label>Contact</label>
                         <div><MdContacts /></div>
                     </li>
