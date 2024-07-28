@@ -1,15 +1,35 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import './Navigate.css';
 
 import { FaHome } from 'react-icons/fa';
 import { GrProjects } from "react-icons/gr";
-import { MdWork, MdSettings, MdCastForEducation, MdContacts } from "react-icons/md";
+import { MdMenu, MdWork, MdSettings, MdCastForEducation, MdContacts } from "react-icons/md";
+import { CgMenuMotion } from "react-icons/cg";
 import { Link } from "react-router-dom";
 
 const Navigate = () =>{
 
     const element = document.getElementsByClassName('aside-navigate-item') as HTMLCollectionOf<HTMLElement>;
      
+
+    const [ismobil, setIsMobil] = useState(false);
+    const [navAct, setNavAct] = useState(false);
+
+    useEffect(() => {
+      const checkIsMobile = () => {
+        const isMobile = window.innerWidth <= 750;
+        setIsMobil(isMobile);
+      };
+    
+      checkIsMobile();
+    
+      window.addEventListener('resize', checkIsMobile);
+    
+      return () => {
+        window.removeEventListener('resize', checkIsMobile);
+      };
+    }, []);
+  
 
 useEffect(()=>{
     if (element) {
@@ -25,8 +45,18 @@ useEffect(()=>{
 }
 },[])
 
+
+const MenuActive = ()=>{
+    setNavAct(!navAct);
+}
+
     return(
         <nav className="aside-navigate">
+                <div onClick={MenuActive} className="Meniu-btn">
+
+                
+              {ismobil &&  !navAct ? <MdMenu />: <CgMenuMotion />} 
+              </div>
             <ul className="aside-navigate-cont">
             <Link to={'/'}> 
                     <li className="aside-navigate-item">
