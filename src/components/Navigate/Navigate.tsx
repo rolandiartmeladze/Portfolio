@@ -55,52 +55,31 @@ const MenuActive = ()=>{
     setNavAct(!navAct);
 }
 
+const navItems = [
+    { to: '/', label: 'Home', icon: <FaHome /> },
+    { to: '/Projects', label: 'Projects', icon: <GrProjects /> },
+    { to: '/Experiance', label: 'Experiance', icon: <MdWork /> },
+    { to: '/Skills', label: 'Skills', icon: <MdSettings /> },
+    { to: '/Education', label: 'Education', icon: <MdCastForEducation /> },
+    { to: '/Contact', label: 'Contact', icon: <MdContacts /> },
+  ];
+
     return(
         <nav className={`aside-navigate ${navAct ? 'active' : ''}`}>
-                <div onClick={MenuActive} className={`Meniu-btn ${navAct ? 'active' : ''}`}>
-
-                
-              {ismobil &&  !navAct ? <MdMenu />: <CgMenuMotion />} 
-              </div>
-            <ul className={`aside-navigate-cont ${navAct ? 'active' : ''}`}>
-            <Link to={'/'}> 
-                    <li className={`aside-navigate-item ${navAct ? 'active' : ''}`}>
-                        <label>Home</label>
-                        <div><FaHome /></div>
-                    </li>
-                </Link>
-            <Link to={'Projects'}>
-                    <li className={`aside-navigate-item ${navAct ? 'active' : ''}`}>
-                        <label>Projects</label>
-                        <div><GrProjects/> </div>
-                    </li>
-                </Link> 
-                <Link to={'Experiance'}>
-                    <li className={`aside-navigate-item ${navAct ? 'active' : ''}`}>
-                        <label>Experiance</label>
-                        <div><MdWork /></div>
-                    </li>  
-                </Link>
-                <Link to={'Skills'}>
-                    <li className={`aside-navigate-item ${navAct ? 'active' : ''}`}>
-                        <label>SkillS</label>
-                        <div><MdSettings /></div>
-                    </li>   
-                </Link>
-                <Link to={'Education'}>
-                    <li className={`aside-navigate-item ${navAct ? 'active' : ''}`}>
-                        <label>Education</label>
-                        <div><MdCastForEducation /></div>
-                    </li>
-                </Link> 
-                <Link to={'Contact'}>      
-                    <li className={`aside-navigate-item ${navAct ? 'active' : ''}`}>
-                        <label>Contact</label>
-                        <div><MdContacts /></div>
-                    </li>
-                </Link>
-            </ul>
-        </nav>
+      <div onClick={MenuActive} className={`Meniu-btn ${navAct ? 'active' : ''}`}>
+        {ismobil && !navAct ? <MdMenu /> : <CgMenuMotion />}
+      </div>
+      <ul className={`aside-navigate-cont ${navAct ? 'active' : ''}`}>
+        {navItems.map((item, index) => (
+          <Link key={index} to={item.to}>
+            <li onClick={MenuActive} className={`aside-navigate-item ${navAct ? 'active' : ''}`}>
+              <label>{item.label}</label>
+              <div>{item.icon}</div>
+            </li>
+          </Link>
+        ))}
+      </ul>
+    </nav>
     )
 }
 

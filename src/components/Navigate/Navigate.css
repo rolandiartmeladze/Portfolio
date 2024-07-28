@@ -5,9 +5,9 @@
     --item-bg-color: white;
     --item-hover-bg-color: yellow;
     --box-shadow-color: rgb(255, 0, 0);
-}
-
-.aside-navigate {
+  }
+  
+  .aside-navigate {
     position: fixed;
     top: 0;
     right: 20px;
@@ -16,18 +16,18 @@
     display: flex;
     z-index: 1;
     align-items: center;
-}
-
-.aside-navigate::before {
+  }
+  
+  .aside-navigate::before {
     width: 0;
-}
-
-.aside-navigate-cont {
+  }
+  
+  .aside-navigate-cont {
     padding: 0;
     flex-direction: column;
-}
-
-.aside-navigate-item {
+  }
+  
+  .aside-navigate-item {
     position: relative;
     color: var(--highlight-color);
     height: 40px;
@@ -41,31 +41,33 @@
     cursor: pointer;
     transform: scale(0);
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, color 0.3s ease-in-out;
-}
-.aside-navigate-item label{
-position: absolute;
-left: -86px;
-transform: scale(0);
-transition: 0.5s ease-in-out;
-z-index: 3;
-background: inherit;
-backdrop-filter: blur(3px);
-/* background-color: green; */
-padding: 9px 3px;
-width: 80px;
-box-shadow: -3px 0px 5px 0px  yellow;
-border-radius: 6px 0px 0px 6px;
-}
-.aside-navigate-item:hover {
+  }
+  
+  .aside-navigate-item label {
+    position: absolute;
+    left: -86px;
+    transform: scale(0);
+    transition: 0.5s ease-in-out;
+    z-index: 3;
+    background: inherit;
+    backdrop-filter: blur(3px);
+    padding: 9px 3px;
+    width: 80px;
+    box-shadow: -3px 0 5px 0 var(--hover-color);
+    border-radius: 6px 0 0 6px;
+  }
+  
+  .aside-navigate-item:hover {
     transform: scale(1.18) !important;
     box-shadow: 0 0 6px 0 var(--hover-color) inset;
     color: var(--item-hover-bg-color);
-}
-
-.aside-navigate-item:hover label {
+  }
+  
+  .aside-navigate-item:hover label {
     transform: scale(1);
-}
-.aside-navigate-item div {
+  }
+  
+  .aside-navigate-item div {
     display: flex;
     width: 80%;
     height: 80%;
@@ -75,143 +77,134 @@ border-radius: 6px 0px 0px 6px;
     align-items: center;
     justify-content: center;
     transition: box-shadow 0.5s ease-in-out;
-}
-
-.aside-navigate-item:hover div {
+  }
+  
+  .aside-navigate-item:hover div {
     box-shadow: 0 0 5px 0 var(--highlight-color);
-}
-
-.aside-navigate-item div svg {
+  }
+  
+  .aside-navigate-item div svg {
     width: 70%;
     height: 70%;
-}
-
-.Meniu-btn{
-display: none;
-}
-
-
-@media screen and (max-width: 768px){
+  }
+  
+  .Meniu-btn {
+    display: none;
+  }
+  
+  @media screen and (max-width: 768px) {
     .aside-navigate {
-        top: 7px;
-        height: 50px;
-        /* background-color: red; */
-        transition: all 0.4s ease-in-out;
+      top: 7px;
+      height: 50px;
+      transition: all 0.4s ease-in-out;
     }
-    
+  
     .aside-navigate.active {
-        top: 0;
-        right: 0;
-        width: 45% !important;
-        height: 100% !important;
-        z-index: 5;
-        backdrop-filter: blur(10px);
-        box-shadow: -1px 0px 3px 0.5px red;
-        align-items: flex-start;
+      top: 0;
+      right: 0;
+      width: 45% !important;
+      height: 100% !important;
+      z-index: 5;
+      backdrop-filter: blur(10px);
+      box-shadow: -1px 0 3px 0.5px red;
+      align-items: flex-start;
     }
-    .aside-navigate-cont{
-        transform: scale(0);
+  
+    .aside-navigate-cont {
+      transform: scale(0);
     }
-
-    .aside-navigate-cont.active{
-        transform:scale(1);
-        margin-top: 60px;
+  
+    .aside-navigate-cont.active {
+      transform: scale(1);
+      margin-top: 60px;
     }
-
+  
     .aside-navigate-item {
-        transform: scale(1);
-
+      transform: scale(1);
     }
-
+  
     .aside-navigate-item.active {
-        width: 96%;
-        box-shadow: none;
-        display: flex;
-        justify-content: flex-end;
-        flex-direction: row-reverse;
-        font-weight: bolder;
-        font-size: 30px;
-
+      width: 96%;
+      box-shadow: none;
+      display: flex;
+      justify-content: flex-end;
+      flex-direction: row-reverse;
+      font-weight: bolder;
+      font-size: 30px;
     }
-
+  
     .aside-navigate-item.active:hover {
-        transform: scale(1) !important;
-        box-shadow: none;
-        color: var(--item-hover-bg-color);
+      transform: scale(1) !important;
+      box-shadow: none;
+      color: var(--item-hover-bg-color);
     }
-    
+  
     .aside-navigate-item.active div {
-
-       width: 35px;
-       margin: 5px;
-       box-shadow: none;
-
-
-}
-
+      width: 35px;
+      margin: 5px;
+      box-shadow: none;
+    }
+  
     .aside-navigate-item.active label {
-        position: relative;
-        transform: scale(1);
-        left: 0;
-        box-shadow: none;
-        backdrop-filter: none;
-        background: none;
-        border-radius: 0px;
-        flex-grow: 1;
-        text-align: left;
-        cursor: pointer;
-        position: relative;
-        transition: 0.3s ease-in-out;
-}
-
-.aside-navigate-item.active::after {
-    position: absolute;
-    content: '';
-    left: 0;
-    bottom: -2px;
-    
-    width: 100%;
-    height: 3px;
-    background-color: rgb(255, 255, 255);
-    
-}
-
-.aside-navigate-item.active:hover::after{
-    background-color: yellow;
-
-}
-
-
-    .Meniu-btn{
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 0px;
-        right: 0px;
-        max-width: 50px;
-        max-height: 50px;
-        min-width: 50px;
-        min-height: 50px;
-        /* background-color: green; */
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color:  wheat;
-        cursor: pointer;
-        transition: 0.3s ease-in-out;
+      position: relative;
+      transform: scale(1);
+      left: 0;
+      box-shadow: none;
+      backdrop-filter: none;
+      background: none;
+      border-radius: 0;
+      flex-grow: 1;
+      text-align: left;
+      cursor: pointer;
+      transition: 0.3s ease-in-out;
     }
-    .Meniu-btn.active{
-    position: absolute;
-    top: 5px;
-    right: 10px;
-    color: red;
+  
+    .aside-navigate-item.active::after {
+      position: absolute;
+      content: '';
+      left: 0;
+      bottom: -2px;
+      width: 100%;
+      height: 3px;
+      background-color: var(--highlight-color);
     }
-    .Meniu-btn:hover{
-        transform: scale(1.15);
-        color: yellow;
+  
+    .aside-navigate-item.active:hover::after {
+      background-color: var(--item-hover-bg-color);
     }
-    .Meniu-btn svg{
-        width: 45px !important;
-        height: 45px !important;
+  
+    .Meniu-btn {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      right: 0;
+      max-width: 50px;
+      max-height: 50px;
+      min-width: 50px;
+      min-height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: wheat;
+      cursor: pointer;
+      transition: 0.3s ease-in-out;
     }
-}
+  
+    .Meniu-btn.active {
+      top: 5px;
+      right: 10px;
+      color: red;
+    }
+  
+    .Meniu-btn:hover {
+      transform: scale(1.15);
+      color: var(--item-hover-bg-color);
+    }
+  
+    .Meniu-btn svg {
+      width: 45px !important;
+      height: 45px !important;
+    }
+  }
+  
