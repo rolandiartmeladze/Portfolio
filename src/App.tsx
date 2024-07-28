@@ -19,6 +19,7 @@ import Skills from './components/Skills';
 
 
 import Home from './components/Home/Home';
+import Navigate from './components/Navigate/Navigate';
 
 
 function App() {
@@ -50,7 +51,7 @@ function App() {
 
 
 <Header1 />
-
+<Navigate />
 <Routes>
 
 
