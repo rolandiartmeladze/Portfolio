@@ -13,7 +13,7 @@ const Blog =()=>{
 
     const [data, setData] = useState<Props | null>(null);
     useEffect(() => {
-      fetch('https://github.com/rolandiartmeladze/Portfolio/tree/main/Backend/api/profile')
+      fetch('https://github.com/rolandiartmeladze/Portfolio/tree/main/Backend/app.py')
         .then(response => response.json())
         .then(data => setData(data));
     }, []);
