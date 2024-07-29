@@ -22,6 +22,7 @@ import Home from './components/Home/Home';
 import Navigate from './components/Navigate/Navigate';
 import Projects from './components/Projects/Projects';
 import Work from './components/Work/Work';
+import Blog from './components/Blog/Blog';
 
 
 function App() {
@@ -47,7 +48,7 @@ function App() {
   
 
 
-
+  
   return (
     <div className="App">
 
@@ -60,6 +61,7 @@ function App() {
 <Route path={'/'} element={<Home />} />
 <Route path={'/Projects'} element={<Projects />} />
 <Route path={'/Experiance'} element={<Work />} />
+<Route path={'/Blog'} element={<Blog />} />
 
 
 <Route element = {<>
@@ -81,6 +83,9 @@ function App() {
   </>} />
 
 </Routes>
+
+
+
 
 
     </div>

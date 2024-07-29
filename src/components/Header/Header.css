@@ -36,6 +36,20 @@ a:hover{
 a svg{
     margin: 0px 3px;
 }
+
+
+.Blog-Btn{
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    padding: 4px 15px;
+    background-color: white;
+    border-radius: 3px;
+    cursor: pointer;
+    z-index: 2;
+    color: black;
+    font-weight: bolder;
+}
 @media screen and (max-width: 768px){
 ul{
     flex-direction: column;
@@ -44,5 +58,9 @@ ul{
 a{
     width: auto;
     margin: 2px 0px;
+}
+.Blog-Btn{
+right: 80px;
+top: 20px;
 }
 }

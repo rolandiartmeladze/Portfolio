@@ -1,5 +1,6 @@
 import React from "react";
 import './Header.css';
+import { Link } from "react-router-dom";
 
 import { FaLinkedin, FaPhoneSquareAlt } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
@@ -18,6 +19,9 @@ const Header = () => {
             <a href="https://www.linkedin.com/in/roland-a-96240487"> <FaLinkedin /><li>{mobile? 'Show Profile' : 'Roland Artmeladze'}</li></a>
             </ul>
             
+
+       <Link to={'/Blog'}> <samp className="Blog-Btn"> Blog </samp></Link>
+
         </nav>
     );
 };

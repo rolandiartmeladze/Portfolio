@@ -1,0 +1,22 @@
+
+
+.main-info{
+    width: auto;
+    /* background-color: red; */
+    display: flex;
+    align-items: flex-end;
+}
+
+.profile-avatar{
+    width: 60px;
+    margin: 0px 10px;
+}
+
+.main-info h2{
+    margin-left: 0;
+
+}
+
+.main-info h1{
+    margin-left: 0;
+display: flex;}
