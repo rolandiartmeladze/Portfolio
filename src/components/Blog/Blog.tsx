@@ -13,7 +13,7 @@ const Blog =()=>{
 
     const [data, setData] = useState<Props | null>(null);
     useEffect(() => {
-      fetch('http://127.0.0.1:5000/api/profile')
+      fetch('../Backend/api/profile')
         .then(response => response.json())
         .then(data => setData(data));
     }, []);
