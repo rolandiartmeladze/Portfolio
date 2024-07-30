@@ -12,20 +12,20 @@ import './Blog.css';
 const Blog =()=>{
 
     const [data, setData] = useState<Props | null>(null);
-    useEffect(() => {
-      fetch('http://127.0.0.1:5000/api/profile')
-        .then(response => response.json())
-        .then(data => setData(data));
-    }, []);
+    // useEffect(() => {
+    //   fetch('http://127.0.0.1:5000/api/profile')
+    //     .then(response => response.json())
+    //     .then(data => setData(data));
+    // }, []);
 
     
 
-    // useEffect(() => {
-    //     fetch('/api/profile')
-    //       .then(response => response.json())
-    //       .then(data => setData(data))
-    //       .catch(error => console.error('Error fetching data:', error));
-    //   }, []);
+    useEffect(() => {
+        fetch('/api/profile')
+          .then(response => response.json())
+          .then(data => setData(data))
+          .catch(error => console.error('Error fetching data:', error));
+      }, []);
       
 
     // on githube
