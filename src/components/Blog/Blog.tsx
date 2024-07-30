@@ -13,11 +13,11 @@ const Blog =()=>{
 
     const [data, setData] = useState<Props | null>(null);
     useEffect(() => {
-      fetch('https://github.com/rolandiartmeladze/Portfolio/tree/main/Backend/app.py')
-        .then(response => response.json())
-        .then(data => setData(data));
-    }, []);
-  
+        fetch('/api/profile')
+          .then(response => response.json())
+          .then(data => setData(data))
+          .catch(error => console.error('Error fetching data:', error));
+      }, []);  
 
     
 
