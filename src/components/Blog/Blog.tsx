@@ -18,10 +18,11 @@ const Blog =()=>{
     //     .then(data => setData(data));
     // }, []);
 
+    const link = 'https://mica-soft-makeup.glitch.me';
     
 
     useEffect(() => {
-        fetch('/api/profile')
+        fetch(`${link}/api/profile`)
           .then(response => response.json())
           .then(data => setData(data))
           .catch(error => console.error('Error fetching data:', error));
