@@ -28,7 +28,6 @@ const Blog =()=>{
       }, []);
       
 
-
     // on githube
     // useEffect(() => {
     //     fetch('/api/profile')
