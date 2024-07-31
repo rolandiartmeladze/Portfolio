@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 
 import './Blog.css';
+import NewPost from "./CreatNewPost/NewPost";
 
     interface Props{
         name: string;
@@ -48,17 +49,18 @@ const Blog =()=>{
   
 <div className="main-info">            
     
-    <h1  style={{transform: 'scale(1)', width: '100%', float: 'none'}}>
-                blog
-            </h1>
+    <h1 className="Blog-title">blog</h1>
 
-{data &&<>
+{data &&
+<div className="info-cont">
   <img className="profile-avatar" src={data.avatar} alt="" />
     <h2 style={{transform: 'scale(1)'}}>{data.name}</h2>
-</>
+    </div>
 }     
  </div>
 
+
+<NewPost />
 
         </section>
     )
