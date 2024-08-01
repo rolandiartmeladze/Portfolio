@@ -1,0 +1,39 @@
+
+.post-container{
+    transform: scale(1);
+    margin: 0;
+    flex-grow: 1;
+    margin-right: 55px;
+    margin-top: 10px;
+    width: 60%;
+}
+
+.post-container p{
+    max-height: 96%;
+    overflow-y: scroll;
+    transform: scale(1);
+    margin: 0;
+    margin-top: 10px;
+    width: 98%;
+    padding: 6px;    
+    font-weight: lighter;
+    font-size: 100%;
+
+}
+
+.post-container p::-webkit-scrollbar {
+    width: 8px; /* Width of the scrollbar */
+}
+
+.post-container p::-webkit-scrollbar-track {
+    background: none; 
+}
+
+
+
+
+.post-container p {
+    scrollbar-width: thin; 
+    scrollbar-color: rgb(0, 255, 255) rgb(241, 241, 241 , 0); 
+    border-radius: 5px;
+}

@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 
 import './Blog.css';
 import NewPost from "./CreatNewPost/NewPost";
+import Post from "./Posts/Post";
 
     interface Props{
         name: string;
@@ -58,9 +59,14 @@ const Blog =()=>{
     </div>
 }     
  </div>
+<div style={{display: 'flex', width: '100%', maxHeight: '80%'}}>
 
 
 <NewPost />
+
+<Post />
+
+</div>
 
         </section>
     )

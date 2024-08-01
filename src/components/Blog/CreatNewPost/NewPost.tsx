@@ -25,6 +25,19 @@ const NewPost =()=> {
 </div>
 
 
+<div className="line-cont">
+<label htmlFor="">Select Category:</label> 
+
+<div>
+    <select name="Category" id="">
+    <option value="select">select</option>
+    <option value="select">Category2</option>
+    <option value="select">Category2</option>
+    </select>
+</div>
+</div>
+
+
 <div   style={{display:'flex', justifyContent: 'center', textDecoration: 'underline' }} className="line-cont">
 <label style={{width:'auto', flexGrow: '0'}} htmlFor="">Srt Pin:</label> <input  style={{width:'auto', flexGrow: '0', boxShadow: 'none', cursor: 'pointer'}} type="checkBox" />
 
