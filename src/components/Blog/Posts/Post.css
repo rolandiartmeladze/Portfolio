@@ -1,3 +1,114 @@
+/* Posts.css */
+
+.Post-container {
+    /* background-color: red; */
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    padding: 20px; 
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .Post-element {
+    width: 40%; 
+    height: 300px; 
+    border: 1px solid #ddd;
+    padding: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    background: initial;
+    backdrop-filter: blur(4px);
+    border-radius: 8px;
+    justify-content: flex-start;
+    cursor: pointer;
+  }
+
+
+
+  .Post-element:hover{
+    border: 1px solid #00e1ff;
+
+  }
+  
+
+  .Post-element samp {
+    float: right;
+    margin-right: 12px;
+    cursor: pointer;
+    background-color: gray;
+    border-radius: 8px;
+    padding: 6px 10px;
+    transition: 0.4s ease-in-out;
+}
+
+
+.Post-element samp:hover {
+    color:red;
+    transform: scale(1.08);
+}
+
+
+.Post-element span {
+    display: flex;
+    align-items: center;
+    margin-left: 5px;
+}
+
+
+.Post-element span svg {
+    margin: 0px 5px;
+}
+
+
+
+  .Post-element h1,
+  .Post-element h3,
+  .Post-element h4,
+  .Post-element p {
+    margin: 4px 0;
+
+  }
+
+.post-body{
+    transform: scale(1);
+    width: 100%;
+    font-size: 100%;
+    padding: 0;
+    box-shadow: none;
+    border-radius: 0;
+}
+    .post-title{
+    transform: scale(1);
+    font-size: 100%;
+    margin: 4px;
+  }
+
+  @media (max-width: 768px) {
+    .Post-element {
+      width: 85%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .Post-element {
+      width: 95%;
+    }
+  }
+  
+
+
+
+
+
+
+
+
+
 
 .post-container{
     transform: scale(1);
@@ -8,31 +119,107 @@
     width: 60%;
 }
 
-.post-container p{
-    max-height: 96%;
-    overflow-y: scroll;
-    transform: scale(1);
+.post-container .text-container{
+    height: auto;
     margin: 0;
-    margin-top: 10px;
+    margin-top: 4px;
     width: 98%;
-    padding: 6px;    
+    max-height: 70%;
+    padding: 6px;   
+    overflow: hidden; 
+}
+
+.post-container samp{
+    margin-top: 0px;
+    margin-right: 20px;
+    padding: 6px;
+    background-color: green;
+    border-radius: 8px;
+    cursor: pointer;
+    float: right;
+
+}
+.post-container span{
+display: flex;
+align-items: center;
+margin-left: 12px;
+}
+.post-container .text-container p{
+    width: 100%;
+    transform: scale(1);
+    padding: 0px;    
     font-weight: lighter;
     font-size: 100%;
+    backdrop-filter: blur(0px);
+    background: inherit;
+    display: flex;
+    box-shadow: none;
+
+    margin-top: 6px;
 
 }
 
-.post-container p::-webkit-scrollbar {
-    width: 8px; /* Width of the scrollbar */
+.post-container .text-container h2{
+    transform: scale(1);
+    transform: translate(0px);
+    margin: 4px;
+    color: black;
+    font-weight: bolder;
+
 }
 
-.post-container p::-webkit-scrollbar-track {
+
+
+.info-line{
+    display: flex;
+    flex-direction: column;
+}
+
+.post-container h3{
+    text-align: left;
+    /* background-color: red; */
+    margin-top: 15px;
+    padding: 6px;
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 120%;
+    color: cyan;
+    font-weight: 800;
+}
+
+
+.post-container h4{
+    margin-top: 0px;
+    margin-left: 12px;
+    padding-left: 18px;
+    color: brown;
+    font-weight: lighter;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    float: left;
+    margin-top: 8px;
+}
+.post-container svg{
+
+    margin: 0px 6px;
+
+}
+
+.post-container::-webkit-scrollbar {
+    width: 8px; 
+}
+
+.post-container::-webkit-scrollbar-track {
     background: none; 
 }
 
 
 
 
-.post-container p {
+.post-container {
     scrollbar-width: thin; 
     scrollbar-color: rgb(0, 255, 255) rgb(241, 241, 241 , 0); 
     border-radius: 5px;

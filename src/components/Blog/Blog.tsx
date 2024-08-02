@@ -3,12 +3,13 @@ import React, {useState, useEffect} from "react";
 import './Blog.css';
 import NewPost from "./CreatNewPost/NewPost";
 import Post from "./Posts/Post";
+import Posts from "./Posts/Posts";
 
-    interface Props{
-        name: string;
-        avatar: string;
-      }
-      
+interface Props{
+    name: string;
+    avatar: string;
+  }
+  
 
 
 const Blog =()=>{
@@ -30,18 +31,6 @@ const Blog =()=>{
           .catch(error => console.error('Error fetching data:', error));
       }, []);
       
-
-    // on githube
-    // useEffect(() => {
-    //     fetch('/api/profile')
-    //       .then(response => response.json())
-    //       .then(data => setData(data))
-    //       .catch(error => console.error('Error fetching data:', error));
-    //   }, []);  
-
-
-
-    
 
     return (
         <section className="Blog-container">
@@ -65,8 +54,9 @@ const Blog =()=>{
 <NewPost />
 
 <Post />
-
 </div>
+
+<Posts />
 
         </section>
     )

@@ -1,11 +1,13 @@
 
 .Blog-container{
         background-image: url(/src/img/Contact_bg.jpg);
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        overflow-y: scroll;
-      }
+          display: flex;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+          overflow-y: scroll;
+          flex-direction: column;
+              }
 
       .Blog-title{
         transform: scale(1); 
@@ -21,6 +23,7 @@
 
       }
       .main-info {
+        padding: 4px 0px;
         width: auto;
         display: flex;
         align-items: center;
