@@ -11,6 +11,7 @@ import {
   FaGitAlt,
   FaWordpress,
   FaCloudDownloadAlt,
+  FaPython,
 } from "react-icons/fa";
 import {
   SiExpress,
@@ -169,6 +170,10 @@ const AnimeIcons: React.FC<Props> = ({ setAnimation, animation }) => {
       <div ref={addIconRef}>
         <SiExpress />
       </div>
+      <div ref={addIconRef}>
+        <FaPython />
+      </div>
+
       <div ref={addIconRef}>
         <FaPhp />
       </div>

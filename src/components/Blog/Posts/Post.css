@@ -1,7 +1,6 @@
 /* Posts.css */
 
 .Post-container {
-    /* background-color: red; */
     margin-top: 10px;
     display: flex;
     flex-direction: row;
@@ -65,6 +64,12 @@
 }
 
 
+.info-post-owner{
+  padding-left: 8px;
+  display: flex; 
+  margin-bottom: 12px;    
+  font-size: 90%;
+}
 
   .Post-element h1,
   .Post-element h3,
@@ -81,6 +86,7 @@
     padding: 0;
     box-shadow: none;
     border-radius: 0;
+    font-weight: lighter;
 }
     .post-title{
     transform: scale(1);

@@ -71,6 +71,12 @@
     outline: none;
     box-shadow: 0px 1px 1.5px 0px rgb(255, 232, 20) ;
     text-align: center;   
+    transition: 0.3s ease-in-out;
+    border-radius: 3px;
+}
+
+.add-post input:focus{
+    box-shadow: 0px 1px 1.5px 0px rgb(53, 41, 27) ;
 }
 
 .add-post textarea::placeholder{
@@ -83,4 +89,24 @@
 .add-post label{
     padding: 3px;
     flex-grow: 1;
+}
+
+
+.select-category{
+        background:inherit;
+        /* max-width: 80%; */
+        float: right;
+        margin-top: 10px;
+        outline: none;
+        border: none;
+        box-shadow: 0px -2px 3px 0px bisque inset;
+        cursor: pointer;
+        border-radius: 3px;
+        flex-grow: 1; 
+        padding: 8px;
+        width: 80%;
+        backdrop-filter: blur(4px);
+}
+.select-category:hover{
+    box-shadow: 0px 0px 1px 0px rgb(53, 41, 27);
 }
