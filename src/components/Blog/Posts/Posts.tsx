@@ -88,18 +88,28 @@ const Posts: React.FC = () => {
     <div className="Post-container">
       {postsArry?.map((post, index) => (
         <article className="Post-element" key={index}>
+          <div className="post-head">
           <h1 className="post-title">{post.title}</h1>
           <div className="info-post-owner">
             <span><RxAvatar />{post.owner}</span>
             <span><FaClock />{post.date}</span>
             <span><MdCategory />{post.category}</span>
+          </div>            
+          
           </div>
-          {/* <div>{renderContent(post.post)}</div> */}
 
+          {/* <div>{renderContent(post.post)}</div> */}
+        
+        
+        <div className="content">
+
+        
           <p className="post-body">
-            {(post.post).substring(0, 550)}
+            {(post.post).substring(0, 400)}{post.post.length >= 400 && ' ...'}
           </p>
-          <div>
+          
+          </div>
+          <div className="post-footer">
             <samp>მეტის ნახვა</samp>
           </div>
         </article>
