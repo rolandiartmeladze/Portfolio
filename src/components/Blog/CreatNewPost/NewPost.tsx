@@ -1,16 +1,38 @@
-import React, {useState, useEffect ,ChangeEvent} from "react";
+import React, {useState, useEffect} from "react";
 import './NewPost.css';
 
+interface Post {
+  post_id: number;
+  name: string;
+  owner: string;
+  title: string;
+  post: string;
+  email: string;
+  created_at: string;
+  updated_at: string;
+  comment_count: number;
+  views: number;
+  share_count: number;
+  comments: Comment[];
+}
+
+interface Comment {
+  id: number;
+  post: number;
+  name: string;
+  comment: string;
+  created_at: string;
+}
 
 const NewPost =()=> {
-    const [posts, setPosts] = useState<any[] | null>(null);
+    // const [posts, setPosts] = useState<any[] | null>(null);
 
-    const [text, setText] = useState<string>('');
-    const [name, setName] = useState<string>('');
-    const [email, setEmail] = useState<string>('');
-    const [title, setTitle] = useState<string>('');
+    // const [text, setText] = useState<string>('');
+    // const [name, setName] = useState<string>('');
+    // const [email, setEmail] = useState<string>('');
+    // const [title, setTitle] = useState<string>('');
 
-    const [category, setCategory] = useState<string>('not selected');
+    // const [category, setCategory] = useState<string>('ALL');
 
 
 
@@ -42,45 +64,7 @@ const NewPost =()=> {
 
 
 
-  const resetForm = async ()=>{
-    setName('');
-    setText('');
-    setCategory('not select');
-    setTitle('');
-    setEmail('');
-  }
 
-    const handleChange = async () => {
-        const postInfo = {
-            owner: name,
-            email: email,
-            title: title,
-            date: new Date().toISOString(),
-            category: category,
-            post: text,
-        };
-
-        const link = 'https://mica-soft-makeup.glitch.me';  
-
-        try {
-            const response = await fetch(`${link}/api/posts`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(postInfo),
-            });
-
-            if (response.ok) {
-                console.log('Data successfully sent to the backend');
-                resetForm();
-            } else {
-                console.error('Failed to send data');
-            }
-        } catch (error) {
-            console.error('Error:', error);
-        }
-    };
 
 
 
@@ -88,21 +72,89 @@ const NewPost =()=> {
 
 
 
-    // const showPosts =()=> {        
-    //     const link = 'https://mica-soft-makeup.glitch.me';
 
-    //     fetch(`${link}/api/showposts`)
-    //         .then(response => response.json())
-    //         .then(data => setPosts(data))
-    //         .catch(error => console.error('Error fetching data:', error));
-    //       console.log(posts)
+    const [posts, setPosts] = useState([]);
 
-    // };
+    const [newPost, setNewPost] = useState({
+      title: '',
+      post: '',
+      owner: '',
+      name: '',
+      email: ''
+    });
+    const [newComment, setNewComment] = useState({
+      post: 0,
+      name: '',
+      comment: ''
+    });
+
+
+  const fetchPosts = async () => {
+    try {
+      const response = await fetch('http://127.0.0.1:8000/api/posts/');
+      const data = await response.json();
+      setPosts(data);
+    } catch (error) {
+      console.error('Error fetching posts:', error);
+    }
+  };
+
+  useEffect(() => {
+    fetchPosts();
+  }, []);
+
+
+
+  const handleSubmit = async () => {
+   
+    try {
+      const response = await fetch('http://127.0.0.1:8000/api/posts/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newPost),
+      });
+
+      if (response.ok) {
+        setNewPost({ title: '', post: '', owner: '', name: '', email: '' });
+        fetchPosts(); // Refresh the list of posts
+      } else {
+        console.error('Error creating post:', response.statusText);
+      }
+    } catch (error) {
+      console.error('Error creating post:', error);
+    }
+  };
+
+
+
+  const handleCommentSubmit = async () => {
+    try {
+      const response = await fetch('http://127.0.0.1:8000/api/comments/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newComment),
+      });
+
+      if (response.ok) {
+        setNewComment({ post: 0, name: '', comment: '' });
+        fetchPosts(); 
+      } else {
+        console.error('Error creating comment:', response.statusText);
+      }
+    } catch (error) {
+      console.error('Error creating comment:', error);
+    }
+  };
+
 
 
     return(
 
-        <form id="postform" className="add-post"  onSubmit={(e) => { e.preventDefault(); handleChange(); }}>
+        <form id="postform" className="add-post">
 
 <h3>
     Add New Post
@@ -110,31 +162,39 @@ const NewPost =()=> {
 
 
 <div className="line-cont">
-<label htmlFor="">You Name:</label> <input onChange={(e)=>{setName(e.target.value)}} value={name} type="text" placeholder="Name" />
+<label htmlFor="">You Name:</label> <input 
+onChange={e =>setNewPost({ ...newPost, owner: e.target.value})} value={newPost.owner} 
+
+type="text" placeholder="Name" />
 </div>
 <div  className="line-cont">
-<label htmlFor="">You Email:</label> <input onChange={(e)=>{setEmail(e.target.value)}}  value={email} type="email" placeholder="Email" />
+<label htmlFor="">You Email:</label> <input 
+onChange={e =>setNewPost({ ...newPost, email: e.target.value})}  value={newPost.email}
+type="email" placeholder="Email" />
 </div>
 
 <div className="line-cont">
-<label htmlFor="">Enter Title:</label> <input onChange={(e)=>{setTitle(e.target.value)}} value={title} type="text" placeholder="Title" />
+<label htmlFor="">Post Title:</label> <input  
+value={newPost.title}
+onChange={e => setNewPost({ ...newPost, title: e.target.value })}
+          type="text" placeholder="Title" />
 
 </div>
 
 
 <div  style={{width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'flex-start'}} className="line-cont">
     <div style={{display: 'flex'}}>
-     <label htmlFor="">Select Category:</label> <label> {category}</label>
+     <label htmlFor="">Select Category:</label> <label> {newPost.name}</label>
     </div>
 
 <div style={{width: '100%'}}>
-    <select  onChange={(e)=>{setCategory(e.target.value)}} value={category} className="select-category" name="Category" id="">
+    <select  onChange={e =>setNewPost({ ...newPost, name: e.target.value})} value={newPost.name} className="select-category" name="Category" id="">
     <option value="not selected">select</option>
     <option value="About Me">About Me</option>
     <option value="About Project">About Project</option>
     <option value="Web Developers">Web Developers</option>
     <option value="Feedback">Feedback</option>
-    <option value="Tag a user">Tag a user</option>
+    <option value="Tag a user">Tag user</option>
     
     </select>
 </div>
@@ -152,8 +212,8 @@ const NewPost =()=> {
 <label style={{flexGrow: '0'}} htmlFor="">Wrait Post:</label> 
 <div style={{width: '100%'}}>
             <textarea
-            onChange={(e)=>{setText(e.target.value)}}
-            value={text}
+            value={newPost.post}
+            onChange={e => setNewPost({ ...newPost, post: e.target.value })}
              style={{flexGrow: '1'}}
                 id="postInput"
                 placeholder="Write Post ..."
@@ -163,7 +223,7 @@ const NewPost =()=> {
 </div>
 
 <div className="btn-cont">
-    <button type="submit">Add Post</button>
+    <button onClick={handleSubmit}>Add Post</button>
 
 </div>
 

@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+  import { fetchPosts } from '../../api';
 
 import './Blog.css';
 import NewPost from "./CreatNewPost/NewPost";
@@ -11,8 +12,33 @@ interface Props{
   }
   
 
+interface BlogPost {
+  id: number;
+  title: string;
+  content: string;
+  created_at: string;
+}
 
-const Blog =()=>{
+
+const Blog: React.FC = () =>{
+
+
+
+
+  const [posts, setPosts] = useState<BlogPost[]>([]);
+
+  useEffect(() => {
+    const getPosts = async () => {
+      const posts = await fetchPosts();
+      setPosts(posts);
+    };
+
+    getPosts();
+  }, []);
+
+
+
+
 
     const [data, setData] = useState<Props | null>(null);
     // useEffect(() => {
@@ -21,15 +47,15 @@ const Blog =()=>{
     //     .then(data => setData(data));
     // }, []);
 
-    const link = 'https://mica-soft-makeup.glitch.me';
+    // const link = 'https://mica-soft-makeup.glitch.me';
     
 
-    useEffect(() => {
-        fetch(`${link}/api/profile`)
-          .then(response => response.json())
-          .then(data => setData(data))
-          .catch(error => console.error('Error fetching data:', error));
-      }, []);
+    // useEffect(() => {
+    //     fetch(`${link}/api/profile`)
+    //       .then(response => response.json())
+    //       .then(data => setData(data))
+    //       .catch(error => console.error('Error fetching data:', error));
+    //   }, []);
       
 
     return (
@@ -43,8 +69,8 @@ const Blog =()=>{
 
 {data &&
 <div className="info-cont">
-  <img className="profile-avatar" src={data.avatar} alt="" />
-    <h2 style={{transform: 'scale(1)'}}>{data.name}</h2>
+  {/* <img className="profile-avatar" src={data.avatar} alt="" />
+    <h2 style={{transform: 'scale(1)'}}>{data.name}</h2> */}
     </div>
 }     
  </div>

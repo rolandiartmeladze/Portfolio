@@ -1,105 +1,60 @@
 import React, { useEffect, useState } from "react";
 import './Post.css';
 import { RxAvatar } from "react-icons/rx";
-import { FaClock } from "react-icons/fa";
+import { FaClock, FaComment, FaRegEye, FaShare } from "react-icons/fa";
 import { MdCategory } from "react-icons/md";
 
 interface PostProps {
   title: string;
   owner: string;
-  date: string;
-  category: string;
-  post: string;
+  share_count:number;
+  views: number;
+  comment_count:number;
+  name:string;
+  created_at:string;
+  post:string;
 }
 
-// const renderContent = (text: string) => {
-//     const lines = text.split('\n');
-//     const elements: JSX.Element[] = [];
-//     let buffer = '';
-//     let isHeader = false;
   
-//     lines.forEach((line, index) => {
-//       if (line.startsWith('#')) {
-//         if (buffer) {
-//           elements.push(
-//             isHeader ? (
-//               <h3 key={elements.length}>{buffer.trim()}</h3>
-//             ) : (
-//               <p className="post-body" key={elements.length}>
-//                 {buffer.trim()}
-//               </p>
-//             )
-//           );
-//           buffer = '';
-//         }
-//         buffer += line.slice(1).trim();
-//         isHeader = true;
-//       } else if (line.startsWith('>')) {
-//         if (buffer) {
-//           elements.push(
-//             isHeader ? (
-//               <h3 key={elements.length}>{buffer.trim()}</h3>
-//             ) : (
-//               <p className="post-body" key={elements.length}>
-//                 {buffer.trim()}
-//               </p>
-//             )
-//           );
-//           buffer = '';
-//         }
-//         buffer += line.slice(1).trim();
-//         isHeader = false;
-//       } else {
-//         buffer += ` ${line.trim()}`;
-//       }
-  
-//       if (index === lines.length - 1 && buffer) {
-//         elements.push(
-//           isHeader ? (
-//             <h3 key={elements.length}>{buffer.trim()}</h3>
-//           ) : (
-//             <p className="post-body" key={elements.length}>
-//               {buffer.trim()}
-//             </p>
-//           )
-//         );
-//       }
-//     });
-  
-//     return elements;
-//   };
-    
 const Posts: React.FC = () => {
-  const [postsArry, setPosts] = useState<PostProps[] | null>(null);
-
-  const showPosts = () => {
-    const link = 'https://mica-soft-makeup.glitch.me';
-    fetch(`${link}/api/showposts`)
-      .then(response => response.json())
-      .then(data => setPosts(data))
-      .catch(error => console.error('Error fetching data:', error));
-  };
+  const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    showPosts();
+    fetch('http://127.0.0.1:8000/api/posts/')
+      .then(response => response.json())
+      .then(data => setPosts(data));
+
   }, []);
+
+
+  function formatTimestamp(timestamp:string) {
+    const date = new Date(timestamp);
+    const day = String(date.getUTCDate()).padStart(2, '0');
+    const month = String(date.getUTCMonth()).padStart(2, '0');
+    const year = date.getUTCFullYear();
+    const hours = String(date.getUTCHours()).padStart(2, '0');
+    const minutes = String(date.getUTCMinutes()).padStart(2, '0');
+  
+    return `${day}-${month}-${year} ${hours}:${minutes}`;
+  }
+  
+  
+
+
 
   return (
     <div className="Post-container">
-      {postsArry?.map((post, index) => (
-        <article className="Post-element" key={index}>
+      { posts && posts?.map((post:PostProps) => (
+        <article className="Post-element">
           <div className="post-head">
           <h1 className="post-title">{post.title}</h1>
           <div className="info-post-owner">
-            <span><RxAvatar />{post.owner}</span>
-            <span><FaClock />{post.date}</span>
-            <span><MdCategory />{post.category}</span>
+             <span><RxAvatar />{post.owner}</span>
+            <span><FaClock />{formatTimestamp(post.created_at)}</span>
+            <span><MdCategory />{post.name}</span> 
           </div>            
           
           </div>
-
-          {/* <div>{renderContent(post.post)}</div> */}
-        
         
         <div className="content">
 
@@ -110,7 +65,12 @@ const Posts: React.FC = () => {
           
           </div>
           <div className="post-footer">
-            <samp>მეტის ნახვა</samp>
+           <div style={{float: 'left', display: 'flex'}}>
+           <span><FaRegEye /> Views {post.views}</span> 
+           <span><FaComment /> Comments {post.comment_count}</span> 
+           <span><FaShare /> Share {post.share_count}</span> 
+           </div>
+           <samp>მეტის ნახვა</samp>
           </div>
         </article>
       ))}

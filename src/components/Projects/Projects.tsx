@@ -1,10 +1,13 @@
 import React, {useEffect, useState} from "react";
+// import {fetchPosts} from '../../api';
+
+import axios from 'axios';
 
 import './Projects.css'
 
 interface Repo {
-    name: string;
-    languages_url:string;
+    title: string;
+    content:string;
   }
   
   interface Props {
@@ -14,20 +17,8 @@ interface Repo {
   const Projects: React.FC = () => {
     const [data, setData] = useState<Props | null>(null);
   
-    useEffect(() => {
-      fetch('http://127.0.0.1:5000/api/projects')
-        .then(response => response.json())
-        .then(data => setData({ repos: data }));
 
-
-    }, []);
-  
-    if (data) {
-      data.repos.map((repo: Repo) => console.log(repo.name));
-    }
-  
-
-    const RepositoriesName =[
+    const Repositories_name =[
         'E-Commerce-Application_Frontend',
         'Portfolio',
         'DataCount',
@@ -40,8 +31,21 @@ interface Repo {
 
     ];
 
+    
+        const [posts, setPosts] = useState([]);
 
-    const selectedRepositories =  data?.repos.filter((repo: Repo)=> RepositoriesName.includes(repo.name));
+
+        useEffect(() => {
+          fetch('http://127.0.0.1:8000/api/posts/')
+            .then(response => response.json())
+            .then(data => setPosts(data));
+
+        }, []);
+
+        
+        setTimeout(() => {
+          console.log(posts)  
+        }, 3000);
 
 
     return(
@@ -57,21 +61,23 @@ interface Repo {
                 </h4>
 
                 <ul style={{flexDirection: 'column', alignItems: 'flex-start'}}>
-
-                    {
-                        selectedRepositories?.map((repo:Repo)=>(
+                {posts?.map((repo: Repo) => (
+                        <li key={repo.title} style={{ display: 'flex', flexDirection: 'row' }}>
+                            {repo.title} '/' {repo.content}
                             
+                        </li>
+                    ))}     
 
-                            
-                            <li style={{display: 'flex', flexDirection: 'row'}}>
-                                {repo.name}
-                               <a target="_blank" style={{color: 'red'}} href={`${repo.languages_url}`}>languages link</a>                   
-
-                            </li>
-                            
-                        ))
-                    }
-                </ul>
+                 {/* {data?.repos?.map((repo: Repo) => (
+                        <li key={repo.name} style={{ display: 'flex', flexDirection: 'row' }}>
+                            {repo.name}
+                            <a target="_blank" style={{ color: 'red' }} href={repo.languages_url} rel="noopener noreferrer">
+                                languages link
+                            </a>
+                        </li>
+                    ))}                 */}
+                    
+                     </ul>
                 </div>
         </section>
     );

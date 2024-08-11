@@ -261,11 +261,37 @@ margin-left: 12px;
 }
 
 .post-body {
-  text-align: justify;
+  display: flex;
+    justify-content: center;
+    text-align: justify;
+    align-items: center;
 }
 
 .post-footer {
   display: flex;
-  justify-content: flex-end;
-  margin-top: 16px;
+    justify-content: space-between;
+    margin-top: 16px;
+    align-items: center;
 }
+.post-footer span {
+
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+
+  
+  
+  }
+  .post-footer span:hover {
+    transform: scale(1.01);
+    color: yellow;
+    
+    text-decoration: underline;
+    
+    }
+    .post-footer span:hover svg {
+      
+      color: red;
+      
+      
+      }
+        
