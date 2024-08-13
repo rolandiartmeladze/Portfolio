@@ -23,6 +23,7 @@ import {
 } from "react-icons/si";
 import { BiSolidShow } from "react-icons/bi";
 import { TbJson } from "react-icons/tb";
+import { DiDjango } from "react-icons/di";
 interface Props {
   setAnimation: Function;
   animation: boolean;
@@ -109,6 +110,27 @@ const Summary = () => {
   );
 };
 
+
+const icons = [
+  <FaCss3Alt />,
+  <FaHtml5 />,
+  <SiJavascript />,
+  <FaReact />,
+  <FaNode />,
+  <SiExpress />,
+  <FaPython />,
+  <DiDjango />,
+  <FaPhp />,
+  <SiMongodb />,
+  <FaGithub />,
+  <FaGitAlt />,
+  <SiHeroku />,
+  <SiVercel />,
+  <FaWordpress />,
+  <SiAdobephotoshop />,
+  <TbJson />
+];
+
 const AnimeIcons: React.FC<Props> = ({ setAnimation, animation }) => {
   const iconsRef = useRef<HTMLDivElement[]>([]);
 
@@ -122,11 +144,11 @@ const AnimeIcons: React.FC<Props> = ({ setAnimation, animation }) => {
 
     const iconsline = iconsRef.current;
     if (animation) {
-      iconsline.forEach((item, index) => {
+      iconsline.forEach((icon, index) => {
         setTimeout(() => {
-          item.style.transform = "scale(1.8)";
+          icon.style.transform = "scale(1.8)";
           setTimeout(() => {
-            item.style.transform = "scale(1)";
+            icon.style.transform = "scale(1)";
           }, 800);
         }, index * 700);
       });
@@ -152,58 +174,16 @@ const AnimeIcons: React.FC<Props> = ({ setAnimation, animation }) => {
 
   return (
     <div id="icons-line" className="anime-con">
-      <div ref={addIconRef}>
-        <FaCss3Alt />
-      </div>
-      <div ref={addIconRef}>
-        <FaHtml5 />
-      </div>
-      <div ref={addIconRef}>
-        <SiJavascript />
-      </div>
-      <div ref={addIconRef}>
-        <FaReact />
-      </div>
-      <div ref={addIconRef}>
-        <FaNode />
-      </div>
-      <div ref={addIconRef}>
-        <SiExpress />
-      </div>
-      <div ref={addIconRef}>
-        <FaPython />
-      </div>
-
-      <div ref={addIconRef}>
-        <FaPhp />
-      </div>
-      <div ref={addIconRef}>
-        <SiMongodb />
-      </div>
-      <div ref={addIconRef}>
-        <FaGithub />
-      </div>
-      <div ref={addIconRef}>
-        <FaGitAlt />
-      </div>
-      <div ref={addIconRef}>
-        <SiHeroku />
-      </div>
-      <div ref={addIconRef}>
-        <SiVercel />
-      </div>
-      <div ref={addIconRef}>
-        <FaWordpress />
-      </div>
-      <div ref={addIconRef}>
-        <SiAdobephotoshop />
-      </div>
-      <div ref={addIconRef}>
-        <TbJson />
-      </div>
+      {icons.map((Icon, index) => (
+        <div key={index} ref={addIconRef}>
+          {Icon}
+        </div>
+      ))}
     </div>
   );
 };
+
+
 
 const Home = () => {
   const [animation, setAnimation] = useState<boolean>(true);

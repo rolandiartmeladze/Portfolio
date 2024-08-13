@@ -3,7 +3,7 @@ import React, {useState, useEffect} from "react";
 
 import './Blog.css';
 import NewPost from "./CreatNewPost/NewPost";
-import Post from "./Posts/Post";
+import Post from "./Posts/AboutProject";
 import Posts from "./Posts/Posts";
 
 interface Props{

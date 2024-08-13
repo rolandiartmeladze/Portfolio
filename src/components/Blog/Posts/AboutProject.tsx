@@ -8,7 +8,7 @@ interface Props{
     name: string;
 }
 
-const Post =()=>{
+const AboutProject =()=>{
 
     const [data, setData] = useState<Props | null>(null);
 
@@ -129,4 +129,4 @@ const Post =()=>{
     )
 }
 
-export default Post;
+export default AboutProject;
