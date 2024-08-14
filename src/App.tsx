@@ -23,7 +23,7 @@ import Navigate from './components/Navigate/Navigate';
 import Projects from './components/Projects/Projects';
 import Work from './components/Work/Work';
 import Blog from './components/Blog/Blog';
-import Posts from './components/Blog/Posts/Posts';
+import Post from './components/Blog/post/Post';
 
 
 function App() {
@@ -48,6 +48,7 @@ function App() {
   }, []);
   
 
+  const [selectedPost, setSelectedPost] = useState<number | null>(null)
 
   
   return (
@@ -62,8 +63,8 @@ function App() {
 <Route path={'/'} element={<Home />} />
 <Route path={'/Projects'} element={<Projects />} />
 <Route path={'/Experiance'} element={<Work />} />
-<Route path={'/Blog'} element={<Blog />} />
-<Route path={'/Blog/postID'} element={<Posts />} />
+<Route path={'/Blog'} element={<Blog setSelectedPost={setSelectedPost} />} />
+<Route path={'/Blog/:id'} element={<Post selectedPost={selectedPost} />} />
 
 
 <Route element = {<>

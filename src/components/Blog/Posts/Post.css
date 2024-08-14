@@ -1,5 +1,15 @@
 /* Posts.css */
+.Blog-container{
+  background-image: url(/src/img/Contact_bg.jpg);
+    display: flex;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow-y: scroll;
+    flex-direction: column;
+        }
 
+        
 .Post-container {
     margin-top: 10px;
     display: flex;

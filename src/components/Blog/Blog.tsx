@@ -19,8 +19,12 @@ interface BlogPost {
   created_at: string;
 }
 
+interface Props2{
+  setSelectedPost: Function;
 
-const Blog: React.FC = () =>{
+}
+
+const Blog = ({setSelectedPost}:Props2) =>{
 
 
 
@@ -56,7 +60,9 @@ const Blog: React.FC = () =>{
     //       .then(data => setData(data))
     //       .catch(error => console.error('Error fetching data:', error));
     //   }, []);
-      
+    
+    // const [selectedPost, setSelectedPost] = useState<number | null>(null)
+
 
     return (
         <section className="Blog-container">
@@ -82,7 +88,7 @@ const Blog: React.FC = () =>{
 <Post />
 </div>
 
-<Posts />
+<Posts setSelectedPost={setSelectedPost} />
 
         </section>
     )

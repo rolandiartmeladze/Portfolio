@@ -2,7 +2,10 @@ import React, { useEffect, useState } from "react";
 import './Post.css';
 import { RxAvatar } from "react-icons/rx";
 import { FaClock, FaComment, FaRegEye, FaShare } from "react-icons/fa";
+
 import { MdCategory } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
+
 
 interface PostProps {
   title: string;
@@ -13,10 +16,17 @@ interface PostProps {
   name:string;
   created_at:string;
   post:string;
+  post_id:number;
+}
+interface Props{
+  setSelectedPost: Function
 }
 
   
-const Posts: React.FC = () => {
+const Posts = ({setSelectedPost}:Props) => {
+  const navigate = useNavigate()
+
+
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
@@ -45,7 +55,7 @@ const Posts: React.FC = () => {
   return (
     <div className="Post-container">
       { posts && posts?.map((post:PostProps) => (
-        <article className="Post-element">
+        <article  onClick={()=>{navigate(`./${post.post_id}`); setSelectedPost(post.post_id)}} className="Post-element">
           <div className="post-head">
           <h1 className="post-title">{post.title}</h1>
           <div className="info-post-owner">
