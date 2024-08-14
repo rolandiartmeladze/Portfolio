@@ -3,6 +3,8 @@ import '../Posts/Post.css';
 import { RxAvatar } from "react-icons/rx";
 import { FaClock, FaComment, FaRegEye, FaShare } from "react-icons/fa";
 import { MdCategory } from "react-icons/md";
+import Comment from "../addComment/Comment";
+
 
 interface PostProps {
   title: string;
@@ -14,13 +16,22 @@ interface PostProps {
   created_at: string;
   post: string;
   post_id: number;
+  comments: any[];
 }
 
+interface CommnetProps{
+  name: string;
+  comment:string
+
+}
 interface Props3{
     selectedPost: number | null;
 }
 
 const PostComponent = ({selectedPost}:Props3) => {
+
+  const [comments, setComments] = useState<CommnetProps[]>([])
+
   const [posts, setPosts] = useState<PostProps[]>([]);
 //   const [selectedPost, setSelectedPostId] = useState<number | null>(10);
   const [filteredPosts, setFilteredPosts] = useState<PostProps[]>([]);
@@ -35,8 +46,8 @@ const PostComponent = ({selectedPost}:Props3) => {
     if (selectedPost) {
       const filtered = posts.filter(post => post.post_id === selectedPost);
       setFilteredPosts(filtered);
-    } else {
-      setFilteredPosts(posts);
+              setComments(filtered[0]?.comments)
+              console.log(comments)
     }
   }, [selectedPost, posts]);
 
@@ -82,6 +93,9 @@ const PostComponent = ({selectedPost}:Props3) => {
         </article>
       ))}
     </div>
+
+{comments && <Comment comments={comments} /> }
+    
     </section>
   );
 };
