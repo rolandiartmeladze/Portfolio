@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import '../Posts/Post.css';
+import '../Post.css';
 import { RxAvatar } from "react-icons/rx";
 import { FaClock, FaComment, FaRegEye, FaShare } from "react-icons/fa";
 import { MdCategory } from "react-icons/md";
 import Comment from "../addComment/Comment";
-
+import { formatTimestamp } from "../../Tools/Tools";
 
 interface PostProps {
   title: string;
@@ -16,7 +16,7 @@ interface PostProps {
   created_at: string;
   post: string;
   post_id: number;
-  comments: any[];
+  comments: any;
 }
 
 interface CommnetProps{
@@ -24,50 +24,44 @@ interface CommnetProps{
   comment:string
 
 }
-interface Props3{
-    selectedPost: number | null;
+interface Props{
+    selectedPost: number;
 }
 
-const PostComponent = ({selectedPost}:Props3) => {
 
-  const [comments, setComments] = useState<CommnetProps[]>([])
 
-  const [posts, setPosts] = useState<PostProps[]>([]);
-//   const [selectedPost, setSelectedPostId] = useState<number | null>(10);
-  const [filteredPosts, setFilteredPosts] = useState<PostProps[]>([]);
+const API_Request = async ({ selectedPost }: Props): Promise<PostProps | null> => {
+  const response = await fetch('http://127.0.0.1:8000/api/posts/');
+  const data: PostProps[] = await response.json();
 
-  useEffect(() => {
-    fetch('http://127.0.0.1:8000/api/posts/')
-      .then(response => response.json())
-      .then(data => setPosts(data));
-  }, []);
+  return data.find(post => post.post_id === selectedPost) || null;
+};
 
-  useEffect(() => {
-    if (selectedPost) {
-      const filtered = posts.filter(post => post.post_id === selectedPost);
-      setFilteredPosts(filtered);
-              setComments(filtered[0]?.comments)
-              console.log(comments)
-    }
-  }, [selectedPost, posts]);
 
-  function formatTimestamp(timestamp: string) {
-    const date = new Date(timestamp);
-    const day = String(date.getUTCDate()).padStart(2, '0');
-    const month = String(date.getUTCMonth() + 1).padStart(2, '0'); // Month +1 because getUTCMonth() is zero-based
-    const year = date.getUTCFullYear();
-    const hours = String(date.getUTCHours()).padStart(2, '0');
-    const minutes = String(date.getUTCMinutes()).padStart(2, '0');
-    return `${day}-${month}-${year} ${hours}:${minutes}`;
-  }
+
+const PostComponent: React.FC<{ selectedPost: number }> = ({ selectedPost }) => {
+
+  const [comments, setComments] = useState<CommnetProps[] | null>(null)
+  const [post, setPost] = useState<PostProps | null>(null);
+
+    useEffect(() => {
+      const fetchRequest = async () => {
+        const result = await API_Request({ selectedPost });
+        setComments(result?.comments)
+        setPost(result); 
+      };
+
+      fetchRequest();
+
+      console.log(selectedPost);
+    }, [selectedPost]);
 
   return (
 
     <section className="Blog-container">
-
     <div className="Post-container">
-      {filteredPosts.map((post) => (
-        <article className="Post-element" key={post.post_id}>
+      {post && 
+        <article className="Post-element View_post" key={post.post_id}>
           <div className="post-head">
             <h1 className="post-title">{post.title}</h1>
             <div className="info-post-owner">
@@ -79,9 +73,10 @@ const PostComponent = ({selectedPost}:Props3) => {
 
           <div className="content">
             <p className="post-body">
-              {(post.post).substring(0, 400)}{post.post.length >= 400 && ' ...'}
+              {post.post}
             </p>
           </div>
+
           <div className="post-footer">
             <div style={{ float: 'left', display: 'flex' }}>
               <span><FaRegEye /> Views {post.views}</span>
@@ -90,11 +85,12 @@ const PostComponent = ({selectedPost}:Props3) => {
             </div>
             <samp>მეტის ნახვა</samp>
           </div>
+
         </article>
-      ))}
+      }
     </div>
 
-{comments && <Comment comments={comments} /> }
+{comments && <Comment comments={comments} selectedPost={selectedPost}  /> }
     
     </section>
   );

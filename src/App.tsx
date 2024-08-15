@@ -48,7 +48,7 @@ function App() {
   }, []);
   
 
-  const [selectedPost, setSelectedPost] = useState<number | null>(null)
+  const [selectedPost, setSelectedPost] = useState<number>(0)
 
   
   return (

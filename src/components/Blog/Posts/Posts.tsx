@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import './Post.css';
+import '../Post.css';
 import { RxAvatar } from "react-icons/rx";
 import { FaClock, FaComment, FaRegEye, FaShare } from "react-icons/fa";
 
@@ -55,7 +55,10 @@ const Posts = ({setSelectedPost}:Props) => {
   return (
     <div className="Post-container">
       { posts && posts?.map((post:PostProps) => (
-        <article  onClick={()=>{navigate(`./${post.post_id}`); setSelectedPost(post.post_id)}} className="Post-element">
+        <article  onClick={()=>{
+          navigate(`./${post.post_id}`);
+         setSelectedPost(post.post_id)
+         }} className="Post-element">
           <div className="post-head">
           <h1 className="post-title">{post.title}</h1>
           <div className="info-post-owner">

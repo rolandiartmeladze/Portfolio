@@ -1,5 +1,5 @@
 import React, {useState, useEffect, ChangeEvent} from "react";
-import './Post.css'
+import '../Post.css'
 import { RxAvatar } from "react-icons/rx";
 import { FaClock } from "react-icons/fa";
 import { MdCategory } from "react-icons/md";
