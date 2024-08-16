@@ -338,3 +338,17 @@ margin-left: 12px;
         align-items: flex-start;
         padding: 5px;
       }
+
+      .comment-form input {
+        padding: 6px;
+        background: initial;
+        backdrop-filter: blur(4px);
+        border: none;
+        outline: none;
+        margin: 5px;
+        box-shadow: -2px 0px 3px 0px yellow;
+        }     
+        
+        .comment-form input::placeholder {
+          color: yellow;
+          }
