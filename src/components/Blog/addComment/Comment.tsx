@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { API_Request } from "../post/Post";
 
 interface CommentP {
   name: string;
@@ -7,10 +8,11 @@ interface CommentP {
 
 interface CommentProps {
   comments: any;
+  setComments:Function;
   selectedPost:number;
 }
 
-const CommentComponent = ({ comments, selectedPost }: CommentProps) => {
+const CommentComponent = ({ comments, setComments, selectedPost }: CommentProps) => {
 
   const [name, setName] = useState<string>();
   const [newComment, setNewComment] = useState<string>();
@@ -35,6 +37,11 @@ const CommentComponent = ({ comments, selectedPost }: CommentProps) => {
     
           if (response.ok) {
             console.log('working')
+
+              const result = await API_Request({ selectedPost });
+              setComments(result?.comments)
+            
+
           } else {
             console.error('Error creating comment:', response.statusText);
           }
@@ -52,10 +59,11 @@ const CommentComponent = ({ comments, selectedPost }: CommentProps) => {
   return (
     <div className="comment-block">
       <form className="comment-form">
+        <h1>Write New Comment</h1>
         <input type="text" placeholder="you name" onChange={(e)=>{setName(e.target.value)}} />
 
         <textarea name="New Comment" id="" placeholder="Write you coomment"  onChange={(e)=>{setNewComment(e.target.value)}} ></textarea>
-        <samp onClick={addComment}>Add Comment</samp>
+        <div className="addcomment-btn" onClick={addComment}>Add Comment</div>
       </form>
       <h6 style={{display: 'flex', justifyContent: 'flex-start'}}>Comments:</h6>
 

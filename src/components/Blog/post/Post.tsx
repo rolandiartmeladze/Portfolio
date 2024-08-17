@@ -59,7 +59,7 @@ const PostComponent: React.FC<{ selectedPost: number }> = ({ selectedPost }) => 
   return (
 
     <section className="Blog-container">
-    <div className="Post-container">
+    <div style={{paddingBottom: '0px'}} className="Post-container">
       {post && 
         <article className="Post-element View_post" key={post.post_id}>
           <div className="post-head">
@@ -90,10 +90,10 @@ const PostComponent: React.FC<{ selectedPost: number }> = ({ selectedPost }) => 
       }
     </div>
 
-{comments && <Comment comments={comments} selectedPost={selectedPost}  /> }
+{comments && <Comment comments={comments} setComments={setComments} selectedPost={selectedPost}  /> }
     
     </section>
   );
 };
-
+export {API_Request};
 export default PostComponent;
