@@ -1,9 +1,15 @@
 import React, { useState } from "react";
 import { API_Request } from "../post/Post";
+import { formatTimestamp } from "../../Tools/Tools"
+
+import { RxAvatar } from "react-icons/rx";
+import { FaClock } from "react-icons/fa";
+
 
 interface CommentP {
   name: string;
   comment: string;
+  created_at: string;
 }
 
 interface CommentProps {
@@ -40,7 +46,8 @@ const CommentComponent = ({ comments, setComments, selectedPost }: CommentProps)
 
               const result = await API_Request({ selectedPost });
               setComments(result?.comments)
-            
+              setNewComment('');
+              setName('');
 
           } else {
             console.error('Error creating comment:', response.statusText);
@@ -60,19 +67,28 @@ const CommentComponent = ({ comments, setComments, selectedPost }: CommentProps)
     <div className="comment-block">
       <form className="comment-form">
         <h1>Write New Comment</h1>
-        <input type="text" placeholder="you name" onChange={(e)=>{setName(e.target.value)}} />
+        <input type="text" placeholder="you name" value={name} onChange={(e)=>{setName(e.target.value)}} />
 
-        <textarea name="New Comment" id="" placeholder="Write you coomment"  onChange={(e)=>{setNewComment(e.target.value)}} ></textarea>
+        <textarea name="New Comment" id="" placeholder="Write you coomment" value={newComment} onChange={(e)=>{setNewComment(e.target.value)}} ></textarea>
         <div className="addcomment-btn" onClick={addComment}>Add Comment</div>
       </form>
-      <h6 style={{display: 'flex', justifyContent: 'flex-start'}}>Comments:</h6>
+      <div className="comments-cont">
+
 
       {comments.map((comment:CommentP, index: number) => (
         <div key={index} className="comment-item">
-          <label htmlFor="author">Author:</label> {comment.name}
-          <label htmlFor="comment">{'>'}</label> {comment.comment}
+        <ul>
+          <li><RxAvatar /> {comment.name}</li>
+          <li><FaClock /> {formatTimestamp(comment.created_at)}</li>
+        </ul>
+          <p>          
+           {comment.comment}
+            </p>
         </div>
       ))}
+            <h6 style={{display: 'flex', justifyContent: 'flex-start'}}>Comments:</h6>
+      </div>
+
     </div>
   );
 };
