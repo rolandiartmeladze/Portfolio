@@ -73,7 +73,7 @@ const Posts = ({setSelectedPost}:Props) => {
 
         
           <p className="post-body">
-            {(post.post).substring(0, 400)}{post.post.length >= 400 && ' ...'}
+            {(post.post).substring(0, 600)}{post.post.length >= 800 && ' ...'}
           </p>
           
           </div>

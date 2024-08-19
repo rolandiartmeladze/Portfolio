@@ -15,6 +15,20 @@
     flex-direction: column;
         }
 
+
+        .Blog-container  h4{
+          width: auto;
+    display: flex;
+    font-size: 200%;
+    margin-left: 30px;
+    margin-top: 15px;
+    cursor: pointer;
+        }
+
+        .Blog-container  h4:hover{
+          color: red;
+        }
+ 
         
 .Post-container {
     margin-top: 10px;
@@ -170,7 +184,7 @@ margin-left: 12px;
 .post-container .text-container p{
     width: 100%;
     transform: scale(1);
-    padding: 0px;    
+    padding: 6px;    
     font-weight: lighter;
     font-size: 100%;
     backdrop-filter: blur(0px);
@@ -272,8 +286,8 @@ margin-left: 12px;
 .content {
   flex-grow: 1;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: flex-start;
 }
 
 .post-body {

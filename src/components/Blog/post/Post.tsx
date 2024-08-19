@@ -6,6 +6,10 @@ import { MdCategory } from "react-icons/md";
 import Comment from "../addComment/Comment";
 import { formatTimestamp } from "../../Tools/Tools";
 
+import { useNavigate } from "react-router-dom";
+
+import { MdArrowBack } from "react-icons/md";
+
 interface PostProps {
   title: string;
   owner: string;
@@ -56,9 +60,16 @@ const PostComponent: React.FC<{ selectedPost: number }> = ({ selectedPost }) => 
       console.log(selectedPost);
     }, [selectedPost]);
 
+    const navigate = useNavigate()
+     
   return (
 
     <section className="Blog-container">
+
+      <h4 onClick={()=>{
+navigate('/Blog')
+      }}><MdArrowBack /> Go Back </h4>
+
     <div style={{paddingBottom: '0px'}} className="Post-container">
       {post && 
         <article style={{height: 'auto'}} className="Post-element View_post" key={post.post_id}>
@@ -83,7 +94,6 @@ const PostComponent: React.FC<{ selectedPost: number }> = ({ selectedPost }) => 
               <span><FaComment /> Comments {post.comment_count}</span>
               <span><FaShare /> Share {post.share_count}</span>
             </div>
-            <samp>მეტის ნახვა</samp>
           </div>
 
         </article>

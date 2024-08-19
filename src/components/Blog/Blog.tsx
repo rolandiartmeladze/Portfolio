@@ -63,6 +63,8 @@ const Blog = ({setSelectedPost}:Props2) =>{
     
     // const [selectedPost, setSelectedPost] = useState<number | null>(null)
 
+    const avatar = 'https://avatars.githubusercontent.com/u/13499054?v=4';
+
 
     return (
         <section className="Blog-container">
@@ -73,12 +75,12 @@ const Blog = ({setSelectedPost}:Props2) =>{
     
     <h1 className="Blog-title">blog</h1>
 
-{data &&
+
 <div className="info-cont">
-  {/* <img className="profile-avatar" src={data.avatar} alt="" />
-    <h2 style={{transform: 'scale(1)'}}>{data.name}</h2> */}
+  <img className="profile-avatar" src={`https://avatars.githubusercontent.com/u/13499054?v=4`} alt="" />
+    <h2 style={{transform: 'scale(1)'}}>{'Roland Artmeladze'}</h2>
     </div>
-}     
+   
  </div>
 <div style={{display: 'flex', width: '100%', maxHeight: '80%'}}>
 

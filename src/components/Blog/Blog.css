@@ -11,7 +11,7 @@
 
       .Blog-title{
         transform: scale(1); 
-        width: 100%; 
+        /* width: 100%;  */
         float: none;
         margin: 6px;
         margin-left: 20px;
@@ -20,6 +20,8 @@
 
       .info-cont{
         display: flex;
+        align-items: center;
+        margin-right: 25px;
 
       }
       .main-info {
@@ -29,8 +31,9 @@
         align-items: center;
         width: 100%;
         height: 90px;
-        background: inherit; /* Ensures the existing background is maintained */
-        position: relative; /* Required for positioning the gradient overlay */
+        background: inherit; 
+        position: relative; 
+        justify-content: space-between;
     }
     
     .main-info::before {

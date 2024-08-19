@@ -3,6 +3,7 @@ import '../Post.css'
 import { RxAvatar } from "react-icons/rx";
 import { FaClock } from "react-icons/fa";
 import { MdCategory } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 
 interface Props{
     name: string;
@@ -11,6 +12,9 @@ interface Props{
 const AboutProject =()=>{
 
     const [data, setData] = useState<Props | null>(null);
+
+
+    const avatari = 'https://avatars.githubusercontent.com/u/13499054?v=4';
 
     const link = 'https://mica-soft-makeup.glitch.me';
 
@@ -47,7 +51,7 @@ const AboutProject =()=>{
 
 
 
-
+const navigate = useNavigate();
 
   const [text, setText] = useState<string>('');
 
@@ -72,59 +76,57 @@ const AboutProject =()=>{
 
 
     return(
+<div className="post-container">
+    <div className="info-line">
+        <h3>
+            <RxAvatar /> {'Roland Artmeladze'}
+        </h3>
+        <div style={{ display: 'flex', paddingLeft: '25px' }}>
+            <span><FaClock /> {currentTime} </span>
+            <span><MdCategory /> About Project </span>
+        </div>
+    </div>
 
-        <div className="post-container">
-<div className="info-line">
-                <h3>
-                    <RxAvatar /> {data?.name}
-                </h3>
-                <div style={{display: 'flex', paddingLeft: '25px'}}>
-                    <span> <FaClock /> {currentTime} </span>
-                    <span> <MdCategory /> About Project </span>
-                </div>
-                
-            </div>
-            <div className="text-container">
-<h2>შესავალი</h2> 
-<p>
-    მე ვარ როლანდ ართმელაძე, დამწყები ვებ დეველოპერი. ციფრული სამყარო ბავშვური მაინტერესებდა. ეს იყო რაღაც ჯადოსნური გარემო, რომელიც მიუწვდომელი მეჩვენებოდა. მაინტერესებდა მრავალი გამოწვევის გადაჭრა, მაგალითად, ბრაუზერის ეკრანზე მონაცემების გამოტანა, განსაზღვრა და დინამიკური მოქმედების პრინციპი.
-</p>
+    <div className="text-container">
+        <h2>Introducing My Personal Blog-Portfolio Application</h2>
+        <p>
+            I'm excited to share the latest update to my personal blog-portfolio application, built using React and TypeScript. This project is designed to provide a seamless and dynamic experience for users who want to explore my work, read blog posts, and engage with the content through comments.
+        </p>
 
-<h2>მოგზაურობა ვებ განვითარებისკენ</h2>
-<p>
-    დიდი დრო გავიდა და ეს სფერო კიდევ უფრო გახდა. ტექნოლოგიების მიღწევების მიღწევა, ახლა შესაძლებელია მსოფლიოში ნებისმიერ ადგილას, მხოლოდ ლეპტით და ინტერნეტით. ეს იყო ერთ-ერთი მიზეზი, რის გამოც გადავწყვიტე ისევ მეცადა და უკვე გავცნობოდი ამ სამყაროს, რათა ბავშვის დროინდელი გრძნობები და ოცნებები ამესრულებინა.
-</p>
-<h2>შესაძლებლობების შესწავლა</h2>
-<p>
-    სანამ სწავლას გავბდი, შევეცადე ცნობოდი იმ შესაძლებლობებს, რითაც მიზნის მისაღწევად შემეძლო. ფართო ძიება იმ ადამიანებისა, ვინც უკვე იცნობდა ამ მიმართულებას და მის პრინციპებს. მათგან გამოცდილების და მოლოდინების გაზიარება მსგავსი წარმოდგენის შემადგენლობით, რაზეც უნდა ვიყოფილიყავი ორიენტირებული მაქსიმალური შედეგის შესახებ.
-</p>
-<h2>სწორი გზის არჩევა</h2>
-<p>
-    გადავწყვიტე Front End Developer-ის პროფესიის შესწავლა. ეს არის მომხმარებლის ინტერფეისის შექმნა, რაც შეეხება: მომხმარებლის სურვილების, ინტერესების, შესაძლებლობებისა და განსაზღვრას, გარემოს შექმნისას. სწრაფად განვითარებადი ციფრული სამყარო დიდ როლს თამაშობს, და ამ სფეროს არჩევანია დიდი მოტივაცია იყო.
-</p>
-<h2>
-    დაწყებული BitCamp-ით
-    </h2>
-<p>
-    მოიძიე ორგანიზაციები, რომლებიც სწავლობდნენ ამ მიმართულებით. სწორედ ამ დროს აღმოვაჩინე BitCamp.ge. ვებსა და სოციალური გვერდების გაცნობის შემდეგ რამდენიმე მნიშვნელოვანი რესურსი, რომელიც ხელმისაწვდომია უფასოდ და რაც მთავარია, ქართულად. BitCamp-ის უფასო რესურსები 2022 წლის დასაწყისში.
-</p>
-<h2>გამოწვევების დაძლევა</h2>
-<p>
-    სწავლის შევსება უამრავ გამოწვევას, რომელიც რთული და კომპლექსური აღმოჩნდა. არაერთხელ ვთვლით, თუ რა იყო არჩევანის გაკეთება, მაგრამ ყველა იმ მომენტში მხვდებოდნენ იმ ადამიანების უპირატესობას და თავდაუზოგავი შრომის მიზნებს. მათი ისტორიის გაცნობა დიდი მოტივაცია იყო.
-</p>
-<h2>მომავლის პერსპექტივები</h2>
-<p>
-    სწავლის თავიდან აცილება, ადამიანები, რომლებიც საჭიროებენ მნიშვნელოვან პრობლემებს, გადაჭრა და ეს იყო იმ უნარების გამოყენება, რომლებიც უკვე შევიძინე. პროექტებზე მუშაობა პარალელურად, ვხვდებოდი BitCamp-ის ზრდასა და განვითარებას, რაც პროცესია.
-</p>
-<h2>დასკვნა</h2>
-<p>მეგობრული და სწრაფად მზარდი გარემო BitCamp-ში ჩემი სწორი არჩევანი იყო. მათ შევძელი საკუთარი შესაძლებლობების დასრულება და განვითარების გზაზე სიარული. ახლა, როგორც ადრე ბავშვობაში, კვლავ მიზიდავს და მხიბლავს ციფრული სამყარო.
-</p>
- </div>
+        <h2>Key Features:</h2>
+        <p>
+            1. <strong>Dynamic Blog Content:</strong> Users can easily read posts, add new ones, and leave comments. The entire experience is built to be interactive, making it easy to share thoughts and engage with the content.
+        </p>
+        <p>
+            2. <strong>Real-Time Data Updates:</strong> When a user adds a new post or comment, it is instantly reflected in the database, thanks to the robust backend powered by Django REST Framework. This ensures that all users see the most up-to-date information without any delays.
+        </p>
+        <p>
+            3. <strong>RESTful APIs for Seamless Integration:</strong> The backend of this application is built using Django REST Framework, providing reliable APIs that the frontend uses to fetch, create, and update data.
+        </p>
+        <p>
+            4. <strong>User-Friendly Interface:</strong> The application is designed with an intuitive and responsive UI, ensuring that users have a smooth experience across all devices.
+        </p>
+        <p>
+            5. <strong>Secure and Scalable:</strong> The project architecture is designed to be scalable, allowing for future growth and enhancements. Security best practices are also implemented to protect user data and ensure the integrity of the content.
+        </p>
 
-<div style={{marginTop: '25px'}}>
-    <samp>მეტის ნავხა</samp>
-</div>
+        <h2>How It Works:</h2>
+        <p>
+            - <strong>Frontend:</strong> The application’s frontend is built with React and TypeScript, providing a modern and responsive user experience.
+        </p>
+        <p>
+            - <strong>Backend:</strong> The backend is handled by Django, which manages all the business logic, including the storage and retrieval of posts and comments.
+        </p>
+        <p>
+            - <strong>API Integration:</strong> RESTful APIs ensure that the frontend and backend communicate effectively, providing real-time data updates and maintaining a smooth user experience.
+        </p>
+    </div>
 
+    <div style={{ marginTop: '25px' }}>
+        <samp onClick={()=>{
+            navigate('./AboutProjec');
+           }}>Read More</samp>
+    </div>
 </div>
     )
 }
