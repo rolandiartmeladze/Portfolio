@@ -36,7 +36,4 @@ This project is a personal portfolio and blog application built with **React** a
 
 ### Frontend Setup
 
-1. Clone the repository for the frontend:
-   ```bash
-   git clone https://github.com/yourusername/portfolio-frontend.git
-   cd portfolio-frontend
+_____________ ...
