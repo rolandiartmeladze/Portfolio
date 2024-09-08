@@ -82,7 +82,7 @@ const Blog = ({setSelectedPost}:Props2) =>{
     </div>
    
  </div>
-<div style={{display: 'flex', width: '100%', maxHeight: '80%'}}>
+<div style={{display: 'flex', width: '100%', maxHeight: 'auto', alignItems: 'flex-start'}}>
 
 
 <NewPost />
