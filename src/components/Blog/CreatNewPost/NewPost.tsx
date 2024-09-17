@@ -3,6 +3,7 @@ import "./NewPost.css";
 
 interface Post {
   post_id: number;
+  author: number;
   name: string;
   owner: string;
   title: string;
@@ -18,6 +19,7 @@ interface Post {
 
 interface Comment {
   id: number;
+  author: number;
   post: number;
   name: string;
   comment: string;
@@ -58,6 +60,7 @@ const NewPost = () => {
   //   }, []);
 
   const [posts, setPosts] = useState([]);
+
 
   const [newPost, setNewPost] = useState({
     title: "",

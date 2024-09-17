@@ -25,6 +25,7 @@ import Work from './components/Work/Work';
 import Blog from './components/Blog/Blog';
 import Post from './components/Blog/post/Post';
 import AboutProject from './components/Blog/Posts/AboutProject'
+import Register from './components/Blog/Register/Register';
 
 function App() {
 
@@ -64,6 +65,7 @@ function App() {
 <Route path={'/Projects'} element={<Projects />} />
 <Route path={'/Experiance'} element={<Work />} />
 <Route path={'/Blog'} element={<Blog setSelectedPost={setSelectedPost} />} />
+<Route path={'Blog/Login'} element={ <Register /> } />
 
 <Route path={'/Blog/:id'} element={<Post selectedPost={selectedPost} />} />
 

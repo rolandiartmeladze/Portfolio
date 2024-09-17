@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
-  import { fetchPosts } from '../../api';
+import { fetchPosts } from '../../api';
+import { useNavigate } from "react-router-dom";
 
 import './Blog.css';
 import NewPost from "./CreatNewPost/NewPost";
@@ -26,7 +27,7 @@ interface Props2{
 
 const Blog = ({setSelectedPost}:Props2) =>{
 
-
+  const navigate = useNavigate();
 
 
   const [posts, setPosts] = useState<BlogPost[]>([]);
@@ -77,8 +78,11 @@ const Blog = ({setSelectedPost}:Props2) =>{
 
 
 <div className="info-cont">
-  <img className="profile-avatar" src={`https://avatars.githubusercontent.com/u/13499054?v=4`} alt="" />
-    <h2 style={{transform: 'scale(1)'}}>{'Roland Artmeladze'}</h2>
+  {/* <img className="profile-avatar" src={`https://avatars.githubusercontent.com/u/13499054?v=4`} alt="" />
+    <h2 style={{transform: 'scale(1)'}}>{'Roland Artmeladze'}</h2> */}
+    <samp onClick={()=>{
+      navigate('/Blog/Login');
+    }}>Login</samp>
     </div>
    
  </div>
