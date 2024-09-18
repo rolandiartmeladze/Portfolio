@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import "../CreatNewPost/NewPost.css";
 import { useNavigate } from "react-router-dom";
 
+const jwtDecode = require('jwt-decode').default;
+
 const Login: React.FC = () => {
   const [username, setUsername] = useState<string | undefined>(undefined);
   const [password, setPassword] = useState<string | undefined>(undefined);
@@ -26,10 +28,24 @@ const Login: React.FC = () => {
 
       if (response.ok) {
         const data = await response.json();
-        const token = data.token;
-        console.log(token)
-        // Save token in local storage or state for future API requests
-        localStorage.setItem("token", token);
+        const accessToken = data.access;
+        const refreshToken = data.refresh;
+        const user = {
+          username: data.username,
+          email: data.email,
+        };
+
+        console.log("Access Token:", accessToken);
+        console.log("User Info:", user);
+
+        // Decode JWT to verify token information if needed
+        const decodedToken = jwtDecode(accessToken);
+        console.log("Decoded token info:", decodedToken);
+
+        // Save token and user info in local storage or state for future API requests
+        localStorage.setItem("accessToken", accessToken);
+        localStorage.setItem("refreshToken", refreshToken);
+        localStorage.setItem("user", JSON.stringify(user));
 
         // Navigate to user profile after successful login
         navigate("/user_profile");

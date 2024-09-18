@@ -45,6 +45,7 @@ const Register = () => {
       }
 
       const data = await response.json();
+      console.log(data);
       if (data.token) {
         const decodedToken = jwtDecode(data.token);
         console.log('Decoded token info:', decodedToken);
