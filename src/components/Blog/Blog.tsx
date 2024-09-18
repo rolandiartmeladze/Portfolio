@@ -6,6 +6,8 @@ import './Blog.css';
 import NewPost from "./CreatNewPost/NewPost";
 import Post from "./Posts/AboutProject";
 import Posts from "./Posts/Posts";
+import Login from "./author/Login";
+import Register from "./Register/Register";
 
 interface Props{
     name: string;
@@ -89,7 +91,9 @@ const Blog = ({setSelectedPost}:Props2) =>{
 <div style={{display: 'flex', width: '100%', maxHeight: 'auto', alignItems: 'flex-start'}}>
 
 
-<NewPost />
+{/* <NewPost /> */}
+{/* <Register /> */}
+<Login />
 
 <Post />
 </div>

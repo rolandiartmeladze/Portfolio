@@ -6,7 +6,7 @@
 
 
 .Blog-container{
-  background-image: url(/src/img/Contact_bg.jpg);
+  /* background-image: url(/src/img/Contact_bg.jpg); */
     display: flex;
     background-position: center;
     background-repeat: no-repeat;

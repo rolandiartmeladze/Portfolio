@@ -133,8 +133,8 @@ const NewPost = () => {
     }
   };
 
-  return (
-    <form id="postform" className="add-post" onSubmit={handleSubmit}>
+  return (<>
+      <form id="postform" className="add-post" onSubmit={handleSubmit}>
       <h3>Add New Post</h3>
 
       <div className="line-cont">
@@ -243,6 +243,8 @@ const NewPost = () => {
         <button onClick={handleSubmit}>Add Post</button>
       </div>
     </form>
+
+  </>
   );
 };
 export default NewPost;
