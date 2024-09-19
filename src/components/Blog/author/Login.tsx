@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { RxAvatar } from "react-icons/rx";
 import { RiLockPasswordFill } from "react-icons/ri";
+import { FcGoogle } from "react-icons/fc";
+import { FaGithub, FaFacebook } from "react-icons/fa";
 
 import "./style.css";
 import { useNavigate } from "react-router-dom";
@@ -62,9 +64,7 @@ const Login: React.FC = () => {
   return (
     <>
       <form onSubmit={handleSubmit} id="postform" className="add-post">
-        <h2>Authorisation Method</h2>
-
-        <h3> Login Form </h3>
+        <h2>Login Form</h2>
 
         <div className="line-cont">
           < RxAvatar />
@@ -89,8 +89,18 @@ const Login: React.FC = () => {
         </div>
 
         <div className="btn-cont">
-          <button type="submit">Add Post</button>
+        <button>Sing Up</button>
+        <button type="submit">Login</button>
         </div>
+
+        <div className="auth">
+          <h3> Login With: </h3>
+
+            <FaFacebook /> 
+            <FcGoogle />          
+            <FaGithub />
+
+          </div>
       </form>
     </>
   );

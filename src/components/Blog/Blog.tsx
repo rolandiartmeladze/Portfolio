@@ -76,7 +76,7 @@ const Blog = ({setSelectedPost}:Props2) =>{
   
 <div className="main-info">            
     
-    <h1 className="Blog-title">blog</h1>
+    <h1 className="Blog-title">Uour Blog</h1>
 
 
 <div className="info-cont">
