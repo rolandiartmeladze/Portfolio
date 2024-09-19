@@ -51,8 +51,8 @@ height: 20px;
 }
 
 .add-post input{
-    padding: 5px;
-    margin: 3px;
+    padding: 8px;
+    margin: 5px auto;
     flex-grow: 1;
     background: initial;
     backdrop-filter: blur(2px);
@@ -62,7 +62,6 @@ height: 20px;
     text-align: center;   
     transition: 0.3s ease-in-out;
     border-radius: 3px;
-    max-width: 150px;
 }
 
 .add-post input:focus{
@@ -84,14 +83,16 @@ height: 20px;
 
 
 
-.add-post input h2{
-    padding: 6px 12px;
-    margin: auto;
-    transform: translate(0px) !important;
+.add-post h2{
+    font-size: 24px;
+    padding: 4px;
+    margin: 3px auto;
+    transform: none;
 }
 
-.add-post input h4{
-    
-    margin: auto;
-    transform: translate(0px);
+.add-post h3{
+    margin: 4px auto;
+    font-weight: 700;
+    font-size: 20px;
+    transform: none;
 }

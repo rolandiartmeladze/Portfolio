@@ -62,9 +62,9 @@ const Login: React.FC = () => {
   return (
     <>
       <form onSubmit={handleSubmit} id="postform" className="add-post">
-        <h2 >Authorisation Method</h2>
+        <h2>Authorisation Method</h2>
 
-        <h4> Login Form </h4>
+        <h3> Login Form </h3>
 
         <div className="line-cont">
           < RxAvatar />
