@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
-import "../CreatNewPost/NewPost.css";
+import { RxAvatar } from "react-icons/rx";
+import { RiLockPasswordFill } from "react-icons/ri";
+
+import "./style.css";
 import { useNavigate } from "react-router-dom";
 
 const jwtDecode = require('jwt-decode').default;
@@ -15,7 +18,6 @@ const Login: React.FC = () => {
       username: username,
       password: password,
     };
-        console.log(auth);
 
     try {
       const response = await fetch("http://127.0.0.1:8000/api/login/", {
@@ -60,10 +62,12 @@ const Login: React.FC = () => {
   return (
     <>
       <form onSubmit={handleSubmit} id="postform" className="add-post">
-        <h3>Add New Post</h3>
+        <h2 >Authorisation Method</h2>
+
+        <h4> Login Form </h4>
 
         <div className="line-cont">
-          <label htmlFor="username">Username:</label>{" "}
+          < RxAvatar />
           <input
             id="username"
             value={username}
@@ -74,7 +78,7 @@ const Login: React.FC = () => {
         </div>
 
         <div className="line-cont">
-          <label htmlFor="password">Password:</label>{" "}
+          <RiLockPasswordFill />
           <input
             id="password"
             value={password}

@@ -25,7 +25,7 @@ import Work from './components/Work/Work';
 import Blog from './components/Blog/Blog';
 import Post from './components/Blog/post/Post';
 import AboutProject from './components/Blog/Posts/AboutProject'
-import Register from './components/Blog/Register/Register';
+import Register from './components/Blog/author/Register';
 import Login from './components/Blog/author/Login';
 
 function App() {

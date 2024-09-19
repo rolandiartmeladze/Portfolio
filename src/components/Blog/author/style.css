@@ -1,0 +1,97 @@
+
+.add-post {
+    display: flex;
+    width: 38%;
+    max-width: 320px;
+    height: auto;
+    background: initial;
+    margin-top: 25px;
+    margin-left: 12px;
+    margin-right: 11px;
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
+    box-shadow: 0px 0px 150px rgb(255, 255, 255, 0.1) inset, 0px 0px 3px rgb(0, 255, 255);
+    border-radius: 10px;
+    padding: 12px;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.line-cont{
+    margin: 5px auto;
+    display: flex;
+    align-items: center;
+}
+
+.line-cont svg{
+width: 20px;
+height: 20px;
+}
+
+
+
+.btn-cont{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn-cont button {
+     padding: 6px 12px;
+     float:right;
+     background: none;
+     margin: 6px;
+     border-radius: 6px;
+     font-weight: bolder;
+     cursor: pointer;
+}
+
+.btn-cont button:hover {
+    color: white;
+}
+
+.add-post input{
+    padding: 5px;
+    margin: 3px;
+    flex-grow: 1;
+    background: initial;
+    backdrop-filter: blur(2px);
+    border: none;
+    outline: none;
+    box-shadow: 0px 1px 1.5px 0px rgb(255, 232, 20) ;
+    text-align: center;   
+    transition: 0.3s ease-in-out;
+    border-radius: 3px;
+    max-width: 150px;
+}
+
+.add-post input:focus{
+    box-shadow: 0px 1px 1.5px 0px rgb(53, 41, 27) ;
+}
+
+.add-post input::placeholder {
+    color: rgba(243, 245, 200, 0.3); 
+}
+
+.add-post input:focus::placeholder {
+    color: rgb(246, 255, 0); 
+}
+
+.add-post label{
+    padding: 3px;
+    flex-grow: 1;
+}
+
+
+
+.add-post input h2{
+    padding: 6px 12px;
+    margin: auto;
+    transform: translate(0px) !important;
+}
+
+.add-post input h4{
+    
+    margin: auto;
+    transform: translate(0px);
+}

@@ -7,7 +7,7 @@ import NewPost from "./CreatNewPost/NewPost";
 import Post from "./Posts/AboutProject";
 import Posts from "./Posts/Posts";
 import Login from "./author/Login";
-import Register from "./Register/Register";
+import Register from "./author/Register";
 
 interface Props{
     name: string;
