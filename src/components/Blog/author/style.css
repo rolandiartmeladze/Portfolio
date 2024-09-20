@@ -91,6 +91,7 @@
 }
 
 .form label {
+    flex-grow: 1;
     padding: 3px;
     flex-grow: 1;
 }
@@ -147,4 +148,15 @@
    color: rgb(255, 0, 0);
    padding-left: 11px;
    margin-bottom: 12px;
+}
+
+
+.signup .line-cont {
+    width: 90%;
+}
+.signup .line-cont label {
+    flex-grow: 0.5;
+}
+.signup .line-cont input {
+   flex-grow: 1;
 }

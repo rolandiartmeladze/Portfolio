@@ -117,8 +117,8 @@ const Blog = ({setSelectedPost}:Props2) =>{
 
 
 {/* <NewPost /> */}
-{/* <Register /> */}
-<Login />
+<Register />
+{/* <Login /> */}
 
 <Post />
 </div>

@@ -1,41 +1,50 @@
-import React, { useState } from 'react';
-import { RxAvatar } from "react-icons/rx";
-import { RiLockPasswordFill } from "react-icons/ri";
-import { FcGoogle } from "react-icons/fc";
-import { FaGithub, FaFacebook } from "react-icons/fa";
-const jwtDecode = require('jwt-decode');
+import React, { useRef } from 'react';
+import { RiLockPasswordFill } from 'react-icons/ri';
+import { FcGoogle } from 'react-icons/fc';
+import { FaGithub, FaFacebook, FaUserAlt } from 'react-icons/fa';
+import { FaRepeat } from "react-icons/fa6";
 
+import { IoTextSharp } from 'react-icons/io5';
+import { MdEmail } from 'react-icons/md';
+import './style.css';
+// import jwtDecode from 'jwt-decode'; 
 
-
-
-// Option 2: If Option 1 doesn't work, try the named import
-// import { default as jwtDecode } from 'jwt-decode';
+interface UserProps {
+  id: string;
+  type: string;
+  placeholder: string;
+  icon: React.ComponentType;
+}
 
 const Register = () => {
-  const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [password2, setPassword2] = useState('');
-  const [error, setError] = useState('');
-  const [success, setSuccess] = useState('');
+  // Using useRef to create references for inputs
+  const usernameRef = useRef<HTMLInputElement>(null);
+  const firstnameRef = useRef<HTMLInputElement>(null);
+  const lastnameRef = useRef<HTMLInputElement>(null);
+  const emailRef = useRef<HTMLInputElement>(null);
+  const passwordRef = useRef<HTMLInputElement>(null);
+  const password2Ref = useRef<HTMLInputElement>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    const user = {
+      username: usernameRef.current?.value,
+      first_name: firstnameRef.current?.value,
+      last_name: lastnameRef.current?.value,
+      email: emailRef.current?.value,
+      password: passwordRef.current?.value,
+      password2: password2Ref.current?.value,
+    };
+
+    console.log(user)
+
     // Check if passwords match
-    if (password !== password2) {
-      setError('Passwords do not match');
+    if (user.password !== user.password2) {
+      alert('Passwords do not match');
       return;
     }
 
-    const user = {
-      username: username,
-      email: email,
-      password: password,
-      password2: password2,
-    }
-
-    console.log(user)
 
     try {
       const response = await fetch('http://localhost:8000/api/register/', {
@@ -54,103 +63,69 @@ const Register = () => {
       const data = await response.json();
       console.log(data);
       if (data.token) {
-        const decodedToken = jwtDecode(data.token);
-        console.log('Decoded token info:', decodedToken);
+        // const decodedToken = jwtDecode(data.token);
+        // console.log('Decoded token info:', decodedToken);
       }
 
-      setSuccess('Registration successful! Please log in.');
-      setError('');
-
+      alert('Registration successful! Please log in.');
     } catch (error: any) {
       console.error('Registration error', error);
-      setError(error.message);
+      alert(error.message);
     }
   };
 
-  return (
-    <div>
-      <h2>Register Form</h2>
-      <form onSubmit={handleSubmit} id="postform" className="form signup">
-        <h2>Login Form</h2>
+  const UserInfo: UserProps[] = [
+    { id: 'username', type: 'text', placeholder: 'Username', icon: FaUserAlt },
+    { id: 'firstname', type: 'text', placeholder: 'Enter First Name', icon: IoTextSharp },
+    { id: 'lastname', type: 'text', placeholder: 'Enter Last Name', icon: IoTextSharp },
+    { id: 'email', type: 'email', placeholder: 'Enter Email', icon: MdEmail },
+    { id: 'password', type: 'password', placeholder: 'Enter Password', icon: RiLockPasswordFill },
+    { id: 'password2', type: 'password', placeholder: 'Confirm Password', icon: FaRepeat },
+  ];
 
-        <div className="line-cont">
-          <label htmlFor="username">Username:</label>
-          <input
-            id="username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            type="text"
-            placeholder="Username"
-          />
-        </div>
-        <div className="line-cont">
-          <label htmlFor="fullname"></label>
-          <input
-            id="fullname"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            type="text"
-            placeholder="full name"
-          />
-        </div>
-        <div className="line-cont">
-          < RxAvatar />
-          <input
-            id="username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            type="text"
-            placeholder="Username"
-          />
-        </div>
-        <div className="line-cont">
-          <label htmlFor="">email</label>
-          <input
-            id="username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            type="text"
-            placeholder="Username"
-          />
-        </div>
+  const SignUpForm = () => {
+    const refs = {
+      username: usernameRef,
+      firstname: firstnameRef,
+      lastname: lastnameRef,
+      email: emailRef,
+      password: passwordRef,
+      password2: password2Ref,
+    };
 
-        <div className="line-cont">
-          <label htmlFor="">password</label>
-          <input
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            type="text"
-            placeholder="Password"
-          />
-        </div>
-
-        <div className="line-cont">
-          <label htmlFor="">rep password</label>
-          <input
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            type="text"
-            placeholder="Password"
-          />
-        </div>
-
-        <div className="btn-cont">
-        <button>Sign Up</button>
-        <button type="submit">Login</button>
-        </div>
-
-        <div className="auth">
-          <h3> Login With: </h3>
-
-            <FaFacebook /> 
-            <FcGoogle />          
-            <FaGithub />
-
+    return (
+      <>
+        {UserInfo.map((item, index) => (
+          <div className="line-cont" key={index}>
+            <item.icon />
+            <input
+              id={item.id}
+              type={item.type}
+              placeholder={item.placeholder}
+              ref={refs[item.id as keyof typeof refs]} // Use ref to store the input element
+            />
           </div>
-      </form>
-    </div>
+        ))}
+      </>
+    );
+  };
+
+  return (
+    <form id="postform" className="form signup" onSubmit={handleSubmit}>
+      <h2>Register Form</h2>
+      <SignUpForm />
+      <div className="btn-cont">
+        <button type="submit">Sign Up</button>
+        <button>Login</button>
+
+      </div>
+      <div className="auth">
+        <h3>Login With:</h3>
+        <FaFacebook />
+        <FcGoogle />
+        <FaGithub />
+      </div>
+    </form>
   );
 };
 
