@@ -56,8 +56,34 @@ const Blog = ({setSelectedPost}:Props2) =>{
 
     // const link = 'https://mica-soft-makeup.glitch.me';
     
+    const LogOut = async () => {
+      try {
+          const token = localStorage.getItem('accessToken'); 
+  
+          const logoutResponse = await fetch("http://127.0.0.1:8000/api/logout/", {
+              method: "POST",
+              headers: {
+                  "Content-Type": "application/json",
+                  "Authorization": `Token ${token}`, 
+              },
+          });
+  
+          if (logoutResponse.ok) {
+              // Handle successful logout
+              localStorage.removeItem('accessToken');
+              localStorage.removeItem('refreshToken');
+              navigate('./logout'); // Redirect or handle logout success
+          } else {
+              const errorData = await logoutResponse.json();
+              console.error('Logout failed:', errorData);
+          }
+      } catch (error) {
+          console.error({ message: error });
+      }
+  };
+        
 
-    // useEffect(() => {
+    // useEffect(() => { 
     //     fetch(`${link}/api/profile`)
     //       .then(response => response.json())
     //       .then(data => setData(data))
@@ -68,6 +94,7 @@ const Blog = ({setSelectedPost}:Props2) =>{
 
     const avatar = 'https://avatars.githubusercontent.com/u/13499054?v=4';
 
+    // const user = localstorage.getitem()
 
     return (
         <section className="Blog-container">
@@ -76,15 +103,13 @@ const Blog = ({setSelectedPost}:Props2) =>{
   
 <div className="main-info">            
     
-    <h1 className="Blog-title">Uour Blog</h1>
+    <h1   style={{ fontFamily: 'Roboto, sans-serif' }} className="Blog-title">Your Blog</h1>
 
 
 <div className="info-cont">
   {/* <img className="profile-avatar" src={`https://avatars.githubusercontent.com/u/13499054?v=4`} alt="" />
     <h2 style={{transform: 'scale(1)'}}>{'Roland Artmeladze'}</h2> */}
-    <samp onClick={()=>{
-      navigate('/Blog/Login');
-    }}>Login</samp>
+    <samp onClick={LogOut}>Log Out</samp>
     </div>
    
  </div>

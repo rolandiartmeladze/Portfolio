@@ -1,26 +1,26 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import { RxAvatar } from "react-icons/rx";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub, FaFacebook } from "react-icons/fa";
 
 import "./style.css";
-import { useNavigate } from "react-router-dom";
 
 const jwtDecode = require('jwt-decode').default;
 
 const Login: React.FC = () => {
   const [username, setUsername] = useState<string | undefined>(undefined);
   const [password, setPassword] = useState<string | undefined>(undefined);
-  const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
     const auth = {
       username: username,
       password: password,
     };
-
+      console.log(auth);
+      
     try {
       const response = await fetch("http://127.0.0.1:8000/api/login/", {
         method: "POST",
@@ -28,31 +28,29 @@ const Login: React.FC = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(auth),
+        credentials: "include", 
       });
-
+  
       if (response.ok) {
         const data = await response.json();
         const accessToken = data.access;
         const refreshToken = data.refresh;
+  
         const user = {
           username: data.username,
           email: data.email,
+          lastname: data.lastname,
+          firstname: data.firstname,
         };
 
-        console.log("Access Token:", accessToken);
-        console.log("User Info:", user);
+        const info = {
+          user: user,
+          accessToken: accessToken,
+          refreshToken: refreshToken,
 
-        // Decode JWT to verify token information if needed
-        const decodedToken = jwtDecode(accessToken);
-        console.log("Decoded token info:", decodedToken);
-
-        // Save token and user info in local storage or state for future API requests
-        localStorage.setItem("accessToken", accessToken);
-        localStorage.setItem("refreshToken", refreshToken);
-        localStorage.setItem("user", JSON.stringify(user));
-
-        // Navigate to user profile after successful login
-        navigate("/user_profile");
+        }
+        console.log(info);
+        BackInfoInLocalStorage(info);  
       } else {
         console.error("Login failed:", response.statusText);
       }
@@ -61,9 +59,16 @@ const Login: React.FC = () => {
     }
   };
 
+    const BackInfoInLocalStorage = (info: any) =>{
+
+      localStorage.setItem("accessToken", info.accessToken);
+      localStorage.setItem("refreshToken", info.refreshToken);
+      localStorage.setItem("user", JSON.stringify(info.user));
+
+    }
+
   return (
-    <>
-      <form onSubmit={handleSubmit} id="postform" className="add-post">
+      <form onSubmit={handleSubmit} id="postform" className="form login">
         <h2>Login Form</h2>
 
         <div className="line-cont">
@@ -89,7 +94,7 @@ const Login: React.FC = () => {
         </div>
 
         <div className="btn-cont">
-        <button>Sing Up</button>
+        <button>Sign Up</button>
         <button type="submit">Login</button>
         </div>
 
@@ -102,7 +107,6 @@ const Login: React.FC = () => {
 
           </div>
       </form>
-    </>
   );
 };
 export default Login;

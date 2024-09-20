@@ -1,5 +1,12 @@
 import React, { useState } from 'react';
+import { RxAvatar } from "react-icons/rx";
+import { RiLockPasswordFill } from "react-icons/ri";
+import { FcGoogle } from "react-icons/fc";
+import { FaGithub, FaFacebook } from "react-icons/fa";
 const jwtDecode = require('jwt-decode');
+
+
+
 
 // Option 2: If Option 1 doesn't work, try the named import
 // import { default as jwtDecode } from 'jwt-decode';
@@ -63,46 +70,85 @@ const Register = () => {
   return (
     <div>
       <h2>Register Form</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Username:</label>
+      <form onSubmit={handleSubmit} id="postform" className="form signup">
+        <h2>Login Form</h2>
+
+        <div className="line-cont">
+          <label htmlFor="username">Username:</label>
           <input
-            type="text"
+            id="username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            required
+            type="text"
+            placeholder="Username"
           />
         </div>
-        <div>
-          <label>Email:</label>
+        <div className="line-cont">
+          <label htmlFor="fullname"></label>
           <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
+            id="fullname"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            type="text"
+            placeholder="full name"
           />
         </div>
-        <div>
-          <label>Password:</label>
+        <div className="line-cont">
+          < RxAvatar />
           <input
-            type="password"
+            id="username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            type="text"
+            placeholder="Username"
+          />
+        </div>
+        <div className="line-cont">
+          <label htmlFor="">email</label>
+          <input
+            id="username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            type="text"
+            placeholder="Username"
+          />
+        </div>
+
+        <div className="line-cont">
+          <label htmlFor="">password</label>
+          <input
+            id="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            required
+            type="text"
+            placeholder="Password"
           />
         </div>
-        <div>
-          <label>Confirm Password:</label>
+
+        <div className="line-cont">
+          <label htmlFor="">rep password</label>
           <input
-            type="password"
-            value={password2}
-            onChange={(e) => setPassword2(e.target.value)}
-            required
+            id="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            type="text"
+            placeholder="Password"
           />
         </div>
-        <button type="submit">Register</button>
-        {error && <p style={{ color: 'red' }}>{error}</p>}
-        {success && <p style={{ color: 'green' }}>{success}</p>}
+
+        <div className="btn-cont">
+        <button>Sign Up</button>
+        <button type="submit">Login</button>
+        </div>
+
+        <div className="auth">
+          <h3> Login With: </h3>
+
+            <FaFacebook /> 
+            <FcGoogle />          
+            <FaGithub />
+
+          </div>
       </form>
     </div>
   );
