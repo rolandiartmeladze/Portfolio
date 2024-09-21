@@ -73,18 +73,17 @@ const Summary = () => {
 
   return (
     <p>
-      As a beginner full-stack web developer, I'm driven by the opportunity to
-      create meaningful solutions from scratch or tackle practical challenges
-      head-on. My expertise lies in frontend development, where I use{" "}
-      <b>HTML</b>,<b>CSS</b>, <b>JavaScript</b>, and <b>React</b> to bring user
-      visions to life with precision and style. Recently, I've embraced{" "}
-      <b>TypeScript</b> for enhanced code quality and scalability. On the
-      backend, I've successfully developed <b>Node.js</b> <b>Express</b>{" "}
-      applications, building reliable server-side solutions. Additionally, I
-      proficiently manage databases using <b>MongoDB</b> and{" "}
-      <b>Mongoose Atlas</b> for seamless data integration. I thrive on pushing
-      boundaries and exploring emerging technologies to deliver effective
-      results in collaborative environments.
+      I am a dedicated full-stack web developer with strong expertise in both frontend and backend development. 
+      My frontend skills include <b>HTML</b>, <b>CSS</b>, <b>JavaScript</b>, and <b>React.js</b>, 
+      with a focus on scalable, high-quality code using <b>TypeScript</b>. 
+      On the backend, I have successfully built reliable server-side applications with 
+      <b>Node.js</b>, <b>Express</b>, <b>Nest.js</b>, and <b>Python</b>. 
+      I manage databases using <b>MongoDB</b>, <b>Mongoose</b>, and <b>Django</b> 
+      to ensure seamless data integration. Passionate about pushing boundaries and 
+      embracing emerging technologies, I thrive in collaborative environments and 
+      enjoy tackling challenges to deliver impactful results. My goal is to 
+      contribute to innovative projects that drive growth and success.
+      
       {/* As a passionate beginner <b>full-stack web developer</b>, I am driven by the excitement of creating meaningful 
             solutions from the ground up and addressing real-world challenges head-on. My expertise lies 
             predominantly in frontend development, where I leverage <b>HTML</b>, <b>CSS</b>, <b>JavaScript</b>, and <b>React</b> to 
