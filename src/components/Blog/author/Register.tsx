@@ -16,7 +16,11 @@ interface UserProps {
   icon: React.ComponentType;
 }
 
-const Register = () => {
+interface Props {
+  setSignUp: Function;
+}
+
+const Register = ({setSignUp }:Props) => {
   // Using useRef to create references for inputs
   const usernameRef = useRef<HTMLInputElement>(null);
   const firstnameRef = useRef<HTMLInputElement>(null);
@@ -25,9 +29,8 @@ const Register = () => {
   const passwordRef = useRef<HTMLInputElement>(null);
   const password2Ref = useRef<HTMLInputElement>(null);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-
+  const SignUpBtn = async () => {
+    // e.preventDefault();
     const user = {
       username: usernameRef.current?.value,
       first_name: firstnameRef.current?.value,
@@ -39,7 +42,6 @@ const Register = () => {
 
     console.log(user)
 
-    // Check if passwords match
     if (user.password !== user.password2) {
       alert('Passwords do not match');
       return;
@@ -110,13 +112,31 @@ const Register = () => {
     );
   };
 
+  const login = () =>{
+
+    const loginelement = document.querySelector('.login');
+    const element = document.querySelector('.signup');
+    if (element) {
+      element.classList.remove('add');
+    }
+
+    setTimeout(() => {
+          if (loginelement) {
+      loginelement.classList.add('add');
+    }
+      setSignUp(false);
+    }, 600);
+
+ }
+
+
   return (
-    <form id="postform" className="form signup" onSubmit={handleSubmit}>
+    <form id="postform" className="form signup">
       <h2>Register Form</h2>
       <SignUpForm />
       <div className="btn-cont">
-        <button type="submit">Sign Up</button>
-        <button>Login</button>
+        <button onClick={SignUpBtn}>Sign Up</button>
+        <button type='button' onClick={login}>Login</button>
 
       </div>
       <div className="auth">

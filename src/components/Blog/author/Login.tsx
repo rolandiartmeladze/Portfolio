@@ -6,14 +6,17 @@ import { FaGithub, FaFacebook } from "react-icons/fa";
 
 import "./style.css";
 
+interface Props {
+  setSignUp: Function
+}
+
 const jwtDecode = require('jwt-decode').default;
 
-const Login: React.FC = () => {
+const Login = ({setSignUp}: Props) => {
   const [username, setUsername] = useState<string | undefined>(undefined);
   const [password, setPassword] = useState<string | undefined>(undefined);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const LoginBtn = async () => {
     
     const auth = {
       username: username,
@@ -67,8 +70,26 @@ const Login: React.FC = () => {
 
     }
 
+    const signUp = () => {
+      const loginElement = document.querySelector('.login');
+      const signupElement = document.querySelector('.signup');
+    
+      if (loginElement) {
+        loginElement.classList.add('add');
+      }
+    
+      setTimeout(() => {
+        if (signupElement) {
+          signupElement.classList.add('add');
+        }
+    
+        setSignUp(true);
+      }, 600); 
+    };
+    
+
   return (
-      <form onSubmit={handleSubmit} id="postform" className="form login">
+      <form className="form login">
         <h2>Login Form</h2>
 
         <div className="line-cont">
@@ -94,8 +115,9 @@ const Login: React.FC = () => {
         </div>
 
         <div className="btn-cont">
-        <button>Sign Up</button>
-        <button type="submit">Login</button>
+        <button type="button" onClick={()=>{
+         signUp() }}>Sign Up</button>
+        <button onClick={LoginBtn}>Login</button>
         </div>
 
         <div className="auth">

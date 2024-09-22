@@ -150,6 +150,25 @@
    margin-bottom: 12px;
 }
 
+.signup {
+    transform: scale(0.3) translateX(-300px); 
+    transition: 0.5s ease-in-out;
+  }
+  .signup.add {
+    transform: scale(1) translateX(0px); 
+  }
+  
+  .login {
+    transition: 0.5s ease-in-out;
+    transform: scale(1); 
+  }
+  
+  /* Animated State for Login */
+  .login.add {
+    transform: scale(0.2) translateX(-300px); /* Transition out */
+  }
+  
+
 
 .signup .line-cont {
     width: 90%;

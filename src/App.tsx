@@ -66,8 +66,8 @@ function App() {
 <Route path={'/Projects'} element={<Projects />} />
 <Route path={'/Experiance'} element={<Work />} />
 <Route path={'/Blog'} element={<Blog setSelectedPost={setSelectedPost} />} />
-<Route path={'Blog/user_profile'} element={ <Login /> } />
-<Route path={'Blog/register'} element={ <Register /> } />
+{/* <Route path={'Blog/user_profile'} element={ <Login /> } />
+<Route path={'Blog/register'} element={ <Register setSignUp={Function} signUp={null} /> } /> */}
 
 <Route path={'/Blog/:id'} element={<Post selectedPost={selectedPost} />} />
 

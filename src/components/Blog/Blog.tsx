@@ -96,6 +96,8 @@ const Blog = ({setSelectedPost}:Props2) =>{
 
     // const user = localstorage.getitem()
 
+    const [signUp, setSignUp] = useState<boolean | null>(false);
+
     return (
         <section className="Blog-container">
 
@@ -117,7 +119,15 @@ const Blog = ({setSelectedPost}:Props2) =>{
 
 
 {/* <NewPost /> */}
-<Register />
+{/* <Register /> */}
+
+{
+  signUp && <Register setSignUp={setSignUp} />
+}
+{
+  !signUp && <Login setSignUp={setSignUp} />
+
+}
 {/* <Login /> */}
 
 <Post />
