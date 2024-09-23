@@ -71,19 +71,23 @@ const Login = ({setSignUp}: Props) => {
     }
 
     const signUp = () => {
+
+
       const loginElement = document.querySelector('.login');
-      const signupElement = document.querySelector('.signup');
     
       if (loginElement) {
         loginElement.classList.add('add');
       }
     
-      setTimeout(() => {
+      setTimeout(() => {      
+        
+        setSignUp(true);
+      const signupElement = document.querySelector('.signup');
+
         if (signupElement) {
           signupElement.classList.add('add');
         }
     
-        setSignUp(true);
       }, 600); 
     };
     
