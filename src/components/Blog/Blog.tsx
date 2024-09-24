@@ -6,8 +6,9 @@ import './Blog.css';
 import NewPost from "./CreatNewPost/NewPost";
 import Post from "./Posts/AboutProject";
 import Posts from "./Posts/Posts";
-import Login from "./author/Login";
 import Register from "./author/Register";
+
+import Author from "./author/Author";
 
 interface Props{
     name: string;
@@ -31,6 +32,7 @@ const Blog = ({setSelectedPost}:Props2) =>{
 
   const navigate = useNavigate();
 
+  const [authorised, setAusorised] = useState<boolean>(false) 
 
   const [posts, setPosts] = useState<BlogPost[]>([]);
 
@@ -125,9 +127,13 @@ const Blog = ({setSelectedPost}:Props2) =>{
   signUp && <Register setSignUp={setSignUp} />
 }
 {
-  !signUp && <Login setSignUp={setSignUp} />
+  // !signUp && <Login  />
 
 }
+
+<Author authorised={authorised} setAusorised={setAusorised}  />
+
+
 {/* <Login /> */}
 
 <Post />
