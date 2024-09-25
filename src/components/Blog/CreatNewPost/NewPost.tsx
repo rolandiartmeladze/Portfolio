@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from "react";
+import styled from "styled-components";
 import "./NewPost.css";
+
+import create from "./create";
+
+
 
 interface Post {
   post_id: number;
@@ -25,6 +30,33 @@ interface Comment {
   comment: string;
   created_at: string;
 }
+
+
+interface FormProps {
+  animation: boolean;
+}
+
+  const Form = styled.form<FormProps>`
+  
+    width: 38%;
+    max-width: 350px;
+    height: auto;
+    background: initial;
+    margin-top: 25px;
+    margin-left: 12px;
+    margin-right: 11px;
+    backdrop-filter: blur(3px);
+    box-shadow: 0px 0px 150px rgb(255, 255, 255, 0.1) inset,  0px 0px 3px rgb(0, 255, 255);
+    border-radius: 10px;
+    padding: 4px;
+  transition: transform 0.5s ease-in-out;  
+
+  display: ${(props) => (props.animation ? 'block' : 'none')};
+  transform: ${(props) => (props.animation ? 'scale(1) translateX(0px)' : 'scale(0) translateX(-300px)')};
+
+
+  `;
+
 
 const NewPost = () => {
   // const [posts, setPosts] = useState<any[] | null>(null);
@@ -63,6 +95,7 @@ const NewPost = () => {
 
 
   const [newPost, setNewPost] = useState({
+    author: "1",
     title: "",
     post: "",
     owner: "",
@@ -74,6 +107,9 @@ const NewPost = () => {
     name: "",
     comment: "",
   });
+
+
+  const [animation, setAnimation] = useState(false)
 
   const fetchPosts = async () => {
     try {
@@ -89,6 +125,10 @@ const NewPost = () => {
     fetchPosts();
   }, []);
 
+
+
+
+  
   const handleSubmit = async (e: any) => {
     e.preventDefault();
 
@@ -102,8 +142,8 @@ const NewPost = () => {
       });
 
       if (response.ok) {
-        setNewPost({ title: "", post: "", owner: "", name: "", email: "" });
-        fetchPosts(); // Refresh the list of posts
+        setNewPost({ title: "", post: "", owner: "", name: "", email: "", author: "" });
+        fetchPosts(); 
       } else {
         console.error("Error creating post:", response.statusText);
       }
@@ -133,8 +173,20 @@ const NewPost = () => {
     }
   };
 
-  return (<>
-      <form id="postform" className="add-post" onSubmit={handleSubmit}>
+  useEffect(()=>{
+    setTimeout(() => {
+         setAnimation(true);
+    }, 500);
+  },[])
+
+
+  const createPost = async ()=>{
+   return await create(newPost)
+  } ;
+
+  return (
+  <>
+      <Form animation={animation} id="postform" className="add-post" onSubmit={handleSubmit}>
       <h3>Add New Post</h3>
 
       <div className="line-cont">
@@ -240,9 +292,12 @@ const NewPost = () => {
       </div>
 
       <div className="btn-cont">
-        <button onClick={handleSubmit}>Add Post</button>
+        <button 
+        onClick={createPost}
+        // onClick={handleSubmit}
+        >Add Post</button>
       </div>
-    </form>
+    </Form>
 
   </>
   );

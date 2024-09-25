@@ -59,6 +59,7 @@ const Blog = ({setSelectedPost}:Props2) =>{
     // const link = 'https://mica-soft-makeup.glitch.me';
     
     const LogOut = async () => {
+      setAusorised(false)
       try {
           const token = localStorage.getItem('accessToken'); 
   
@@ -100,6 +101,9 @@ const Blog = ({setSelectedPost}:Props2) =>{
 
     const [signUp, setSignUp] = useState<boolean | null>(false);
 
+
+    const user = JSON.parse(localStorage.getItem('user') || '{}');
+
     return (
         <section className="Blog-container">
 
@@ -112,26 +116,22 @@ const Blog = ({setSelectedPost}:Props2) =>{
 
 <div className="info-cont">
   {/* <img className="profile-avatar" src={`https://avatars.githubusercontent.com/u/13499054?v=4`} alt="" />
-    <h2 style={{transform: 'scale(1)'}}>{'Roland Artmeladze'}</h2> */}
-    <samp onClick={LogOut}>Log Out</samp>
+     */}
+<h2 style={{transform: 'scale(1)'}}>{user?.firstname} {user?.lastname}</h2>
+
+    <samp style={{cursor: 'pointer', padding: '6px', margin: '4px', boxShadow: ' 0.4px  0.2px  0.4px 0.2px yellow', borderBottomRightRadius: '4px'}} onClick={LogOut}>Log Out</samp>
     </div>
    
  </div>
 <div style={{display: 'flex', width: '100%', maxHeight: 'auto', alignItems: 'flex-start'}}>
 
 
-{/* <NewPost /> */}
 {/* <Register /> */}
 
-{
-  signUp && <Register setSignUp={setSignUp} />
-}
-{
-  // !signUp && <Login  />
+      { signUp && <Register setSignUp={setSignUp} /> }
+      { authorised &&   <NewPost /> }
+      <Author authorised={authorised} setAusorised={setAusorised}  />
 
-}
-
-<Author authorised={authorised} setAusorised={setAusorised}  />
 
 
 {/* <Login /> */}

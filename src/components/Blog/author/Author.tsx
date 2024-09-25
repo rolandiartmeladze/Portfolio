@@ -15,12 +15,15 @@ interface Props {
     setAusorised: Function;
 }
 
-const Form = styled.form`
-  display: flex;
+interface FormProps {
+  authorised: boolean;
+}
+const Form = styled.form<FormProps>`
+  display: ${(props) => (props.authorised ? 'none' : 'flex')};
   width: 38%;
   max-width: 320px;
   height: auto;
-  background: initial;
+  background: initial
   margin-top: 25px;
   margin-left: 12px;
   margin-right: 11px;
@@ -31,12 +34,15 @@ const Form = styled.form`
   padding: 12px;
   flex-direction: column;
   align-items: center;
+  transform: ${(props) => (props.authorised ? 'scale(0) translateX(-300px)' : 'none')};
+  transition: transform 0.5s ease-in-out;  
+
 `;
 
 const Author = ({authorised, setAusorised}:Props) => {
   const [username, setUsername] = useState<string>('');
   const [password, setPassword] = useState<string>('');
-  const [loginStatus, setLoginStatus] = useState<string>(''); // State to track login status
+  const [loginStatus, setLoginStatus] = useState<string>(''); 
 
   const handleLogin = async () => {
     const userCredentials = {
@@ -49,6 +55,7 @@ const Author = ({authorised, setAusorised}:Props) => {
       
       if (loginResult) {
         setLoginStatus("Login successful!"); 
+      
         setAusorised(true);
       } else {
       }
@@ -59,7 +66,7 @@ const Author = ({authorised, setAusorised}:Props) => {
   };
 
   return (
-    <Form className="form login">
+    <Form authorised={authorised} className="form login">
       <h2>Login Form</h2>
 
       <div className="line-cont">

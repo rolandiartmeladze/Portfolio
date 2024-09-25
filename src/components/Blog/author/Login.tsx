@@ -7,11 +7,24 @@ const Login = async (User: any) => {
       },
       body: JSON.stringify(User),
       credentials: "include",
-    });
+      });
 
     if (response.ok) {
       const data = await response.json();
       console.log(data);
+
+      const user = {
+        email: data.email,
+        lastname: data.lastname,
+        firstname: data.firstname,
+        username: data.username,
+
+      }
+
+      localStorage.setItem("accessToken", data.access);
+      localStorage.setItem("refreshToken", data.refresh);
+      localStorage.setItem("user", JSON.stringify(user));
+      
       return true; 
     } else {
       return false; 
