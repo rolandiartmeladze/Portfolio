@@ -18,6 +18,14 @@ interface Props {
 interface FormProps {
   authorised: boolean;
 }
+
+
+interface LoadProps{
+  loading: boolean;
+}
+
+
+
 const Form = styled.form<FormProps>`
   display: ${(props) => (props.authorised ? 'none' : 'flex')};
   width: 38%;
@@ -39,12 +47,40 @@ const Form = styled.form<FormProps>`
 
 `;
 
+
+const Loading = styled.div<LoadProps>`
+    border-radius: 10px;
+    width: 90%;
+    height: 92%;
+    margin: auto;
+    z-index: 8;
+    background: initial;
+    color: red;
+    backdrop-filter: blur(2px);
+    position: absolute;
+    /* top: 0; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    font-weight: 800;
+    `;
+
+
 const Author = ({authorised, setAusorised}:Props) => {
+
+  const [loading, setLoading] = useState<boolean>(false);
+
+
+
   const [username, setUsername] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [loginStatus, setLoginStatus] = useState<string>(''); 
 
   const handleLogin = async () => {
+
+    setLoading(true);
+
     const userCredentials = {
       username: username,
       password: password,
@@ -57,6 +93,7 @@ const Author = ({authorised, setAusorised}:Props) => {
         setLoginStatus("Login successful!"); 
       
         setAusorised(true);
+        setLoading(false);
       } else {
       }
     } catch (error) {
@@ -68,6 +105,14 @@ const Author = ({authorised, setAusorised}:Props) => {
   return (
     <Form authorised={authorised} className="form login">
       <h2>Login Form</h2>
+
+
+{loading && 
+<Loading loading={loading} > 
+  Loading...
+</Loading>
+}
+
 
       <div className="line-cont">
         <RxAvatar />

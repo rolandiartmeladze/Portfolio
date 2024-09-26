@@ -58,6 +58,9 @@ interface FormProps {
   `;
 
 
+
+
+
 const NewPost = () => {
   // const [posts, setPosts] = useState<any[] | null>(null);
 
@@ -186,7 +189,7 @@ const NewPost = () => {
 
   return (
   <>
-      <Form animation={animation} id="postform" className="add-post" onSubmit={handleSubmit}>
+      <Form animation={animation} id="postform" className="add-post">
       <h3>Add New Post</h3>
 
       <div className="line-cont">
