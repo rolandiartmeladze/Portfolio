@@ -1,4 +1,5 @@
 const Login = async (User: any) => {
+  console.log(User);
   try {
     const response = await fetch("http://127.0.0.1:8000/api/login/", {
       method: "POST",

@@ -7,6 +7,7 @@ import { FaRepeat } from "react-icons/fa6";
 import { IoTextSharp } from 'react-icons/io5';
 import { MdEmail } from 'react-icons/md';
 import './style.css';
+import LoginWith from './LoginWith';
 // import jwtDecode from 'jwt-decode'; 
 
 interface UserProps {
@@ -20,7 +21,7 @@ interface Props {
   setSignUp: Function;
 }
 
-const Register = ({setSignUp }:Props) => {
+const Register = () => {
   // Using useRef to create references for inputs
   const usernameRef = useRef<HTMLInputElement>(null);
   const firstnameRef = useRef<HTMLInputElement>(null);
@@ -124,14 +125,14 @@ const Register = ({setSignUp }:Props) => {
           if (loginelement) {
       loginelement.classList.add('add');
     }
-      setSignUp(false);
+      // setSignUp(false);
     }, 600);
 
  }
 
 
   return (
-    <form id="postform" className="form signup">
+<>
       <h2>Register Form</h2>
       <SignUpForm />
       <div className="btn-cont">
@@ -140,12 +141,9 @@ const Register = ({setSignUp }:Props) => {
 
       </div>
       <div className="auth">
-        <h3>Login With:</h3>
-        <FaFacebook />
-        <FcGoogle />
-        <FaGithub />
+       <LoginWith />
       </div>
-    </form>
+</>    
   );
 };
 

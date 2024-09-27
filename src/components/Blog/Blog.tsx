@@ -32,11 +32,19 @@ const Blog = ({setSelectedPost}:Props2) =>{
 
   const navigate = useNavigate();
 
-  const [authorised, setAusorised] = useState<boolean>(false) 
+  const [authorised, setAuthorised] = useState<boolean>(false) 
+
+  
 
   const [posts, setPosts] = useState<BlogPost[]>([]);
 
+
   useEffect(() => {
+
+    // const token = localStorage.getItem('accessToken');
+    // token && setAuthorised(true);
+
+
     const getPosts = async () => {
       const posts = await fetchPosts();
       setPosts(posts);
@@ -59,32 +67,37 @@ const Blog = ({setSelectedPost}:Props2) =>{
     // const link = 'https://mica-soft-makeup.glitch.me';
     
     const LogOut = async () => {
-      setAusorised(false)
       try {
-          const token = localStorage.getItem('accessToken'); 
-  
-          const logoutResponse = await fetch("http://127.0.0.1:8000/api/logout/", {
-              method: "POST",
-              headers: {
-                  "Content-Type": "application/json",
-                  "Authorization": `Token ${token}`, 
-              },
-          });
-  
-          if (logoutResponse.ok) {
-              // Handle successful logout
-              localStorage.removeItem('accessToken');
-              localStorage.removeItem('refreshToken');
-              navigate('./logout'); // Redirect or handle logout success
-          } else {
-              const errorData = await logoutResponse.json();
-              console.error('Logout failed:', errorData);
-          }
+        const token = localStorage.getItem('accessToken'); 
+      
+        if (!token) {
+          console.error('No token found, cannot log out.');
+          return;
+        }
+    
+        const logoutResponse = await fetch("http://127.0.0.1:8000/api/logout/", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Token ${token}`, // or Bearer if using JWT
+          },
+        });
+    
+        if (logoutResponse.ok) {
+          localStorage.removeItem('accessToken');
+          localStorage.removeItem('refreshToken');
+          localStorage.removeItem('user');
+          setAuthorised(false);  
+          navigate('/logout');  
+        } else {
+          const errorData = await logoutResponse.json();
+          console.error('Logout failed:', errorData);
+        }
       } catch (error) {
-          console.error({ message: error });
+        console.error('An error occurred during logout:', error);
       }
-  };
-        
+    };
+            
 
     // useEffect(() => { 
     //     fetch(`${link}/api/profile`)
@@ -119,7 +132,11 @@ const Blog = ({setSelectedPost}:Props2) =>{
      */}
 <h2 style={{transform: 'scale(1)'}}>{user?.firstname} {user?.lastname}</h2>
 
-    <samp style={{cursor: 'pointer', padding: '6px', margin: '4px', boxShadow: ' 0.4px  0.2px  0.4px 0.2px yellow', borderBottomRightRadius: '4px'}} onClick={LogOut}>Log Out</samp>
+  {authorised && 
+      <samp style={{cursor: 'pointer', padding: '6px', margin: '4px', boxShadow: ' 0.4px  0.2px  0.4px 0.2px yellow', borderBottomRightRadius: '4px'}} onClick={LogOut}>Log Out</samp>
+
+  }
+  
     </div>
    
  </div>
@@ -128,9 +145,8 @@ const Blog = ({setSelectedPost}:Props2) =>{
 
 {/* <Register /> */}
 
-      { signUp && <Register setSignUp={setSignUp} /> }
       { authorised &&   <NewPost /> }
-      <Author authorised={authorised} setAusorised={setAusorised}  />
+      <Author authorised={authorised} setAuthorised={setAuthorised}  />
 
 
 
