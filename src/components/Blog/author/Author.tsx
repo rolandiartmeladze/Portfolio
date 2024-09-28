@@ -115,7 +115,7 @@ const Author = ({ authorised, setAuthorised }: Props) => {
     <>
       {!authorised && !login ? (
         <Form  authorised={authorised} className="form signup">
-          <Register />
+          <Register setLogin={setLogin} />
         </Form>
       ) : (
         <Form authorised={authorised} className="form login">

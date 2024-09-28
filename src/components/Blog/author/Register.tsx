@@ -18,10 +18,10 @@ interface UserProps {
 }
 
 interface Props {
-  setSignUp: Function;
+  setLogin: Function;
 }
 
-const Register = () => {
+const Register = ({ setLogin }: Props) => {
   // Using useRef to create references for inputs
   const usernameRef = useRef<HTMLInputElement>(null);
   const firstnameRef = useRef<HTMLInputElement>(null);
@@ -115,18 +115,20 @@ const Register = () => {
 
   const login = () =>{
 
-    const loginelement = document.querySelector('.login');
-    const element = document.querySelector('.signup');
-    if (element) {
-      element.classList.remove('add');
-    }
+    // const loginelement = document.querySelector('.login');
+    // const element = document.querySelector('.signup');
+    // if (element) {
+    //   element.classList.remove('add');
+    // }
 
-    setTimeout(() => {
-          if (loginelement) {
-      loginelement.classList.add('add');
-    }
-      // setSignUp(false);
-    }, 600);
+    // setTimeout(() => {
+    //       if (loginelement) {
+    //   loginelement.classList.add('add');
+    // }
+    //   // setSignUp(false);
+    // }, 600);
+
+setLogin(true);
 
  }
 

@@ -6,9 +6,10 @@ import './Blog.css';
 import NewPost from "./CreatNewPost/NewPost";
 import Post from "./Posts/AboutProject";
 import Posts from "./Posts/Posts";
-import Register from "./author/Register";
 
 import Author from "./author/Author";
+
+import LogOut from "./author/LogOut";
 
 interface Props{
     name: string;
@@ -41,8 +42,8 @@ const Blog = ({setSelectedPost}:Props2) =>{
 
   useEffect(() => {
 
-    // const token = localStorage.getItem('accessToken');
-    // token && setAuthorised(true);
+    const token = localStorage.getItem('accessToken');
+    token && setAuthorised(true);
 
 
     const getPosts = async () => {
@@ -65,38 +66,6 @@ const Blog = ({setSelectedPost}:Props2) =>{
     // }, []);
 
     // const link = 'https://mica-soft-makeup.glitch.me';
-    
-    const LogOut = async () => {
-      try {
-        const token = localStorage.getItem('accessToken'); 
-      
-        if (!token) {
-          console.error('No token found, cannot log out.');
-          return;
-        }
-    
-        const logoutResponse = await fetch("http://127.0.0.1:8000/api/logout/", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Token ${token}`, // or Bearer if using JWT
-          },
-        });
-    
-        if (logoutResponse.ok) {
-          localStorage.removeItem('accessToken');
-          localStorage.removeItem('refreshToken');
-          localStorage.removeItem('user');
-          setAuthorised(false);  
-          navigate('/logout');  
-        } else {
-          const errorData = await logoutResponse.json();
-          console.error('Logout failed:', errorData);
-        }
-      } catch (error) {
-        console.error('An error occurred during logout:', error);
-      }
-    };
             
 
     // useEffect(() => { 
@@ -130,11 +99,14 @@ const Blog = ({setSelectedPost}:Props2) =>{
 <div className="info-cont">
   {/* <img className="profile-avatar" src={`https://avatars.githubusercontent.com/u/13499054?v=4`} alt="" />
      */}
-<h2 style={{transform: 'scale(1)'}}>{user?.firstname} {user?.lastname}</h2>
+     { authorised && <>
+     <h2 style={{transform: 'scale(1)', boxShadow: '0  0.5px  0.4px 0px yellow', color: 'yellow', margin: '3px 12px', padding: '2px 6px'}}>{user?.firstname} {user?.lastname}</h2>
 
-  {authorised && 
-      <samp style={{cursor: 'pointer', padding: '6px', margin: '4px', boxShadow: ' 0.4px  0.2px  0.4px 0.2px yellow', borderBottomRightRadius: '4px'}} onClick={LogOut}>Log Out</samp>
+   
+      <samp style={{cursor: 'pointer', padding: '6px', margin: '4px', boxShadow: ' 0.4px  0.2px  0.4px 0.2px yellow', borderBottomRightRadius: '4px'}} 
+      onClick={()=>{LogOut()}}>Log Out</samp>
 
+     </>
   }
   
     </div>
