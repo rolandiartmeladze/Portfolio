@@ -1,10 +1,16 @@
-import React from "react";
+// import React from "react";
 
     
 const LogOut = async () => {
     try {
       const token = localStorage.getItem('accessToken'); 
     
+
+      localStorage.removeItem('accessToken');
+      localStorage.removeItem('refreshToken');
+      localStorage.removeItem('user');
+
+
       if (!token) {
         console.error('No token found, cannot log out.');
         return;
