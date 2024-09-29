@@ -96,9 +96,11 @@ const NewPost = () => {
 
   const [posts, setPosts] = useState([]);
 
-
+  const storedUser = localStorage.getItem('user');
+  const user = storedUser ? JSON.parse(storedUser) : null;
+  
   const [newPost, setNewPost] = useState({
-    author: "1",
+    author: user?.id,
     title: "",
     post: "",
     owner: "",
