@@ -38,8 +38,8 @@ interface FormProps {
 
   const Form = styled.form<FormProps>`
   
-    width: 38%;
-    max-width: 350px;
+    width: 85%;
+    // max-width: 350px;
     height: auto;
     background: initial;
     margin-top: 25px;
@@ -103,9 +103,9 @@ const NewPost = () => {
     author: user?.id,
     title: "",
     post: "",
-    owner: "",
+    owner: `${user?.firstname} ${user?.lastname}`,
     name: "",
-    email: "",
+    email: user?.email,
   });
   const [newComment, setNewComment] = useState({
     post: 0,
@@ -189,31 +189,17 @@ const NewPost = () => {
    return await create(newPost)
   } ;
 
+
+
+
   return (
   <>
       <Form animation={animation} id="postform" className="add-post">
       <h3>Add New Post</h3>
 
       <div className="line-cont">
-        <label htmlFor="owner">You Name:</label>
-        <input
-          id="owner"
-          onChange={(e) => setNewPost({ ...newPost, owner: e.target.value })}
-          value={newPost.owner}
-          type="text"
-          placeholder="Name"
-        />
-      </div>
-
-      <div className="line-cont">
-        <label htmlFor="email">You Email:</label>{" "}
-        <input
-          id="email"
-          onChange={(e) => setNewPost({ ...newPost, email: e.target.value })}
-          value={newPost.email}
-          type="email"
-          placeholder="Email"
-        />
+        <label htmlFor="owner">Author:{user?.firstname} {user?.lastname}</label>        
+        <label htmlFor="email">Email:{user?.email}</label>{" "}
       </div>
 
       <div className="line-cont">

@@ -1169,3 +1169,175 @@ Vary: Accept
 Media type:
 application/json
 Content:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+LogOut.tsx:16 
+ POST http://127.0.0.1:8000/api/token/verify/ 401 (Unauthorized)
+LogOut	@	LogOut.tsx:16
+onClick	@	Blog.tsx:107
+Show 15 more frames
+LogOut.tsx:29 Access token is invalid or expired. Trying to refresh...
+LogOut.tsx:49 
+ POST http://127.0.0.1:8000/api/logout/ 500 (Internal Server Error)
+LogOut	@	LogOut.tsx:49
+await in LogOut		
+onClick	@	Blog.tsx:107
+Show 15 more frames
+LogOut.tsx:70 Logout failed: 
+{error: 'Token is blacklisted'}
+error
+: 
+"Token is blacklisted"
+[[Prototype]]
+: 
+Object
+LogOut	@	LogOut.tsx:70
+await in LogOut		
+onClick	@	Blog.tsx:107
+Show 16 more frames
+﻿
+
+  => const LogOut = async () => {
+  try {
+    let accessToken: string | null = localStorage.getItem('accessToken');
+    let refreshToken = localStorage.getItem('refreshToken');
+
+    // Check if the access token is expired or invalid
+    // const tokenResponse = await fetch('http://127.0.0.1:8000/api/token/verify/', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    //   body: JSON.stringify({ token: accessToken })
+    // });
+
+
+    const tokenResponse = await fetch('http://127.0.0.1:8000/api/token/verify/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ token: accessToken })
+    });
+
+    
+    const tokenData = await tokenResponse.json();
+
+    // If token is not valid, refresh it
+    if (tokenResponse.status === 401 || tokenData.code === 'token_not_valid') {
+      console.log('Access token is invalid or expired. Trying to refresh...');
+      const refreshResponse = await fetch('http://127.0.0.1:8000/api/token/refresh/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ refresh: refreshToken })
+      });
+
+      const refreshData = await refreshResponse.json();
+
+      if (refreshResponse.ok) {
+        accessToken = refreshData?.access;  
+      } else {
+        console.error('Failed to refresh token:', refreshData);
+        return;  
+      }
+    }
+
+    // Now make the logout request with the valid access token
+    const response = await fetch('http://127.0.0.1:8000/api/logout/', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${accessToken}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        refresh: refreshToken  // Send refresh token in body
+      })
+    });
+
+    if (response.ok) {
+      console.log('Logout success');
+
+      // Clear tokens from localStorage
+      localStorage.removeItem('accessToken');
+      localStorage.removeItem('refreshToken');
+      localStorage.removeItem('user');
+      window.location.reload();  // Reload the page or redirect user
+    } else {
+      const errorData = await response.json();
+      console.error('Logout failed:', errorData);
+    }
+  } catch (error) {
+    console.error('Logout error:', error);
+  }
+};
+
+
+export default LogOut;
+ ==>   [29/Sep/2024 21:20:10] "OPTIONS /api/token/verify/ HTTP/1.1" 200 0
+Unauthorized: /api/token/verify/
+[29/Sep/2024 21:20:10] "POST /api/token/verify/ HTTP/1.1" 401 65
+[29/Sep/2024 21:20:10] "OPTIONS /api/token/refresh/ HTTP/1.1" 200 0
+[29/Sep/2024 21:20:10] "POST /api/token/refresh/ HTTP/1.1" 200 483
+[29/Sep/2024 21:20:10] "OPTIONS /api/logout/ HTTP/1.1" 200 0
+Internal Server Error: /api/logout/
+[29/Sep/2024 21:20:10] "POST /api/logout/ HTTP/1.1" 500 32  => accessToken	eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI3NTk5ODA0LCJpYXQiOjE3Mjc1OTk1MDQsImp0aSI6ImY5NzJmNWQyZmQ1NDRhYjNiOGFiY2YwMjNlYjk4OTJhIiwidXNlcl9pZCI6MX0.6qrU8e4rwEGBMEz4iwZxnETIab-DdXYqztVAIvr4hlM	
+refreshToken	eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcyNzY4NTkwNCwiaWF0IjoxNzI3NTk5NTA0LCJqdGkiOiJkMzNlZjMwYjg2Njg0MjM4OWRkMTg1NmQyYzQ3ZGRmNCIsInVzZXJfaWQiOjF9.405uE-QBypf6GuBzOi6GMwGAYpgEnZ9fhV8WAJavqNc	

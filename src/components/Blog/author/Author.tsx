@@ -25,7 +25,7 @@ interface LoadProps {
 
 const Form = styled.form<FormProps>`
   display: ${(props) => (props.authorised ? "none" : "flex")};
-  width: 38%;
+  width: 100%;
   max-width: 320px;
   height: auto;
   background: initial

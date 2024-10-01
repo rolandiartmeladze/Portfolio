@@ -112,19 +112,24 @@ const Blog = ({setSelectedPost}:Props2) =>{
     </div>
    
  </div>
-<div style={{display: 'flex', width: '100%', maxHeight: 'auto', alignItems: 'flex-start'}}>
-
-
-{/* <Register /> */}
-
-      { authorised &&   <NewPost /> }
-      <Author authorised={authorised} setAuthorised={setAuthorised}  />
-
-
-
-{/* <Login /> */}
-
-<Post />
+ <div
+  style={{
+    display: 'grid',
+    width: '100%',
+    maxHeight: 'auto',
+    gridTemplateColumns: authorised ?  'none' : '30% 70%', 
+    gridTemplateRows: authorised ?  'auto' : 'none', 
+    gap: '20px',
+    alignItems: 'flex-start',
+  }}
+>
+  {authorised && (
+      <NewPost />
+  )}
+  
+    <Author authorised={authorised} setAuthorised={setAuthorised} />
+  
+    <Post />
 </div>
 
 <Posts setSelectedPost={setSelectedPost} />

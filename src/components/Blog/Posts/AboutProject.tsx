@@ -76,7 +76,7 @@ const navigate = useNavigate();
 
 
     return(
-<div className="post-container">
+<div style={{width: '85%'}} className="post-container">
     <div className="info-line">
         <h3>
             <RxAvatar /> {'Roland Artmeladze'}

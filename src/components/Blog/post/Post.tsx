@@ -64,7 +64,7 @@ const PostComponent: React.FC<{ selectedPost: number }> = ({ selectedPost }) => 
      
   return (
 
-    <section className="Blog-container">
+    <section style={{width: '100%'}} className="Blog-container">
 
       <h4 onClick={()=>{
 navigate('/Blog')
