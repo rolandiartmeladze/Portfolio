@@ -35,5 +35,3 @@ This project is a personal portfolio and blog application built with **React** a
 - **Django REST Framework**: Install using `pip install djangorestframework`
 
 ### Frontend Setup
-
-_____________ ...
