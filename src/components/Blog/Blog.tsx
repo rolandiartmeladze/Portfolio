@@ -1,5 +1,10 @@
+
+// add initai commit  => optimise code structure / optimise style with react styled component 
+
 import React, {useState, useEffect} from "react";
 import { fetchPosts } from '../../api';
+
+
 import { useNavigate } from "react-router-dom";
 
 import './Blog.css';
