@@ -4,7 +4,10 @@ import "./NewPost.css";
 
 import create from "./create";
 
-
+import { FaUserCircle } from "react-icons/fa";
+import { MdAccessTimeFilled } from "react-icons/md";
+import { MdEmail } from "react-icons/md";
+import { MdCategory } from "react-icons/md";
 
 interface Post {
   post_id: number;
@@ -38,13 +41,11 @@ interface FormProps {
 
   const Form = styled.form<FormProps>`
   
-    width: 85%;
-    // max-width: 350px;
+    width: 65%;
     height: auto;
     background: initial;
-    margin-top: 25px;
-    margin-left: 12px;
-    margin-right: 11px;
+    margin: auto;
+    margin-left: 25px;
     backdrop-filter: blur(3px);
     box-shadow: 0px 0px 150px rgb(255, 255, 255, 0.1) inset,  0px 0px 3px rgb(0, 255, 255);
     border-radius: 10px;
@@ -59,41 +60,30 @@ interface FormProps {
 
 
 
+  const HeaderLine = styled.div`
+
+  margin: 5px;
+    gap: 10px;
+    display: flex;
+    color: white;
+
+    
+    div {
+    gap:3px;
+    display: flex;
+
+    select{
+    background: none;
+    border: none;
+    color: white;
+
+    }
+    }
+
+`;
 
 
 const NewPost = () => {
-  // const [posts, setPosts] = useState<any[] | null>(null);
-
-  // const [text, setText] = useState<string>('');
-  // const [name, setName] = useState<string>('');
-  // const [email, setEmail] = useState<string>('');
-  // const [title, setTitle] = useState<string>('');
-
-  // const [category, setCategory] = useState<string>('ALL');
-
-  //     const DataTransfer = {
-  //         Now: () => {
-  //           const now = new Date();
-  //           const hours = now.getHours().toString().padStart(2, '0');
-  //           const minutes = now.getMinutes().toString().padStart(2, '0');
-  //         //   const seconds = now.getSeconds().toString().padStart(2, '0');
-  //           const year = now.getFullYear();
-  //           const month = (now.getMonth() + 1).toString().padStart(2, '0'); // Months are zero-based
-  //           const day = now.getDate().toString().padStart(2, '0');
-  //           return `${year}-${month}-${day} ${hours}:${minutes}`;
-  //         }
-  //       };
-
-  //       const [currentTime, setCurrentTime] = useState(DataTransfer.Now());
-
-  //   useEffect(() => {
-  //     const timer = setInterval(() => {
-  //       setCurrentTime(DataTransfer.Now());
-  //     }, 1000);
-
-  //     return () => clearInterval(timer);
-  //   }, []);
-
   const [posts, setPosts] = useState([]);
 
   const storedUser = localStorage.getItem('user');
@@ -191,47 +181,24 @@ const NewPost = () => {
 
 
 
+  const SiNow = () => {
+    const now = new Date();
+    return now.toLocaleTimeString();
+  };
 
   return (
   <>
       <Form animation={animation} id="postform" className="add-post">
-      <h3>Add New Post</h3>
+      {/* <h3>Add New Post</h3> */}
 
-      <div className="line-cont">
-        <label htmlFor="owner">Author:{user?.firstname} {user?.lastname}</label>        
-        <label htmlFor="email">Email:{user?.email}</label>{" "}
-      </div>
-
-      <div className="line-cont">
-        <label htmlFor="title">Post Title:</label>{" "}
-        <input
-          id="title"
-          value={newPost.title}
-          onChange={(e) => setNewPost({ ...newPost, title: e.target.value })}
-          type="text"
-          placeholder="Title"
-        />
-      </div>
-
-      <div
-        style={{
-          width: "100%",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "flex-start",
-        }}
-        className="line-cont"
-      >
-        <div style={{ display: "flex" }}>
-          <label htmlFor="category">Select Category:</label>{" "}
-          <label> {newPost.name}</label>
-        </div>
-
-        <div style={{ width: "100%" }}>
-          <select
+      <HeaderLine>
+        <div><FaUserCircle /> {user?.firstname} {user?.lastname} </div>
+        <div><MdEmail />{user?.email} </div>
+        <div><MdAccessTimeFilled /> {SiNow()} </div>
+        <div><MdCategory /> 
+        <select
             onChange={(e) => setNewPost({ ...newPost, name: e.target.value })}
             value={newPost.name}
-            className="select-category"
             name="Category"
             id="category"
           >
@@ -242,30 +209,30 @@ const NewPost = () => {
             <option value="Feedback">Feedback</option>
             <option value="Tag a user">Tag user</option>
           </select>
+
         </div>
-      </div>
+      </HeaderLine>
+
+        <label htmlFor="title">Post Title:</label>{" "}
+        <input
+          id="title"
+          value={newPost.title}
+          onChange={(e) => setNewPost({ ...newPost, title: e.target.value })}
+          type="text"
+          placeholder="Title"
+        />
 
       <div
         style={{
+          width: "100%",
           display: "flex",
-          justifyContent: "center",
-          textDecoration: "underline",
+          flexDirection: "column",
+          alignItems: "flex-start",
         }}
         className="line-cont"
       >
-        <label style={{ width: "auto", flexGrow: "0" }} htmlFor="">
-          Srt Pin:
-        </label>{" "}
-        <input
-          style={{
-            width: "auto",
-            flexGrow: "0",
-            boxShadow: "none",
-            cursor: "pointer",
-          }}
-          type="checkBox"
-        />
       </div>
+
 
       <div className="line-cont write-post">
         <label style={{ flexGrow: "0" }} htmlFor="postInput">
