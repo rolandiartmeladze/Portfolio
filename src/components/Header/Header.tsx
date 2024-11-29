@@ -1,10 +1,16 @@
 import React from "react";
-import './Header.css';
+// import './Header.css';
 import { Link } from "react-router-dom";
 
-import { FaLinkedin, FaPhoneSquareAlt } from "react-icons/fa";
-import { MdEmail } from "react-icons/md";
+// import { FaLinkedin, FaPhoneSquareAlt } from "react-icons/fa";
+// import { MdEmail } from "react-icons/md";
+// import { BiLabel } from "react-icons/bi";
 
+const contact = [
+    {href: "Rartmeladz@gmail.com", label: "Rartmeladz@gmail.com", label2: "Write Email", icon: "MdEmail"},
+    {href: "(+995) 595 03-56-68", label: "(+995) 595 03-56-68", label2: "Call Now", icon: "FaPhoneSquareAlt"},
+    {href: "https://www.linkedin.com/in/roland-a-96240487", label: "Roland Artmeladze", label2: "Show Profile", icon: "FaLinkedin"},
+]
 
 const Header = () => {
 
@@ -12,15 +18,20 @@ const Header = () => {
     
     return (
 
-        <nav>
-            <ul>
-            <a href="mailto: rartmeladze@gmail.com"> <MdEmail /><li>{mobile? 'Write Email' : 'Rartmeladz@gmail.com'}</li></a>
-            <a href="tel: +995595035668"> <FaPhoneSquareAlt /><li>{mobile? 'Call Now' : '(+995) 595 03-56-68'}</li> </a>
-            <a href="https://www.linkedin.com/in/roland-a-96240487"> <FaLinkedin /><li>{mobile? 'Show Profile' : 'Roland Artmeladze'}</li></a>
+        <nav className="flex w-full flex-row justify-between py-2.5 px-10">
+            <ul className="flex flex-row gap-2.5">
+                {
+                    contact.map((item, index) =>(
+                        <li key={index} className="text-pink-50" >
+                        <Link to={item.href}> {item.label} </Link>
+
+                        </li>
+                    ))
+                }
             </ul>
             
 
-       <Link to={'/Blog'}> <samp className="Blog-Btn"> Blog </samp></Link>
+       <Link to={'/Blog'}> <samp className="text-yellow-50 bg-stone-400 py-2 px-4 rounded-md"> Blog </samp></Link>
 
         </nav>
     );
