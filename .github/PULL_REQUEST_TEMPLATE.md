@@ -1,35 +1,28 @@
-# Pull Request Template for My Portfolio
+## 🔥 Description
+Provide a brief description of the changes introduced in this PR.  
 
-## Description
+## 🛠 Changes Made
+- [ ] ✨ New feature (adds functionality)
+- [ ]  🐛 Bug fix (fixes an issue)
+- [ ] 🔄 Refactor (code structure improvements)
+- [] 📝 Documentation (updates or adds documentation)
 
-Please provide a summary of the changes in this pull request:
+## 📸 Screenshots (if applicable)
+Attach screenshots or GIFs showing the changes, if it's a UI update.  
 
-- What does this PR do?
-- Why are these changes necessary?
-- Any relevant links or references?
 
-Issue: [issue number/link]
+## ✅ Checklist
+Please ensure the following are completed before requesting a review:
+- [ ]  Code follows project style guidelines
+- [ ] Tests have been run and verified
 
----
+## 🚀 Related Issues/PRs
+Link any related issues or PRs.  
+ Issues: [N - ]
 
-## Type of Change
-
-Please select the type of change this PR introduces (tick the appropriate box):
-
-- [ ] 🐛 Bug fix (non-breaking change that fixes an issue)
-- [ ] ✨ New feature (non-breaking change that adds functionality)
-- [ ] 🔄 Refactor (code or file structure changes without affecting functionality)
-
----
-
-## Screenshots / Visual Changes
-
-Please attach any relevant screenshots, videos, or GIFs to illustrate the impact
-of this change (if applicable).
+## 👥 Reviewers
+Request specific reviewers (optional).  
+@User
 
 ---
-
-## Additional Notes
-
-Is there anything else the reviewer should know about this PR? Any known issues,
-challenges, or decisions made during implementation?
+_**Note:** Fill out all relevant sections before submitting your PR._
