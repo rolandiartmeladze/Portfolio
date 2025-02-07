@@ -11,7 +11,8 @@
     "format:check": "prettier --check \"**/*.{ts,tsx}\" --cache",
     "format:write": "prettier --write \"**/*.{ts,tsx}\" --cache",
     "typecheck": "tsc --noEmit",
-    "prepare": "husky && husky install"
+    "prepare": "husky && husky install",
+    "test": "echo \"No tests specified\""
   },
   "dependencies": {
     "next": "15.1.6",
@@ -32,5 +33,13 @@
     "prettier": "^3.4.2",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
+  },
+  "lint-staged": {
+    "*.{js,ts,jsx,tsx}": [
+      "prettier --write",
+      "next lint . --fix"
+    ],
+    "*.css": "prettier --write",
+    "*.json": "prettier --write"
   }
 }
