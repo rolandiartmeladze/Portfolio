@@ -8,6 +8,17 @@ export default {
   ],
   theme: {
     extend: {
+      screens: {
+        "2xs": "375px",
+        xs: "480px",
+        "2xl": "1440px",
+      },
+      container: {
+        padding: {
+          DEFAULT: "1.5rem",
+          "2xl": "4rem",
+        },
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
