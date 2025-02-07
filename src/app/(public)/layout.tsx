@@ -7,7 +7,7 @@ export default function PublicLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="grid min-h-dvh grid-rows-[auto_1fr_auto]">
+    <div className="grid bg-background min-h-dvh grid-rows-[auto_1fr_auto]">
       <Header />
       {children}
       <Footer />
