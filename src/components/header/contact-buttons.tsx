@@ -1,27 +1,37 @@
 import Link from "next/link";
 import { Icons } from "../icons";
-import { buttonVariants } from "../ui/button";
+import { Button } from "../ui/button";
+import { Label } from "../ui/label";
 
 export default function ContactButtons() {
   return (
-    <ul className="flex flex-row lg:flex-row">
+    <ul className="flex">
       <li>
-        <Link
-          className={buttonVariants({ variant: "link" }) + "px-0"}
-          href="mailto:example@email.com"
+        <Button
+          asChild
+          variant="outline"
+          size="lg"
+          className="rounded-e-none px-2 hover:text-foreground"
         >
-          <Icons.gmail className="w-9 p-0" />
-          <label className="hidden lg:flex">Send Email</label>
-        </Link>
+          <Link className="text-primary" href="mailto:rartmeladze@gmail.com">
+            <Icons.gmail />
+            <Label>Send Email</Label>
+          </Link>
+        </Button>
       </li>
       <li>
-        <Link
-          className={buttonVariants({ variant: "link" })}
-          href="tel:+995595035668"
+        <Button
+          asChild
+          variant="outline"
+          size="lg"
+          className="rounded-s-none px-2 hover:text-foreground"
         >
-          <Icons.phone />
-          <label className="hidden lg:flex">Call Now</label>
-        </Link>
+          <Link className="text-primary" href="tel:+995595035668">
+            <Icons.phone />
+
+            <Label>Call Now</Label>
+          </Link>
+        </Button>
       </li>
     </ul>
   );
