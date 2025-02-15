@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 🌞 Default Light Mode */
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -12,9 +11,7 @@
   --border: #e5e5e5;
 }
 
-/* 🌙 Dark Mode */
-@media (prefers-color-scheme: dark) {
-  :root {
+  .dark {
     --background: #0d0d0d;
     --foreground: #f2f2f2;
     --primary: #ffd700;
@@ -22,7 +19,6 @@
     --muted: #525252;
     --border: #333333;
   }
-}
 
 body {
   color: var(--foreground);
