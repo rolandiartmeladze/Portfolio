@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "@/style/globals.css";
 import { TailwindIndicator } from "@/components/tailwind-indicator";
+import { ThemeProvider } from "@/components/theme-provider";
 
 export const metadata: Metadata = {
   title: "Portfolio Roland Artmeladze",
@@ -15,8 +16,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="scroll-hidden antialiased">
-        {children}
-        <TailwindIndicator />
+        <ThemeProvider>
+          {children}
+          <TailwindIndicator />
+        </ThemeProvider>
       </body>
     </html>
   );
