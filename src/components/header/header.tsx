@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Button } from "../ui/button";
 import ContactButtons from "./contact-buttons";
 import MobileMenu from "./mobile-menu"; 
+import ThemeToggle from "./theme-toggle";
 
 export default function Header() {
   return (
@@ -11,6 +12,7 @@ export default function Header() {
         <Button variant="default" asChild className="rounded-md">
           <Link href="/blog" className="text-base">Blog</Link>
         </Button>
+        <ThemeToggle />
         <MobileMenu />
       </div>
     </header>
