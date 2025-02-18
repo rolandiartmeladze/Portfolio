@@ -5,7 +5,13 @@ import { Icons } from "../icons";
 import Link from "next/link";
 import clsx from "clsx";
 
-export default function MenuList({ className }: { className?: string }) {
+export default function MenuList({
+  className,
+  showBlog,
+}: {
+  className?: string;
+  showBlog?: boolean;
+}) {
   const [activeItem, setActiveItem] = useState<string | null>(null);
 
   const handleClick = (item: (typeof menuItems)[0]) => {
@@ -19,7 +25,9 @@ export default function MenuList({ className }: { className?: string }) {
 
   return (
     <ul className={`flex flex-col gap-2`}>
-      {menuItems.map((item, index) => {
+      {menuItems
+      .filter((item) => showBlog || item.label !== "Blog")
+      .map((item, index) => {
         const Icon = Icons[item.icon as keyof typeof Icons];
         return (
           <li
