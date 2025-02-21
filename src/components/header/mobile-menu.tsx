@@ -21,7 +21,7 @@ export default function MobileMenu() {
             
           </SheetTitle>
           <SheetDescription>
-            <MenuList className="rounded-none border-0 border-b rounded-t-md" />
+            <MenuList showBlog={true} className="rounded-none border-0 border-b rounded-t-md" />
           </SheetDescription>
         </SheetHeader>
       </SheetContent>

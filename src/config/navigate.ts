@@ -1,4 +1,5 @@
 export const menuItems = [
+  { to: "/blog", label: "Blog", icon: "blog" },
   { to: "#about", label: "Home", icon: "home" },
   { to: "#projects", label: "Projects", icon: "project" },
   { to: "#experience", label: "Experience", icon: "work" },
