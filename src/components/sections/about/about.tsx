@@ -1,5 +1,5 @@
 "use client";
-import TypingText from "../typing-text";
+import TypingText from "@/components/typing-text";
 
 export default function About() {
   return (
