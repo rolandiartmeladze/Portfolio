@@ -1,6 +1,6 @@
 import Link from "next/link";
 import ContactButtons from "./contact-buttons";
-import MobileMenu from "./mobile-menu";
+import MobileMenu from "../navigation/mobile-menu";
 import ThemeToggle from "./theme-toggle";
 import { Icons } from "../icons";
 

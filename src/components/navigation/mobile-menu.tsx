@@ -7,7 +7,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import MenuList from "../navigation/menu-list";
+import MenuList from "./menu-list";
 
 export default function MobileMenu() {
   return (
