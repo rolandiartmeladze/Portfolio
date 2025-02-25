@@ -1,5 +1,5 @@
 import Navigate from "@/components/navigation/navigation";
-import AoutMe from "@/components/sections/about";
+import AoutMe from "@/components/sections/about/about";
 
 
 export default function IndexPage() {
