@@ -2,12 +2,14 @@ import { useEffect, useRef } from "react";
 import TypeIt from "typeit";
 
 interface TypingTextProps {
+  className?: string;
   text: string[];
   speed?: number;
   loop?: boolean;
 }
 
 export default function TypingText({
+  className,
   text,
   speed = 100,
   loop = true,
@@ -31,5 +33,5 @@ export default function TypingText({
     }
   }, [text, speed, loop]);
 
-  return <div className="" ref={textRef}></div>;
+  return <div className={className} ref={textRef}></div>;
 }

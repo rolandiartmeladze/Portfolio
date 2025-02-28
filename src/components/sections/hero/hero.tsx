@@ -1,19 +1,9 @@
-import TypingText from "@/components/typing-text";
+import TypingText from "@/components/ui/typing-text";
+import SliceText from "@/components/ui/slice-text";
+import CvButton from "@/components/sections/hero/cv-button";
 
 export default function Hero() {
   return (
-<<<<<<< Updated upstream
-    <div className="flex w-full flex-col gap-3 text-center">
-      <span className="text-5xl text-foreground animate-pulse">Hi 👋 I’M</span>
-      <h1 className="text-6xl font-bold text-foreground animate-fadeIn">
-        <span className="text-primary">Roland Artmeladze</span>
-      </h1>
-      <h3 className="text-5xl font-bold">
-        <TypingText
-          text={["Full-Stack Developer.", "MERN-Stack Developer.", "Coder."]}
-        />
-      </h3>
-=======
     <div className="flex w-full flex-col gap-3 text-center justify-center items-center">
       <span className="text-5xl text-slate-600 animate-slideDown">
         Hi
@@ -30,8 +20,6 @@ export default function Hero() {
       />
 
       <CvButton />
-      
->>>>>>> Stashed changes
     </div>
   );
 }

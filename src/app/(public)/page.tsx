@@ -1,12 +1,12 @@
 import Navigate from "@/components/navigation/navigation";
-import AoutMe from "@/components/sections/about/about";
+import Home from "@/components/sections/home/home";
 
 
 export default function IndexPage() {
   return (
     <main>
       <Navigate />
-      <AoutMe />
+      <Home />
     </main>
   );
 }
