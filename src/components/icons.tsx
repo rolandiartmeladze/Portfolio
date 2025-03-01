@@ -273,4 +273,61 @@ export const Icons = {
       <circle cx="12" cy="12" r="3" />
     </svg>
   ),
+  scrollDown: (props: SvgIconProps) => (
+    <svg
+      width="50"
+      height="100"
+      viewBox="0 0 50 100"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <rect
+        x="15"
+        y="5"
+        width="20"
+        height="40"
+        rx="10"
+        stroke="white"
+        strokeWidth="3"
+      />
+
+      <circle cx="25" cy="15" r="4" fill="white">
+        <animate
+          attributeName="cy"
+          values="15; 30; 15"
+          dur="1.5s"
+          repeatCount="indefinite"
+        />
+      </circle>
+
+      <polyline
+        points="10,70 25,90 40,70"
+        fill="none"
+        stroke="white"
+        strokeWidth="3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <animate
+          attributeName="points"
+          values="10,65 25,85 40,65; 10,70 25,90 40,70; 10,65 25,85 40,65"
+          dur="1.5s"
+          repeatCount="indefinite"
+        />
+      </polyline>
+    </svg>
+  ),
+  github: (props: SvgIconProps) => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width="24"
+      height="24"
+      fill="currentColor"
+      {...props}
+    >
+      <path d="M12 2C6.48 2 2 6.48 2 12c0 4.4 2.9 8.12 6.9 9.46.5.09.68-.21.68-.46 0-.23-.01-.84-.01-1.65-2.82.61-3.42-1.36-3.42-1.36-.46-1.18-1.12-1.49-1.12-1.49-.91-.62.07-.61.07-.61 1.01 0 1.53 1.03 1.53 1.03.9 1.55 2.36 1.1 2.93.84.09-.64.35-1.1.63-1.35-2.04-.23-4.18-1.02-4.18-4.54 0-.99.35-1.81.92-2.45-.09-.23-.4-1.13.08-2.33 0 0 .77-.25 2.53.95.74-.21 1.53-.31 2.31-.31s1.57.1 2.31.31c1.76-1.2 2.53-.95 2.53-.95.48 1.2.18 2.1.08 2.33.57.64.92 1.46.92 2.45 0 3.53-2.14 4.31-4.18 4.54.34.29.63.87.63 1.64 0 1.18-.01 2.13-.01 2.41 0 .25.18.56.69.46C19.1 20.12 22 16.4 22 12c0-5.52-4.48-10-10-10z" />
+    </svg>
+  ),
 };

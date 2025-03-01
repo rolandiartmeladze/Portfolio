@@ -34,9 +34,9 @@ export default function Experience() {
   }, []);
 
   return (
-    <section ref={experienceRef} className="experience">
+    <section ref={experienceRef} id="experience" className="experience">
       <h1 className="text-3xl font-bold text-center mb-8">Experience</h1>
-      <HorizontalScroll>
+      <HorizontalScroll  className="h-screen p-8">
         <div className="container bg-red-500">Section 1</div>
         <div className="container bg-green-400">Section 2</div>
         <div className="container bg-cyan-500">Section 3</div>

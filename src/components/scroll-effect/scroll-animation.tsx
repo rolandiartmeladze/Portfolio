@@ -37,7 +37,7 @@ export default function ScrollAnimation({
             trigger: sectionRef.current,
             start: "top 70%",
             end: "top 30%",
-            scrub: true,
+            scrub: true,            
           },
         }
       );

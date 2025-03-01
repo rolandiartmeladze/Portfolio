@@ -24,12 +24,12 @@ export default function HorizontalScroll({
     wrapperRef.current.style.width = `${childCount * 100}%`;
 
     const tween = gsap.to(wrapperRef.current, {
-      x: () => -containerRef.current!.clientWidth * childCount,
+      x: () => -containerRef.current!.clientWidth * (childCount - 1),
       ease: "none",
       scrollTrigger: {
         trigger: containerRef.current,
         start: "top top",
-        end: `+=${containerRef.current!.clientWidth * childCount}`,
+        end: `+=${containerRef.current!.clientWidth * (childCount - 1)}`,
         scrub: 1,
         pin: true,
         anticipatePin: 1,
@@ -44,7 +44,7 @@ export default function HorizontalScroll({
 
   return (
     <div ref={containerRef} className="w-[96%] h-screen overflow-hidden relative">
-      <div ref={wrapperRef} className={`flex h-full ${className}`}>
+      <div ref={wrapperRef} className={`flex ${className}`}>
         {children}
       </div>
     </div>

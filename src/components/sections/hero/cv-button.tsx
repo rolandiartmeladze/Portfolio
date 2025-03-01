@@ -8,7 +8,7 @@ export default function CvButton() {
   const [hovered, setHovered] = useState(false);
 
   return (
-    <div className="relative flex justify-center">
+    <div className="relative flex justify-center flex-col gap-2">
       <div
         className="relative flex h-12 w-40 items-center cursor-pointer z-10 animate-scaleUp 
         justify-center rounded-lg bg-primary text-primary-foreground shadow-md 

@@ -1,41 +1,84 @@
+"use client";
+import { useEffect } from "react";
 import TypingText from "@/components/ui/typing-text";
 import SliceText from "@/components/ui/slice-text";
 import CvButton from "@/components/sections/hero/cv-button";
-
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import SocIcons from "./soc-icons";
+import ScrollDownButton from "./scroll-down-button";
+
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Hero() {
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        ".scrollIconContainer",
+        {
+          x: 0,
+          y: 0,
+          opacity: 1,
+        },
+        {
+          x: -400,
+          y: 250,
+          opacity: 0,
+          duration: 3,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".hero",
+            start: "top 10%",
+            end: "bottom top",
+            scrub: true,
+          },
+        }
+      );
+
+      gsap.fromTo(
+        ".scrollIcon",
+        {
+          x: 0,
+          y: 0,
+          opacity: 1,
+        },
+        {
+          x: 750, 
+          y: 150,
+          opacity: 0,
+          duration: 3,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".hero",
+            start: "top 10%",
+            end: "bottom top",
+            scrub: true,
+          },
+        }
+      );
+    });
+
+    return () => ctx.revert();
+  }, []);
 
   return (
-    <section className="flex w-full h-screen flex-col gap-3 text-center justify-start items-center">
+    <section id="home" className="hero flex w-full h-screen flex-col gap-3 text-center justify-start items-center">
       <span className="text-5xl text-slate-600 animate-slideDown">
-        Hi
-        <samp className="animate-pulse">👋</samp>
-        I’M
+        Hi <samp className="animate-pulse">👋</samp> I’M
       </span>
       <SliceText
         text="Roland&nbsp;Artmeladze"
         className="text-3xl font-bold text-primary lg:text-6xl"
       />
       <TypingText
-        className="text-2xl font-bold lg:text-5xl"
+        className="text-2xl font-bold lg:text-5xl animate-professional"
         text={["Full-Stack Developer.", "MERN-Stack Developer.", "Coder."]}
       />
-
       <CvButton />
+      <SocIcons />
 
-      <div className="p-8 bg-gradient-to-r from-indigo-500 to-purple-500 text-white text-center rounded-lg shadow-lg  animate-scaleUp">
-        <h2 className="text-3xl font-semibold mb-4 animate-fadeIn">
-          Scroll Down to Discover
-        </h2>
-        <div className="mt-8">
-          <span className="bg-white text-indigo-600 font-bold py-2 px-6 rounded-full hover:bg-indigo-600 hover:text-white cursor-pointer transition-all duration-300">
-            Show My Experience
-          </span>
-        </div>
-      </div>
+    <ScrollDownButton />
+      
     </section>
   );
 }
