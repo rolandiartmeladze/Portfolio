@@ -246,31 +246,39 @@ export const Icons = {
   ),
   download: (props: SvgIconProps) => (
     <svg
-      width="24"
-      height="24"
+      width="100"
+      height="100"
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <path d="M12 16L6 10H9V4H15V10H18L12 16Z" fill="currentColor" />
+      <path
+        d="M12 3V16M12 16L7 11M12 16L17 11M5 20H19"
+        stroke="black"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   ),
   eye: (props: SvgIconProps) => (
     <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width="100"
+      height="100"
       viewBox="0 0 24 24"
       fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
+      xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-      <circle cx="12" cy="12" r="3" />
+      <path
+        d="M1 12S5 4 12 4s11 8 11 8-4 8-11 8-11-8-11-8Z"
+        stroke="black"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <circle cx="12" cy="12" r="3" stroke="black" strokeWidth="2" />
     </svg>
   ),
   scrollDown: (props: SvgIconProps) => (
@@ -328,6 +336,16 @@ export const Icons = {
       {...props}
     >
       <path d="M12 2C6.48 2 2 6.48 2 12c0 4.4 2.9 8.12 6.9 9.46.5.09.68-.21.68-.46 0-.23-.01-.84-.01-1.65-2.82.61-3.42-1.36-3.42-1.36-.46-1.18-1.12-1.49-1.12-1.49-.91-.62.07-.61.07-.61 1.01 0 1.53 1.03 1.53 1.03.9 1.55 2.36 1.1 2.93.84.09-.64.35-1.1.63-1.35-2.04-.23-4.18-1.02-4.18-4.54 0-.99.35-1.81.92-2.45-.09-.23-.4-1.13.08-2.33 0 0 .77-.25 2.53.95.74-.21 1.53-.31 2.31-.31s1.57.1 2.31.31c1.76-1.2 2.53-.95 2.53-.95.48 1.2.18 2.1.08 2.33.57.64.92 1.46.92 2.45 0 3.53-2.14 4.31-4.18 4.54.34.29.63.87.63 1.64 0 1.18-.01 2.13-.01 2.41 0 .25.18.56.69.46C19.1 20.12 22 16.4 22 12c0-5.52-4.48-10-10-10z" />
+    </svg>
+  ),
+  resume: (props: SvgIconProps) => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      {...props}
+    >
+      <path d="M6 2C5.44772 2 5 2.44772 5 3V21C5 21.5523 5.44772 22 6 22H18C18.5523 22 19 21.5523 19 21V7.82843C19 7.298 18.7893 6.78929 18.4142 6.41421L14.5858 2.58579C14.2107 2.21071 13.702 2 13.1716 2H6ZM7 4H12V8C12 8.55228 12.4477 9 13 9H17V20H7V4ZM14 4.41421L16.5858 7H14V4.41421ZM8 11C8 10.4477 8.44772 10 9 10H15C15.5523 10 16 10.4477 16 11C16 11.5523 15.5523 12 15 12H9C8.44772 12 8 11.5523 8 11ZM8 14C8 13.4477 8.44772 13 9 13H15C15.5523 13 16 13.4477 16 14C16 14.5523 15.5523 15 15 15H9C8.44772 15 8 14.5523 8 14ZM8 17C8 16.4477 8.44772 16 9 16H12C12.5523 16 13 16.4477 13 17C13 17.5523 12.5523 18 12 18H9C8.44772 18 8 17.5523 8 17Z" />
     </svg>
   ),
 };

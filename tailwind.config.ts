@@ -28,10 +28,15 @@ export default {
           "0%": { transform: "scale(0)", opacity: "0" },
           "100%": { transform: "scale(1)", opacity: "1" },
         },
+        waveLetter: {
+          "0%, 100%": { transform: "translateY(0)", opacity: "1" },
+          "50%": { transform: "translateY(-5px)", opacity: "0.7" },
+        },
       },
       animation: {
         slideDown: "slideDown 1s ease-out",
         scaleUp: "scaleUp 2s ease-out",
+        waveLetter: "waveLetter 1.5s ease-in-out infinite",
       },
       colors: {
         background: "var(--background)",
