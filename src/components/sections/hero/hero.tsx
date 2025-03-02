@@ -2,20 +2,24 @@
 
 import TypingText from "@/components/ui/typing-text";
 import SliceText from "@/components/ui/slice-text";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ContactIcons from "./contact-icons";
 import ScrollDown from "./scroll-down";
 import TextAniation from "@/components/ui/text-animation";
-
-gsap.registerPlugin(ScrollTrigger);
+import GSAPAnimation from "@/components/GSAPAnimation";
 
 export default function Hero() {
   return (
-    <section
-      id="home"
-      className="hero flex w-full h-screen flex-col gap-3 text-center justify-start items-center"
-    >
+    <section className="hero overflow-hidden flex w-full h-screen flex-col gap-3 text-center justify-start items-center">
+      <GSAPAnimation
+        trigger=".hero"
+        elements={[
+          { selector: ".resume", x: 0, y: 250 },
+          { selector: ".github", x: -150, y: 120 },
+          { selector: ".linkedin", x: 120, y: 150 },
+          { selector: ".animationText1", x: 200, y: 0 },
+          { selector: ".animationText2", x: -200, y: 0 },
+        ]}
+      />
       <span className="text-5xl text-slate-600 animate-slideDown">
         Hi <samp className="animate-pulse">👋</samp> I’M
       </span>
@@ -28,8 +32,14 @@ export default function Hero() {
         text={["Full-Stack Developer.", "MERN-Stack Developer.", "Coder."]}
       />
       <ContactIcons />
-      <TextAniation text="Full-Stack Developer | React, TypeScript & Python" />
-      <TextAniation text="MERN-Stack Developer | Node.js, Express, MongoDB" />
+      <TextAniation
+        className="animationText1"
+        text="Full-Stack Developer | React, TypeScript & Python"
+      />
+      <TextAniation
+        className="animationText2"
+        text="MERN-Stack Developer | Node.js, Express, MongoDB"
+      />
       <ScrollDown />
     </section>
   );
