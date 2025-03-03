@@ -33,7 +33,7 @@ export default function Experience() {
 
   return (
     <section ref={experienceRef} id="experience" className="relative">
-      <HorizontalScroll className="h-screen p-8">
+      <HorizontalScroll className="h-screen p-0 py-8 lg:p-8 lg:pt-4">
         <ExperienceCards />
       </HorizontalScroll>
     </section>

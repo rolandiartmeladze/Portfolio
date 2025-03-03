@@ -43,7 +43,7 @@ export default function HorizontalScroll({
   }, [childCount]);
 
   return (
-    <div ref={containerRef} className="w-[96%] h-screen overflow-hidden relative">
+    <div ref={containerRef} className="w-full h-screen relative overflow-hidden lg:w-[96%]">
       <div ref={wrapperRef} className={`flex ${className}`}>
         {children}
       </div>
