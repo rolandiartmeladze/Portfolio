@@ -21,21 +21,21 @@ export default function HorizontalScroll({
   useEffect(() => {
     if (!containerRef.current || !wrapperRef.current) return;
 
-    wrapperRef.current.style.width = `${childCount * 100}%`;
+    wrapperRef.current.style.width = `${containerRef.current!.clientWidth * 3 }px`;
 
     const tween = gsap.to(wrapperRef.current, {
-      x: () => -containerRef.current!.clientWidth * (childCount - 1),
+      x: () => -containerRef.current!.clientWidth * 2,
       ease: "none",
       scrollTrigger: {
         trigger: containerRef.current,
         start: "top top",
-        end: `+=${containerRef.current!.clientWidth * (childCount - 1)}`,
+        end: `+=${containerRef.current!.clientWidth * 1.5}`,
         scrub: 1,
         pin: true,
         anticipatePin: 1,
       },
     });
-
+    
     return () => {
       tween.kill();
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());

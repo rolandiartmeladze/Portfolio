@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import HorizontalScroll from "@/components/scroll-effect/horizontal-scroll";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import ExperienceCards from "./experience-cards";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -12,12 +13,9 @@ export default function Experience() {
 
   useEffect(() => {
     if (!experienceRef.current) return;
-
-    
-
     gsap.fromTo(
       experienceRef.current,
-      { opacity: 0},
+      { opacity: 0 },
       {
         opacity: 1,
         duration: 2.5,
@@ -34,13 +32,9 @@ export default function Experience() {
   }, []);
 
   return (
-    <section ref={experienceRef} id="experience" className="experience">
-      <h1 className="text-3xl font-bold text-center mb-8">Experience</h1>
-      <HorizontalScroll  className="h-screen p-8">
-        <div className="container bg-red-500">Section 1</div>
-        <div className="container bg-green-400">Section 2</div>
-        <div className="container bg-cyan-500">Section 3</div>
-        <div className="container bg-slate-500">Section 4</div>
+    <section ref={experienceRef} id="experience" className="relative">
+      <HorizontalScroll className="h-screen p-8">
+        <ExperienceCards />
       </HorizontalScroll>
     </section>
   );

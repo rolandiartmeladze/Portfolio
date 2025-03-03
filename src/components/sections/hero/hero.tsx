@@ -3,9 +3,10 @@
 import TypingText from "@/components/ui/typing-text";
 import SliceText from "@/components/ui/slice-text";
 import ContactIcons from "./contact-icons";
-import ScrollDown from "./scroll-down";
 import TextAniation from "@/components/ui/text-animation";
 import GSAPAnimation from "@/components/GSAPAnimation";
+import MarkedCircle from "@/components/ui/marked-circle";
+import { Icons } from "@/components/icons";
 
 export default function Hero() {
   return (
@@ -16,8 +17,11 @@ export default function Hero() {
           { selector: ".resume", x: 0, y: 250 },
           { selector: ".github", x: -150, y: 120 },
           { selector: ".linkedin", x: 120, y: 150 },
-          { selector: ".animationText1", x: 200, y: 0 },
-          { selector: ".animationText2", x: -200, y: 0 },
+          { selector: ".FULLSTACK", x: 200, y: 0 },
+          { selector: ".MERNSTACK", x: -200, y: 0 },
+          { selector: ".MrakedCircleInset", x: 750, y: 150 },
+          { selector: ".MrakedCircle", x: -400, y: 250 },
+
         ]}
       />
       <span className="text-5xl text-slate-600 animate-slideDown">
@@ -33,14 +37,16 @@ export default function Hero() {
       />
       <ContactIcons />
       <TextAniation
-        className="animationText1"
+        className="FULLSTACK"
         text="Full-Stack Developer | React, TypeScript & Python"
       />
       <TextAniation
-        className="animationText2"
+        className="MERNSTACK"
         text="MERN-Stack Developer | Node.js, Express, MongoDB"
       />
-      <ScrollDown />
+      <MarkedCircle className="MrakedCircle  relative z-40 size-28  m-5" className2="MrakedCircleInset size-24">
+      <Icons.scrollDown className="size-16 text-primary drop-shadow-lg" />
+      </MarkedCircle>
     </section>
   );
 }
