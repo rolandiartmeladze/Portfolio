@@ -1,18 +1,28 @@
+import MarkedCircle from "@/components/ui/marked-circle";
 import { WorkExperience } from "@/config/experience";
 
 export default function ExperienceCards() {
   return (
     <>
       {WorkExperience.map((work, index) => (
-        <div
-          key={index}
-          className="container mx-4 p-6 bg-gradient-to-r from-blue-500 to-green-500 rounded-lg shadow-lg"
-        >
-          <div className="card-header">
+        <div key={index} className={`container ${work.indicator}`}>
+          <MarkedCircle
+            className={`size-24 relative m-2 ${work.indicator}circle`}
+            className2="size-20"
+          >
+            <samp>{work.indicator}</samp>
+          </MarkedCircle>
+
+          <div className={`${work.indicator}header`}>
             <h3 className="text-2xl font-bold text-white">{work.position}</h3>
-            <span className="company-name text-lg text-gray-200">{work.company} </span>
-            <span className="duration text-sm text-gray-300"> {work.duration}</span>
+            <span className="company-name text-lg text-gray-200">
+              {work.company}
+            </span>
+            <span className="duration text-sm text-gray-300">
+              {work.duration}
+            </span>
           </div>
+
           <div className="card-body mt-4">
             <p className="text-white">{work.description}</p>
             <div className="skills mt-3 flex flex-wrap gap-2">
