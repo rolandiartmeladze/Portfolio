@@ -86,7 +86,14 @@ export default function Experience() {
       const header = section.querySelector(
         ".doerheader, .freelanceheader, .stemuheader"
       );
+      const description = section.querySelector(
+        ".doerdescription, .freelancedescription, .stemudescription"
+      );
+      const skills = section.querySelector(
+        ".doerskills, .freelanceskills, .stemuskills"
+      );
 
+      
       animateElement(circle, "left 15%", section, {
         x: [400, 10],
         y: [0, 0],
@@ -100,6 +107,20 @@ export default function Experience() {
         opacity: 1,
         scale: [0, 1],
       });
+      animateElement(description, "left 15%", section, {
+        x: [0, 0],
+        y: [0, 0],
+        opacity: 1,
+        scale: [0, 1],
+      });
+
+      animateElement(skills, "left 15%", section, {
+        x: [500, 0],
+        y: [0, 0],
+        opacity: 1,
+        scale: [0, 1],
+      });
+
     });
 
     return () => {
@@ -143,7 +164,7 @@ export default function Experience() {
       ref={containerRef}
       className="w-full h-svh relative p-6 overflow-hidden lg:w-[96%]"
     >
-      <div ref={wrapperRef} className="flex h-full gap-3 relative">
+      <div ref={wrapperRef} className="flex h-full gap-8 relative">
         <ExperienceCards />
       </div>
     </div>
