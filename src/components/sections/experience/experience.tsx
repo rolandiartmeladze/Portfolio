@@ -38,8 +38,19 @@ export default function Experience() {
       element: Element | null,
       start: string,
       sectionClass: HTMLElement,
-      { x, y, opacity, scale, ease }: 
-      { x: [number, number]; y: [number, number]; opacity: number; scale: [number, number]; ease?: string }
+      {
+        x,
+        y,
+        opacity,
+        scale,
+        ease,
+      }: {
+        x: [number, number];
+        y: [number, number];
+        opacity: number;
+        scale: [number, number];
+        ease?: string;
+      }
     ) => {
       if (!element) return;
 
@@ -69,8 +80,12 @@ export default function Experience() {
     );
 
     sections.forEach((section) => {
-      const circle = section.querySelector(".doercircle, .freelancecircle, .stemucircle");
-      const header = section.querySelector(".doerheader, .freelanceheader, .stemuheader");
+      const circle = section.querySelector(
+        ".doercircle, .freelancecircle, .stemucircle"
+      );
+      const header = section.querySelector(
+        ".doerheader, .freelanceheader, .stemuheader"
+      );
 
       animateElement(circle, "left 15%", section, {
         x: [400, 10],
@@ -124,7 +139,10 @@ export default function Experience() {
   }, [setupScrollAnimation]);
 
   return (
-    <div ref={containerRef} className="w-full h-svh relative p-6 overflow-hidden lg:w-[96%]">
+    <div
+      ref={containerRef}
+      className="w-full h-svh relative p-6 overflow-hidden lg:w-[96%]"
+    >
       <div ref={wrapperRef} className="flex h-full gap-3 relative">
         <ExperienceCards />
       </div>
