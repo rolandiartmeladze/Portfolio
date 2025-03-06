@@ -132,7 +132,7 @@ export const Icons = {
       />
     </svg>
   ),
-    skill: (props: SvgIconProps) => (
+  skill: (props: SvgIconProps) => (
     <svg
       viewBox="0 0 21 21"
       fill="currentColor"
