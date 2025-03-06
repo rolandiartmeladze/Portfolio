@@ -156,7 +156,7 @@ export default function Experience() {
   return (
     <div
       ref={containerRef}
-      className="w-full relative p-6 overflow-hidden lg:h-svh lg:w-[96%]"
+      className="w-full relative p-1 lg:p-6 overflow-hidden lg:h-svh lg:w-[96%]"
     >
       <div
         ref={wrapperRef}
