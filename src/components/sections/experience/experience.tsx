@@ -5,6 +5,7 @@ import { WorkExperience } from "@/config/experience";
 import ExperienceCards from "./experience-cards";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import MarkedCircle from "@/components/ui/marked-circle";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -130,7 +131,7 @@ export default function Experience() {
 
   useEffect(() => {
     if (!containerRef.current) return;
-
+  
     gsap.fromTo(
       containerRef.current,
       { opacity: 0 },
@@ -147,6 +148,7 @@ export default function Experience() {
         },
       }
     );
+  
     gsap.fromTo(
       ".exp-header",
       { opacity: 0, x: 350, scale: 0 },
@@ -154,34 +156,59 @@ export default function Experience() {
         opacity: 1,
         x: 0,
         scale: 1,
-        duration: 5,
-        ease: "elastic",
+        duration: 1.5,
+        ease: "elastic.out(1, 0.75)",
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top 90%",
           end: "top 10%",
           scrub: true,
           toggleActions: "play none none reverse",
+          markers: false,
         },
       }
     );
-
+  
+    gsap.fromTo(
+      ".exp-circle",
+      { opacity: 0, x: 350, rotate: 360 },
+      {
+        opacity: 1,
+        x: 0,
+        scale: 1,
+        rotate: 0,
+        duration: 2,
+        ease: "elastic.out(1, 0.75)",
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 60%",
+          end: "top 10%",
+          scrub: true,
+          toggleActions: "play none none reverse",
+          markers: false,
+        },
+      }
+    );
+  
     setupScrollAnimation();
-
+  
     window.addEventListener("resize", setupScrollAnimation);
-
+  
     return () => {
       window.removeEventListener("resize", setupScrollAnimation);
     };
   }, [setupScrollAnimation]);
-
+  
   return (
     <div
       ref={containerRef}
-      className="w-full flex flex-col items-start relative p-1 gap-1 lg:p-6 overflow-hidden lg:h-svh lg:w-[96%]"
+      className="w-full flex flex-col items-start relative p-1 gap-3 lg:p-6 overflow-hidden lg:h-svh lg:w-[96%]"
     >
-      <h1 className="exp-header inline text-4xl lg:text-6xl text-primary px-2 border-l-8 border-l-primary rounded-tl-md">
-        Work Experience
+      <h1 className="exp-header flex gap-2 justify-start items-center text-4xl lg:text-6xl text-primary px-2 border-l-8 border-l-primary rounded-tl-md">
+        {"Work Experience"} 
+        <MarkedCircle className="exp-circle size-12 text-xs  relative animate-bounce" className2="size-8">
+          +1.5
+        </MarkedCircle>
       </h1>
       <div
         ref={wrapperRef}
