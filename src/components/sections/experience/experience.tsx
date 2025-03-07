@@ -152,7 +152,7 @@ export default function Experience() {
       { opacity: 0, x: 350, scale: 0 },
       {
         opacity: 1,
-        x: 20,
+        x: 0,
         scale: 1,
         duration: 5,
         ease: "elastic",
@@ -180,7 +180,7 @@ export default function Experience() {
       ref={containerRef}
       className="w-full flex flex-col items-start relative p-1 gap-1 lg:p-6 overflow-hidden lg:h-svh lg:w-[96%]"
     >
-      <h1 className="exp-header inline text-4xl lg:text-6xl text-primary px-2 border-l-8 border-l-primary rounded-s-md bg-green-600/30">
+      <h1 className="exp-header inline text-4xl lg:text-6xl text-primary px-2 border-l-8 border-l-primary rounded-tl-md">
         Work Experience
       </h1>
       <div
