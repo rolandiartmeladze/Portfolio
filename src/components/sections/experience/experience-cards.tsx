@@ -34,7 +34,7 @@ export default function ExperienceCards() {
           </div>
 
           <div
-            className={`${work.indicator}description p-3 mt-4 lg:p-12 gap-8 grid grid-cols-1 lg:grid-cols-3"`}
+            className={`${work.indicator}description p-3 mt-4 lg:p-12 gap-8 grid grid-cols-1 lg:grid-rows-2"`}
           >
             <div>
               <h3 className="text-primary text-xl underline">Description:</h3>
@@ -44,17 +44,19 @@ export default function ExperienceCards() {
               </p>
             </div>
             <div
-              className={`${work.indicator}skills mt-3 flex flex-wrap gap-2 lg:col-span-1`}
+              className={`${work.indicator}skills mt-3 flex flex-col flex-wrap gap-2 lg:col-span-1`}
             >
               <h3 className="text-foreground text-xl underline">Skills:</h3>
-              {work.skills.map((skill, idx) => (
-                <span
-                  key={idx}
-                  className="skill flex items-center bg-primary text-foreground p-2 rounded-lg text-sm"
-                >
-                  {skill}
-                </span>
-              ))}
+              <div className=" flex  flex-wrap  gap-2">
+                {work.skills.map((skill, idx) => (
+                  <span
+                    key={idx}
+                    className="skill flex items-center bg-primary text-foreground p-2 rounded-lg text-sm"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
         </div>

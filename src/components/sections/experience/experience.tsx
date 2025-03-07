@@ -18,21 +18,26 @@ export default function Experience() {
     const container = containerRef.current;
     const wrapper = wrapperRef.current;
 
-    if (window.innerWidth >= 1024) {
+    const isMobile = window.innerWidth < 1024;
+
+    if (!isMobile) {
       wrapper.style.width = `${container.clientWidth * WorkExperience.length}px`;
-      gsap.to(wrapper, {
-        x: () => -container.clientWidth * (WorkExperience.length - 1),
-        ease: "none",
-        scrollTrigger: {
-          trigger: container,
-          start: "top top",
-          end: `+=${container.clientWidth * (WorkExperience.length - 1)}`,
-          scrub: 1,
-          pin: true,
-          anticipatePin: 1,
-        },
-      });
     }
+
+    const scrollTween = !isMobile
+      ? gsap.to(wrapper, {
+          x: () => -container.clientWidth * (WorkExperience.length - 1),
+          ease: "none",
+          scrollTrigger: {
+            trigger: container,
+            start: "top top",
+            end: `+=${container.clientWidth * (WorkExperience.length - 1)}`,
+            scrub: 1,
+            pin: true,
+            anticipatePin: 1,
+          },
+        })
+      : undefined;
 
     const animateElement = (
       element: Element | null,
@@ -68,8 +73,9 @@ export default function Experience() {
           scrollTrigger: {
             trigger: sectionClass,
             start: start,
-            toggleActions: "restart none none reverse",
-            once: true, // Ensure animation happens only once when it enters the viewport
+            toggleActions: "play none none reverse",
+            containerAnimation: isMobile ? undefined : scrollTween,
+            once: true,
           },
         }
       );
@@ -79,48 +85,46 @@ export default function Experience() {
       WorkExperience.map((exp) => `.${exp.indicator}`)
     );
     sections.forEach((section) => {
-      
-        const circle = section.querySelector(
-          ".doercircle, .freelancecircle, .stemucircle"
-        );
-        const header = section.querySelector(
-          ".doerheader, .freelanceheader, .stemuheader"
-        );
-        const description = section.querySelector(
-          ".doerdescription, .freelancedescription, .stemudescription"
-        );
-        const skills = section.querySelector(
-          ".doerskills, .freelanceskills, .stemuskills"
-        );
+      const circle = section.querySelector(
+        ".doercircle, .freelancecircle, .stemucircle"
+      );
+      const header = section.querySelector(
+        ".doerheader, .freelanceheader, .stemuheader"
+      );
+      const description = section.querySelector(
+        ".doerdescription, .freelancedescription, .stemudescription"
+      );
+      const skills = section.querySelector(
+        ".doerskills, .freelanceskills, .stemuskills"
+      );
 
-        animateElement(circle, "top 80%", section, {
-          x: [400, 10],
-          y: [0, 0],
-          opacity: 1,
-          scale: [0, 1],
-        });
+      animateElement(circle, "top 80%", section, {
+        x: [400, 10],
+        y: [0, 0],
+        opacity: 1,
+        scale: [0, 1],
+      });
 
-        animateElement(header, "top 80%", section, {
-          x: [0, 0],
-          y: [150, 0],
-          opacity: 1,
-          scale: [0, 1],
-        });
+      animateElement(header, "top 80%", section, {
+        x: [0, 0],
+        y: [150, 0],
+        opacity: 1,
+        scale: [0, 1],
+      });
 
-        animateElement(description, "top 80%", section, {
-          x: [-300, 0],
-          y: [0, 0],
-          opacity: 1,
-          scale: [0, 1],
-        });
+      animateElement(description, "top 80%", section, {
+        x: [-300, 0],
+        y: [0, 0],
+        opacity: 1,
+        scale: [0, 1],
+      });
 
-        animateElement(skills, "top 80%", section, {
-          x: [500, 0],
-          y: [0, 0],
-          opacity: 1,
-          scale: [0, 1],
-        });
-      
+      animateElement(skills, "top 80%", section, {
+        x: [500, 0],
+        y: [0, 0],
+        opacity: 1,
+        scale: [0, 1],
+      });
     });
   }, []);
 
@@ -143,6 +147,24 @@ export default function Experience() {
         },
       }
     );
+    gsap.fromTo(
+      ".exp-header",
+      { opacity: 0, x: 350, scale: 0 },
+      {
+        opacity: 1,
+        x: 20,
+        scale: 1,
+        duration: 5,
+        ease: "elastic",
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 90%",
+          end: "top 10%",
+          scrub: true,
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
 
     setupScrollAnimation();
 
@@ -156,11 +178,14 @@ export default function Experience() {
   return (
     <div
       ref={containerRef}
-      className="w-full relative p-1 lg:p-6 overflow-hidden lg:h-svh lg:w-[96%]"
+      className="w-full flex flex-col items-start relative p-1 gap-1 lg:p-6 overflow-hidden lg:h-svh lg:w-[96%]"
     >
+      <h1 className="exp-header inline text-4xl lg:text-6xl text-primary px-2 border-l-8 border-l-primary rounded-s-md bg-green-600/30">
+        Work Experience
+      </h1>
       <div
         ref={wrapperRef}
-        className="flex flex-col h-full gap-8 relative lg:flex-row"
+        className="flex flex-col h-[85%] gap-8 relative lg:flex-row"
       >
         <ExperienceCards />
       </div>
