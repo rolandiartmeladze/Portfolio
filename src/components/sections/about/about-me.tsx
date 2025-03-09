@@ -50,7 +50,7 @@ const TextAnimation = () => {
 
   return (
     <p
-      className="border-t p-2 border-primary mt-5 lg:shadow-lg lg:border lg:shadow-primary lg:rounded-xl lg:p-8 lg:text-lg"
+      className="border-t text-xs p-2 border-primary mt-5 lg:shadow-lg lg:border lg:shadow-primary lg:rounded-xl lg:p-8 lg:text-lg"
       ref={textRef}
     >
       {highlightText(AboutText)}
