@@ -3,6 +3,7 @@
 import About from "../about/about";
 import Experience from "../experience/experience";
 import Hero from "../hero/hero";
+import Projects from "../projects/projects";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
         <Hero />
         <About />
         <Experience />
+        <Projects />
     </div>
   );
 }
