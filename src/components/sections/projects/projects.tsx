@@ -23,8 +23,8 @@ export default function Projects() {
       <Carousel>
         <CarouselContent className="gap-4">
           {ProjectsData.map((project: Project) => (
-            <CarouselItem key={project.title} className="flex max-w-[375px] h-full">
-              <ProjectCard project={project} className="h-full" />
+            <CarouselItem key={project.title} className="max-w-[375px]">
+              <ProjectCard project={project} />
             </CarouselItem>
           ))}
         </CarouselContent>

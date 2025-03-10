@@ -16,7 +16,7 @@ interface ProjectCardProps {
 
 export default function ProjectCard({ project, className }:ProjectCardProps) {
   return (
-    <Card className={`${className} flex flex-col justify-between border-primary p-4 shadow-lg`}>
+    <Card className={`${className} flex flex-col justify-between h-full border-primary p-4 shadow-lg`}>
       <CardHeader>
         <CardTitle className="text-xl font-bold">{project.title}</CardTitle>
         <CardDescription>{project.description}</CardDescription>
