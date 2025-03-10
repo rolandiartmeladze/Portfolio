@@ -55,11 +55,12 @@ export default function Projects() {
           {ProjectsData.map((_, index) => (
             <div
               key={index}
-              className={`w-3 h-3 rounded-full transition-all ${
+              className={`w-3 h-3 rounded-full cursor-pointer transition-all ${
                 activeIndex === index
                   ? "bg-primary w-4"
                   : "bg-background border border-primary"
               }`}
+              onClick={() => carouselApi?.scrollTo(index)}
             ></div>
           ))}
         </div>
