@@ -7,18 +7,40 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-export default function ProjectCard() {
+import { Project } from "@/types/project";
+
+interface ProjectCardProps {
+  project: Project;
+  className?: string;
+}
+
+export default function ProjectCard({ project, className }:ProjectCardProps) {
   return (
-    <Card className="border-primary">
+    <Card className={`${className} flex flex-col justify-between border-primary p-4 shadow-lg`}>
       <CardHeader>
-        <CardTitle>Card Title</CardTitle>
-        <CardDescription>Card Description</CardDescription>
+        <CardTitle className="text-xl font-bold">{project.title}</CardTitle>
+        <CardDescription>{project.description}</CardDescription>
       </CardHeader>
+
       <CardContent>
-        <p>Card Content</p>
+        <p className="font-semibold">Skills:</p>
+        <ul className="flex flex-wrap gap-2 mt-2">
+          {project.skills.map((skill) => (
+            <li key={skill} className="bg-gray-800 text-white px-2 py-1 rounded-md text-sm">
+              {skill}
+            </li>
+          ))}
+        </ul>
       </CardContent>
-      <CardFooter>
-        <p>Card Footer</p>
+
+      <CardFooter className="flex justify-between">
+        <a
+          href={project.media}
+          target="_blank"
+          className="text-primary underline hover:text-secondary"
+        >
+          View Project
+        </a>
       </CardFooter>
     </Card>
   );

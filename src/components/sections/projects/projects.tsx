@@ -1,3 +1,5 @@
+"use client";
+
 import SectionHeader from "@/components/ui/section-header";
 import {
   Carousel,
@@ -8,6 +10,8 @@ import {
 } from "@/components/ui/carousel";
 import { Icons } from "@/components/icons";
 import ProjectCard from "./project-card";
+import { ProjectsData } from "@/config/projects";
+import { Project } from "@/types/project";
 
 export default function Projects() {
   return (
@@ -17,22 +21,15 @@ export default function Projects() {
       </SectionHeader>
 
       <Carousel>
-        <CarouselContent>
-          <CarouselItem>
-            <ProjectCard />
-          </CarouselItem>
-          <CarouselItem>
-            <ProjectCard />
-          </CarouselItem>
-          <CarouselItem>
-            <ProjectCard />
-          </CarouselItem>
-          <CarouselItem>
-            <ProjectCard />
-          </CarouselItem>
+        <CarouselContent className="gap-4">
+          {ProjectsData.map((project: Project) => (
+            <CarouselItem key={project.title} className="flex max-w-[375px] h-full">
+              <ProjectCard project={project} className="h-full" />
+            </CarouselItem>
+          ))}
         </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
+        <CarouselPrevious className="hidden lg:inline-block" />
+        <CarouselNext className="hidden lg:inline-block" />
       </Carousel>
     </section>
   );
