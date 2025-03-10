@@ -26,7 +26,7 @@ export default function ProjectCard({ project, className }:ProjectCardProps) {
         <p className="font-semibold">Skills:</p>
         <ul className="flex flex-wrap gap-2 mt-2">
           {project.skills.map((skill) => (
-            <li key={skill} className="bg-gray-800 text-white px-2 py-1 rounded-md text-sm">
+            <li key={skill} className="bg-primary text-foreground px-2 py-1 rounded-md text-sm">
               {skill}
             </li>
           ))}
