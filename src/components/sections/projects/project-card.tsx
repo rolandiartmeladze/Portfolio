@@ -30,11 +30,11 @@ export default function ProjectCard({ project, className }: ProjectCardProps) {
     <Card
       className={`${className} flex flex-col justify-between h-full border border-primary p-2 lg:p-4 shadow-lg rounded-lg`}
     >
-      <CardHeader className="p-2">
+      <CardHeader className="p-2 border-b border-b-muted">
         <Carousel>
           <CarouselContent className="h-48 flex gap-3">
             {[0,1,2].map((_, index) => (
-              <CarouselItem key={index} className="max-w-[230px] flex justify-center">
+              <CarouselItem key={index} className="max-w-[230px]  flex justify-center">
                 <Image
                   width={220}
                   height={180}
@@ -45,8 +45,8 @@ export default function ProjectCard({ project, className }: ProjectCardProps) {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="left-0" />
-          <CarouselNext className="right-0" />
+          <CarouselPrevious className="left-0 flex" />
+          <CarouselNext className="right-0 flex" />
         </Carousel>
       </CardHeader>
 
