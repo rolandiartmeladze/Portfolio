@@ -1,10 +1,6 @@
 "use client";
 
-<<<<<<< HEAD
 import { useState, useEffect, useRef } from "react";
-=======
-import { useState, useEffect } from "react";
->>>>>>> f7ad0ac6d984ee9522ac8709ed1f5d4838956d93
 import SectionHeader from "@/components/ui/section-header";
 import {
   Carousel,
@@ -19,24 +15,16 @@ import ProjectCard from "./project-card";
 import { ProjectsData } from "@/config/projects";
 import { Project } from "@/types/project";
 
-<<<<<<< HEAD
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-=======
->>>>>>> f7ad0ac6d984ee9522ac8709ed1f5d4838956d93
 export default function Projects() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [carouselApi, setCarouselApi] = useState<CarouselApi | null>(null);
 
-<<<<<<< HEAD
     const containerRef = useRef<HTMLDivElement | null>(null);
-
-
-=======
->>>>>>> f7ad0ac6d984ee9522ac8709ed1f5d4838956d93
   useEffect(() => {
     if (!carouselApi) return;
 
@@ -52,7 +40,6 @@ export default function Projects() {
     };
   }, [carouselApi]);
 
-<<<<<<< HEAD
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -83,11 +70,8 @@ export default function Projects() {
 
   return (
     <section ref={containerRef} id="projects" className="container h-[98vh] lg:w-[96%] flex flex-col">
-=======
-  return (
-    <section className="container h-[98vh] lg:w-[96%] flex flex-col">
->>>>>>> f7ad0ac6d984ee9522ac8709ed1f5d4838956d93
-      <SectionHeader label="Projects" className="mb-4">
+
+<SectionHeader label="Projects" className="mb-4">
         <Icons.work className="size-5" />
       </SectionHeader>
 
