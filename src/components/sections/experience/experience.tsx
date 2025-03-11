@@ -168,7 +168,7 @@ export default function Experience() {
       </SectionHeader>
       <div
         ref={wrapperRef}
-        className="flex flex-col h-[85%] gap-8 relative lg:flex-row"
+        className="flex flex-col h-[85%] gap-8 pr-6 relative lg:flex-row"
       >
         <ExperienceCards />
       </div>
