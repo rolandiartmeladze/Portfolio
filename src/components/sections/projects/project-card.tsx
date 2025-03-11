@@ -14,8 +14,9 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { Separator } from "@/components/ui/separator";
 
-import image from "@/../public/placeholder.svg"
+import image from "@/../public/placeholder.svg";
 
 import Image from "next/image";
 import { Project } from "@/types/project";
@@ -33,8 +34,11 @@ export default function ProjectCard({ project, className }: ProjectCardProps) {
       <CardHeader className="p-2 border-b border-b-muted">
         <Carousel>
           <CarouselContent className="h-48 flex gap-3">
-            {[0,1,2].map((_, index) => (
-              <CarouselItem key={index} className="max-w-[230px]  flex justify-center">
+            {[0, 1, 2].map((_, index) => (
+              <CarouselItem
+                key={index}
+                className="max-w-[230px]  flex justify-center"
+              >
                 <Image
                   width={220}
                   height={180}
@@ -50,25 +54,31 @@ export default function ProjectCard({ project, className }: ProjectCardProps) {
         </Carousel>
       </CardHeader>
 
-      <CardContent>
+      <CardContent className="p-1">
         <CardTitle className="text-xl font-bold text-primary">
           {project.title}
         </CardTitle>
-        <CardDescription className="text-sm">{project.description}</CardDescription>
 
-        <div className="mt-4">
-          <p className="font-semibold">Skills Used:</p>
-          <ul className="flex flex-wrap gap-2 mt-2">
-            {project.skills.map((skill) => (
-              <li
-                key={skill}
-                className="bg-primary text-background px-3 py-1 rounded-md text-xs font-medium shadow-md"
-              >
+        <div className="mt-1 flex flex-wrap items-center gap-2">
+          {project.skills.map((skill, index) => (
+            <div key={skill} className="flex items-center">
+              <samp className="text-primary text-xs">
                 {skill}
-              </li>
-            ))}
-          </ul>
+              </samp>
+
+              {index < project.skills.length - 1 && (
+                <Separator
+                  orientation="vertical"
+                  className="m-1 h-3 bg-muted"
+                />
+              )}
+            </div>
+          ))}
         </div>
+
+        <CardDescription className="text-sm">
+          {project.description}
+        </CardDescription>
       </CardContent>
 
       <CardFooter className="flex justify-between">
@@ -77,7 +87,7 @@ export default function ProjectCard({ project, className }: ProjectCardProps) {
           target="_blank"
           className="text-primary underline font-semibold transition-colors hover:text-secondary"
         >
-        View Project
+          View Project
         </a>
       </CardFooter>
     </Card>
