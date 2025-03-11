@@ -55,7 +55,7 @@ export default function ProjectCard({ project, className }: ProjectCardProps) {
       </CardHeader>
 
       <CardContent className="p-1">
-        <CardTitle className="text-xl font-bold text-primary">
+        <CardTitle className="text-lg font-bold text-primary">
           {project.title}
         </CardTitle>
 
