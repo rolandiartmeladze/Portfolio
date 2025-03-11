@@ -35,7 +35,7 @@ export default function Projects() {
   }, [carouselApi]);
 
   return (
-    <section className="container h-[98vh] lg:w-[96%] flex flex-col">
+    <section id="projects" className="container h-[98vh] lg:w-[96%] flex flex-col">
       <SectionHeader label="Projects" className="mb-4">
         <Icons.work className="size-5" />
       </SectionHeader>
