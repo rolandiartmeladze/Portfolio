@@ -48,8 +48,8 @@ export default function Projects() {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="hidden lg:inline-block" />
-        <CarouselNext className="hidden lg:inline-block" />
+        <CarouselPrevious />
+        <CarouselNext />
 
         <div className="mt-4 flex justify-center gap-2">
           {ProjectsData.map((_, index) => (
