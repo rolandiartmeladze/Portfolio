@@ -1,6 +1,7 @@
 "use client";
 
 import About from "../about/about";
+import Education from "../education/education";
 import Experience from "../experience/experience";
 import Hero from "../hero/hero";
 import Projects from "../projects/projects";
@@ -12,6 +13,7 @@ export default function Home() {
         <About />
         <Experience />
         <Projects />
+        <Education />
     </div>
   );
 }
