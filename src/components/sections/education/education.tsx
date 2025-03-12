@@ -7,7 +7,7 @@ export default function Education() {
   return (
     <section
       id="education"
-      className="container flex flex-col gap-4 h-screen w-[96%]"
+      className="container flex flex-col gap-4 min-h-screen w-[96%]"
     >
       <SectionHeader label="Education">
         <Icons.education className="size-5" />
