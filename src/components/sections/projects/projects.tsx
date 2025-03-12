@@ -24,7 +24,7 @@ export default function Projects() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [carouselApi, setCarouselApi] = useState<CarouselApi | null>(null);
 
-    const containerRef = useRef<HTMLDivElement | null>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
   useEffect(() => {
     if (!carouselApi) return;
 
@@ -40,12 +40,11 @@ export default function Projects() {
     };
   }, [carouselApi]);
 
-
   useEffect(() => {
     if (!containerRef.current) return;
-  
+
     const container = containerRef.current;
-  
+
     gsap.fromTo(
       container,
       { opacity: 0, scale: 0.9, y: 50, rotate: -5 },
@@ -66,12 +65,14 @@ export default function Projects() {
       }
     );
   }, []);
-  
 
   return (
-    <section ref={containerRef} id="projects" className="container h-[98vh] lg:w-[96%] flex flex-col">
-
-<SectionHeader label="Projects" className="mb-4">
+    <section
+      ref={containerRef}
+      id="projects"
+      className="container h-[98vh] lg:w-[96%] flex flex-col"
+    >
+      <SectionHeader label="Projects" className="mb-4">
         <Icons.work className="size-5" />
       </SectionHeader>
 

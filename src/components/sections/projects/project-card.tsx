@@ -62,9 +62,7 @@ export default function ProjectCard({ project, className }: ProjectCardProps) {
         <div className="mt-1 flex flex-wrap items-center gap-2">
           {project.skills.map((skill, index) => (
             <div key={skill} className="flex items-center">
-              <samp className="text-primary text-xs">
-                {skill}
-              </samp>
+              <samp className="text-primary text-xs">{skill}</samp>
 
               {index < project.skills.length - 1 && (
                 <Separator
@@ -83,7 +81,7 @@ export default function ProjectCard({ project, className }: ProjectCardProps) {
 
       <CardFooter className="flex justify-between">
         <a
-          href={project.media}
+          href={project.link}
           target="_blank"
           className="text-primary underline font-semibold transition-colors hover:text-secondary"
         >
