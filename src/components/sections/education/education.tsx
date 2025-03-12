@@ -12,11 +12,9 @@ export default function Education() {
       <SectionHeader label="Education">
         <Icons.education className="size-5" />
       </SectionHeader>
-{
-    educationData.map((education) =>(
-              <EducationCard key={education.institution} education={education} />
-    ))
-}
+      {educationData.map((education) => (
+        <EducationCard key={education.institution} education={education} />
+      ))}
     </section>
   );
 }

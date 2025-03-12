@@ -4,4 +4,3 @@ export interface education {
     course: string;
     description: string;
 }
-  
