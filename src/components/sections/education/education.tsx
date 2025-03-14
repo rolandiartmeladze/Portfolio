@@ -7,14 +7,16 @@ export default function Education() {
   return (
     <section
       id="education"
-      className="container flex flex-col gap-4 min-h-screen w-[96%]"
+      className="container flex flex-col flex-wrap gap-4 min-h-screen w-full"
     >
       <SectionHeader label="Education">
         <Icons.education className="size-5" />
       </SectionHeader>
-      {educationData.map((education) => (
-        <EducationCard key={education.institution} education={education} />
-      ))}
+      <div className="flex flex-col flex-wrap gap-2 justify-evenly lg:flex-row">
+        {educationData.map((education) => (
+          <EducationCard key={education.institution} education={education} />
+        ))}
+      </div>
     </section>
   );
 }
