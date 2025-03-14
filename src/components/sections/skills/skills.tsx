@@ -9,9 +9,9 @@ export default function Skill() {
       <SectionHeader label="Skills">
         <Icons.skill className="size-5" />
       </SectionHeader>
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {Object.entries(SkillsData).map(([category, skills]) => (
-          <SkillCard key={category} title={category} skills={skills} className="max-w-[96%]" />
+          <SkillCard key={category} title={category} skills={skills} className="lg:max-w-[96%]" />
         ))}
       </div>
     </section>

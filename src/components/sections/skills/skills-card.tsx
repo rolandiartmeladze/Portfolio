@@ -51,7 +51,7 @@ export default function SkillCard({ skills, title, className }: CardProps) {
   return (
     <Card
       ref={cardRef}
-      className={`${className} rounded-2xl border bg-secondary p-5 shadow-lg`}
+      className={`${className} rounded-sm lg:rounded-2xl border-0 border-t lg:border lg:bg-secondary p-5 shadow-lg`}
     >
       <CardTitle className="text-lg font-semibold mb-3">{title}</CardTitle>
       <CardContent className="flex flex-wrap gap-2">
