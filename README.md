@@ -36,6 +36,10 @@ Ensure you have the following installed:
    git clone https://github.com/rolandiartmeladze/Portfolio.git
    cd Portfolio
 
-pnpm install
+2. install 
+    ```bash
+    pnpm install
 
-pnpm run dev
+3. run
+    ```bash
+    pnpm run dev
