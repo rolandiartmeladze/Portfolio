@@ -13,6 +13,7 @@ import { education } from "@/types/education";
 
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import { Button } from "@/components/ui/button";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -21,9 +22,9 @@ export default function EducationCard({ education }: { education: education }) {
 
   useEffect(() => {
     if (!cardRef.current) return;
-  
+
     const card = cardRef.current;
-  
+
     gsap.fromTo(
       card,
       { opacity: 0, scale: 0.8, y: 80, rotate: -10 },
@@ -36,19 +37,20 @@ export default function EducationCard({ education }: { education: education }) {
         ease: "power4.out",
         scrollTrigger: {
           trigger: card,
-          start: "top 50%",
-          end: "top 30%",
+          start: "top 40%",
+          end: "top 60%",
           scrub: 1.5,
           toggleActions: "play none none reverse",
         },
       }
     );
   }, []);
-  
-
 
   return (
-    <Card ref={cardRef} className="rounded-lg border-0 border-primary shadow-sm border-t-2 mt-6">
+    <Card
+      ref={cardRef}
+      className="min-h-full rounded-lg border border-primary shadow-sm mt-6 md:max-w-[96%] lg:max-w-[30%]"
+    >
       <CardHeader>
         <h1 className="text-primary">{education.institution}</h1>
         <samp>{education.period}</samp>
@@ -62,7 +64,7 @@ export default function EducationCard({ education }: { education: education }) {
         </CardDescription>
       </CardContent>
       <CardFooter className="px-4 py-3 text-sm font-medium text-foreground">
-        Certificate
+        <Button variant="default">Certificate</Button>
       </CardFooter>
     </Card>
   );
