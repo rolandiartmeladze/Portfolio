@@ -7,9 +7,10 @@ gsap.registerPlugin(ScrollTrigger);
 interface AnimationProps {
   trigger: string;
   elements: { selector: string; x: number; y: number }[];
+  start?: string;
 }
 
-const GSAPAnimation: React.FC<AnimationProps> = ({ trigger, elements }) => {
+const GSAPAnimation: React.FC<AnimationProps> = ({ trigger, elements, start }) => {
   useEffect(() => {
     const ctx = gsap.context(() => {
       elements.forEach(({ selector, x, y }) => {
@@ -24,7 +25,7 @@ const GSAPAnimation: React.FC<AnimationProps> = ({ trigger, elements }) => {
             ease: "power2.out",
             scrollTrigger: {
               trigger,
-              start: "top 10%",
+              start: start || "top 10%",
               end: "bottom top",
               scrub: true,
             },
