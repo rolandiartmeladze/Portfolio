@@ -42,7 +42,6 @@ export default function Experience() {
 
     const animateElement = (
       element: Element | null,
-      start: string,
       sectionClass: HTMLElement,
       {
         x,
@@ -73,7 +72,7 @@ export default function Experience() {
           stagger: 0.3,
           scrollTrigger: {
             trigger: sectionClass,
-            start: start,
+            start: "top 80%",
             toggleActions: "play none none reverse",
             containerAnimation: isMobile ? undefined : scrollTween,
             once: true,
@@ -99,28 +98,28 @@ export default function Experience() {
         ".doerskills, .freelanceskills, .stemuskills"
       );
 
-      animateElement(circle, "top 80%", section, {
+      animateElement(circle, section, {
         x: [400, 10],
         y: [0, 0],
         opacity: 1,
         scale: [0, 1],
       });
 
-      animateElement(header, "top 80%", section, {
+      animateElement(header, section, {
         x: [0, 0],
         y: [150, 0],
         opacity: 1,
         scale: [0, 1],
       });
 
-      animateElement(description, "top 80%", section, {
+      animateElement(description, section, {
         x: [-300, 0],
         y: [0, 0],
         opacity: 1,
         scale: [0, 1],
       });
 
-      animateElement(skills, "top 80%", section, {
+      animateElement(skills, section, {
         x: [500, 0],
         y: [0, 0],
         opacity: 1,
