@@ -6,6 +6,7 @@ import Experience from "../experience/experience";
 import Hero from "../hero/hero";
 import Projects from "../projects/projects";
 import Skill from "../skills/skills";
+import Contact from "../contact/contact";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
         <Projects />
         <Education />
         <Skill />
+        <Contact />
     </div>
   );
 }
