@@ -97,7 +97,7 @@ export default function Contact() {
                   control={form.control}
                   name="email"
                   render={({ field }) => (
-                    <FormItem className="w-1/4 min-w-48">
+                    <FormItem className="lg:w-1/4 lg:min-w-48">
                       <FormLabel>Email</FormLabel>
                       <FormControl>
                         <Input placeholder="example@example.com" {...field} />
@@ -110,7 +110,7 @@ export default function Contact() {
                   control={form.control}
                   name="subject"
                   render={({ field }) => (
-                    <FormItem className="w-1/4 min-w-48">
+                    <FormItem className="lg:w-1/4 lg:min-w-48">
                       <FormLabel>Subject</FormLabel>
                       <FormControl>
                         <Select
@@ -139,7 +139,7 @@ export default function Contact() {
                 <p className="text-xl lg:text-4xl text-foreground">
                   If you have any questions or feedback please contact me:
                 </p>
-                <div className="flex p-2 gap-6 justify-center lg:justify-start space-x-4">
+                <div className="flex p-2 gap-6 justify-center space-x-4">
                   <Link
                     className="hover:animate-ping"
                     target="blank"
