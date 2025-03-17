@@ -65,7 +65,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="container border-t border-primary rounded-none py-8 h-vsh-100 relative"
+      className="containerrounded-none py-8 h-vsh-100 relative"
     >
       <SectionHeader label="Contact" className="mb-8">
         <Icons.contact className="size-7" />
@@ -88,7 +88,7 @@ export default function Contact() {
         </Slot>
       )}
 
-      <div className="container">
+      <div className="container ">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
             <div className="grid grid-cols-1 lg:grid-cols-[30%_70%] gap-8 items-start">
