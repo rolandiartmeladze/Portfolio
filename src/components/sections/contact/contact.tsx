@@ -65,10 +65,10 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="container border-t border-primary rounded-none py-8 h-vh-100 relative"
+      className="container border-t border-primary rounded-none py-8 h-vsh-100 relative"
     >
       <SectionHeader label="Contact" className="mb-8">
-        <Icons.contact className="w-8 h-8" />
+        <Icons.contact className="size-7" />
       </SectionHeader>
 
       {submittedData && showMessage && (
@@ -97,7 +97,7 @@ export default function Contact() {
                   control={form.control}
                   name="email"
                   render={({ field }) => (
-                    <FormItem className="lg:w-1/4 lg:min-w-48">
+                    <FormItem className="lg:min-w-80">
                       <FormLabel>Email</FormLabel>
                       <FormControl>
                         <Input placeholder="example@example.com" {...field} />
@@ -110,7 +110,7 @@ export default function Contact() {
                   control={form.control}
                   name="subject"
                   render={({ field }) => (
-                    <FormItem className="lg:w-1/4 lg:min-w-48">
+                    <FormItem className="lg:min-w-80">
                       <FormLabel>Subject</FormLabel>
                       <FormControl>
                         <Select
@@ -136,8 +136,9 @@ export default function Contact() {
               </div>
 
               <article className="w-full flex flex-col justify-between order-1 lg:order-2">
-                <p className="text-xl lg:text-4xl text-foreground">
-                  If you have any questions or feedback please contact me:
+                <p className="text-xl lg:text-4xl text-foreground px-8 text-center">
+                  <samp>If you have any questions or feedback </samp>
+                  <samp className="text-primary">please contact me</samp>
                 </p>
                 <div className="flex p-2 gap-6 justify-center space-x-4">
                   <Link
