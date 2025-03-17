@@ -23,6 +23,9 @@ import {
 
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import SectionHeader from "@/components/ui/section-header";
+import { Icons } from "@/components/icons";
+import Link from "next/link";
 
 const formSchema = z.object({
   email: z.string().email({ message: "Invalid email address." }),
@@ -60,7 +63,14 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="container h-vh-100 relative">
+    <section
+      id="contact"
+      className="container border-t border-primary rounded-none py-8 h-vh-100 relative"
+    >
+      <SectionHeader label="Contact" className="mb-8">
+        <Icons.contact className="w-8 h-8" />
+      </SectionHeader>
+
       {submittedData && showMessage && (
         <Slot className="absolute right-5 bottom-6 bg-foreground">
           <div className="mt-4 p-4 flex flex-col justify-start text-secondary rounded-md animate-slideDown">
@@ -77,48 +87,76 @@ export default function Contact() {
           </div>
         </Slot>
       )}
+
       <div className="container">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-            <FormField
-              control={form.control}
-              name="email"
-              render={({ field }) => (
-                <FormItem className="w-1/4 min-w-48">
-                  <FormLabel>Email</FormLabel>
-                  <FormControl>
-                    <Input placeholder="example@example.com" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="subject"
-              render={({ field }) => (
-                <FormItem className="w-1/4 min-w-48">
-                  <FormLabel>Subject</FormLabel>
-                  <FormControl>
-                    <Select
-                      onValueChange={field.onChange}
-                      defaultValue={field.value}
-                    >
-                      <SelectTrigger>
-                        <SelectValue placeholder="Select subject" />
-                      </SelectTrigger>
-                      <SelectContent className="bg-background">
-                        <SelectItem value="general">General Inquiry</SelectItem>
-                        <SelectItem value="support">Support</SelectItem>
-                        <SelectItem value="feedback">Feedback</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+            <div className="grid grid-cols-1 lg:grid-cols-[30%_70%] gap-8 items-start">
+              <div className="min-w-full flex flex-col gap-4 order-2 lg:order-1">
+                <FormField
+                  control={form.control}
+                  name="email"
+                  render={({ field }) => (
+                    <FormItem className="w-1/4 min-w-48">
+                      <FormLabel>Email</FormLabel>
+                      <FormControl>
+                        <Input placeholder="example@example.com" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="subject"
+                  render={({ field }) => (
+                    <FormItem className="w-1/4 min-w-48">
+                      <FormLabel>Subject</FormLabel>
+                      <FormControl>
+                        <Select
+                          onValueChange={field.onChange}
+                          defaultValue={field.value}
+                        >
+                          <SelectTrigger>
+                            <SelectValue placeholder="Select subject" />
+                          </SelectTrigger>
+                          <SelectContent className="bg-background">
+                            <SelectItem value="general">
+                              General Inquiry
+                            </SelectItem>
+                            <SelectItem value="support">Support</SelectItem>
+                            <SelectItem value="feedback">Feedback</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </div>
 
+              <article className="w-full flex flex-col justify-between order-1 lg:order-2">
+                <p className="text-xl lg:text-4xl text-foreground">
+                  If you have any questions or feedback please contact me:
+                </p>
+                <div className="flex p-2 gap-6 justify-center lg:justify-start space-x-4">
+                  <Link
+                    className="hover:animate-ping"
+                    target="blank"
+                    href="https://www.linkedin.com/in/roland-artmeladze"
+                  >
+                    <Icons.linkedin className="size-10" />
+                  </Link>
+                  <Link
+                    className="hover:animate-ping"
+                    target="blank"
+                    href="https://github.com/rolandiartmeladze"
+                  >
+                    <Icons.github className="size-10" />
+                  </Link>
+                </div>
+              </article>
+            </div>
             <FormField
               control={form.control}
               name="message"
