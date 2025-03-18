@@ -36,7 +36,7 @@ export default function SectionHeader({
           toggleActions: "play none none reverse",
           markers: false,
         },
-      }
+      },
     );
   }, []);
 

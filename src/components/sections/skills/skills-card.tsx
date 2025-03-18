@@ -2,21 +2,13 @@ import { useEffect, useRef } from "react";
 import { Card, CardContent, CardTitle } from "@/components/ui/card";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import SkillItems from "@/components/ui/skill-items";
 
 interface CardProps {
   skills: string[];
   title: string;
-  className:string;
+  className: string;
 }
-
-const skillStyles = [
-  "bg-blue-600",
-  "bg-green-600",
-  "bg-purple-600",
-  "bg-red-600",
-  "bg-yellow-500",
-  "bg-pink-600",
-];
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -45,7 +37,7 @@ export default function SkillCard({ skills, title, className }: CardProps) {
           scrub: 1.5,
           toggleActions: "play none none reverse",
         },
-      }
+      },
     );
   }, []);
   return (
@@ -54,14 +46,9 @@ export default function SkillCard({ skills, title, className }: CardProps) {
       className={`${className} rounded-sm lg:rounded-2xl border-0 border-t lg:border lg:bg-secondary p-5 shadow-lg`}
     >
       <CardTitle className="text-lg font-semibold mb-3">{title}</CardTitle>
-      <CardContent className="flex flex-wrap gap-2">
+      <CardContent className={`flex flex-wrap gap-2`}>
         {skills.map((skill, index) => (
-          <span
-            key={skill}
-            className={`${skillStyles[index % skillStyles.length]} text-foreground px-3 py-1 rounded-lg shadow-md font-medium`}
-          >
-            {skill}
-          </span>
+          <SkillItems key={skill + index} skill={skill} index={index} />
         ))}
       </CardContent>
     </Card>

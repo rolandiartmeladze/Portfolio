@@ -9,8 +9,11 @@ export default function ThemeToggle() {
   if (theme === null) return null;
 
   return (
-    <div className="flex z-20 cursor-pointer size-9 text-foreground hover:text-primary" onClick={toggleTheme}>
-      {theme === "dark" ?  <Icons.sun /> :<Icons.moon />}
+    <div
+      className="flex z-20 cursor-pointer size-9 text-foreground hover:text-primary"
+      onClick={toggleTheme}
+    >
+      {theme === "dark" ? <Icons.sun /> : <Icons.moon />}
     </div>
   );
 }

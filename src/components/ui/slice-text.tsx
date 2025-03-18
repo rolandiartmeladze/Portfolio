@@ -15,7 +15,10 @@ const SliceText: React.FC<SliceTextProps> = ({ text, className }) => {
     if (textRef.current) {
       const letters = text.split("");
       textRef.current.innerHTML = letters
-        .map((letter) => `<span class="inline-block opacity-0 translate-y-4">${letter}</span>`)
+        .map(
+          (letter) =>
+            `<span class="inline-block opacity-0 translate-y-4">${letter}</span>`,
+        )
         .join("");
 
       gsap.to(textRef.current.children, {
@@ -28,9 +31,7 @@ const SliceText: React.FC<SliceTextProps> = ({ text, className }) => {
     }
   }, [text]);
 
-  return (
-    <div ref={textRef} className={`inline-block ${className}`}></div>
-  );
+  return <div ref={textRef} className={`inline-block ${className}`}></div>;
 };
 
 export default SliceText;

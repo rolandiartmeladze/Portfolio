@@ -17,11 +17,12 @@ export default function MobileMenu() {
       </SheetTrigger>
       <SheetContent>
         <SheetHeader className="mt-7">
-          <SheetTitle>
-            
-          </SheetTitle>
+          <SheetTitle></SheetTitle>
           <SheetDescription>
-            <MenuList showBlog={true} className="rounded-none border-0 border-b rounded-t-md" />
+            <MenuList
+              showBlog={true}
+              className="rounded-none border-0 border-b rounded-t-md"
+            />
           </SheetDescription>
         </SheetHeader>
       </SheetContent>

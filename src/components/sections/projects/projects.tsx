@@ -62,7 +62,7 @@ export default function Projects() {
           scrub: true,
           toggleActions: "play none none reverse",
         },
-      }
+      },
     );
   }, []);
 

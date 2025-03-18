@@ -26,6 +26,7 @@ import { Textarea } from "@/components/ui/textarea";
 import SectionHeader from "@/components/ui/section-header";
 import { Icons } from "@/components/icons";
 import Link from "next/link";
+import Animation from "./animation";
 
 const formSchema = z.object({
   email: z.string().email({ message: "Invalid email address." }),
@@ -65,7 +66,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="containerrounded-none py-8 h-vsh-100 relative"
+      className="container contact rounded-none py-8 h-svh relative"
     >
       <SectionHeader label="Contact" className="mb-8">
         <Icons.contact className="size-7" />
@@ -88,7 +89,16 @@ export default function Contact() {
         </Slot>
       )}
 
-      <div className="container ">
+      <div className="container">
+        <Animation
+          trigger=".contact"
+          elements={[
+            { selector: ".contact-text", scale: 0 },
+            { selector: ".linkedin", x: -120, scale: 0.4 },
+            { selector: ".github", x: 120, scale: 0.4 },
+            { selector: ".form-field", x: -120, scale: 0.2 },
+          ]}
+        />{" "}
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
             <div className="grid grid-cols-1 lg:grid-cols-[30%_70%] gap-8 items-start">
@@ -97,7 +107,7 @@ export default function Contact() {
                   control={form.control}
                   name="email"
                   render={({ field }) => (
-                    <FormItem className="lg:min-w-80">
+                    <FormItem className="form-field lg:min-w-80">
                       <FormLabel>Email</FormLabel>
                       <FormControl>
                         <Input placeholder="example@example.com" {...field} />
@@ -110,7 +120,7 @@ export default function Contact() {
                   control={form.control}
                   name="subject"
                   render={({ field }) => (
-                    <FormItem className="lg:min-w-80">
+                    <FormItem className="form-field lg:min-w-80">
                       <FormLabel>Subject</FormLabel>
                       <FormControl>
                         <Select
@@ -136,20 +146,20 @@ export default function Contact() {
               </div>
 
               <article className="w-full flex flex-col justify-between order-1 lg:order-2">
-                <p className="text-xl lg:text-4xl text-foreground px-8 text-center">
+                <p className="text-xl contact-text lg:text-4xl text-foreground px-8 text-center">
                   <samp>If you have any questions or feedback </samp>
                   <samp className="text-primary">please contact me</samp>
                 </p>
                 <div className="flex p-2 gap-6 justify-center space-x-4">
                   <Link
-                    className="hover:animate-ping"
+                    className="linkedin hover:animate-ping"
                     target="blank"
                     href="https://www.linkedin.com/in/roland-artmeladze"
                   >
                     <Icons.linkedin className="size-10" />
                   </Link>
                   <Link
-                    className="hover:animate-ping"
+                    className="github hover:animate-ping"
                     target="blank"
                     href="https://github.com/rolandiartmeladze"
                   >
@@ -163,7 +173,7 @@ export default function Contact() {
               name="message"
               render={({ field }) => (
                 <>
-                  <FormItem>
+                  <FormItem className="form-field">
                     <FormLabel>Message</FormLabel>
                     <FormControl>
                       <Textarea

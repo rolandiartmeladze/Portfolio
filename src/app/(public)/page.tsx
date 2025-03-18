@@ -1,5 +1,4 @@
-import Home from "@/components/sections/home/home";
-
+import Home from "@/components/home/home";
 
 export default function IndexPage() {
   return (

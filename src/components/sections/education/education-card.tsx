@@ -44,7 +44,7 @@ export default function EducationCard({ education }: { education: education }) {
           scrub: 1.5,
           toggleActions: "play none none reverse",
         },
-      }
+      },
     );
   }, []);
 
@@ -73,10 +73,10 @@ export default function EducationCard({ education }: { education: education }) {
       </CardContent>
       <CardFooter className="px-4 py-3 text-sm font-medium text-foreground">
         <Button asChild variant="default">
-          <Link href={education.link} target="_blank" >
-          Certificate
+          <Link href={education.link} target="_blank">
+            Certificate
           </Link>
-          </Button>
+        </Button>
       </CardFooter>
     </Card>
   );

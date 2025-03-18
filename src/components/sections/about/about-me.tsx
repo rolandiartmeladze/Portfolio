@@ -23,15 +23,29 @@ const TextAnimation = () => {
           toggleActions: "play none none reverse",
           markers: false,
         },
-      }
+      },
     );
   }, []);
 
   const highlightText = (text: string) => {
     const keywords = [
-      "full-stack", "frontend", "backend", "JavaScript", "React", "TypeScript", 
-      "Next.js", "Tailwind CSS", "Node.js", "Express.js", "Python", "Django", 
-      "REST Framework", "MongoDB", "Mongoose Atlas", "Django ORM", "database management"
+      "full-stack",
+      "frontend",
+      "backend",
+      "JavaScript",
+      "React",
+      "TypeScript",
+      "Next.js",
+      "Tailwind CSS",
+      "Node.js",
+      "Express.js",
+      "Python",
+      "Django",
+      "REST Framework",
+      "MongoDB",
+      "Mongoose Atlas",
+      "Django ORM",
+      "database management",
     ];
 
     return text.split(" ").map((word, index) => {
@@ -40,7 +54,7 @@ const TextAnimation = () => {
       if (keywords.includes(cleanWord)) {
         return (
           <span key={index} className="font-bold text-primary">
-            {word} 
+            {word}
           </span>
         );
       }

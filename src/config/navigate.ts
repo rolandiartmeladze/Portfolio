@@ -6,4 +6,4 @@ export const menuItems = [
   { to: "#skills", label: "Skills", icon: "skill" },
   { to: "#education", label: "Education", icon: "education" },
   { to: "#contact", label: "Contact", icon: "contact" },
-]
+];

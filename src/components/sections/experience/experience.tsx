@@ -55,7 +55,7 @@ export default function Experience() {
         opacity: number;
         scale: [number, number];
         ease?: string;
-      }
+      },
     ) => {
       if (!element) return;
 
@@ -77,25 +77,25 @@ export default function Experience() {
             containerAnimation: isMobile ? undefined : scrollTween,
             once: true,
           },
-        }
+        },
       );
     };
 
     const sections = gsap.utils.toArray<HTMLElement>(
-      WorkExperience.map((exp) => `.${exp.indicator}`)
+      WorkExperience.map((exp) => `.${exp.indicator}`),
     );
     sections.forEach((section) => {
       const circle = section.querySelector(
-        ".doercircle, .freelancecircle, .stemucircle"
+        ".doercircle, .freelancecircle, .stemucircle",
       );
       const header = section.querySelector(
-        ".doerheader, .freelanceheader, .stemuheader"
+        ".doerheader, .freelanceheader, .stemuheader",
       );
       const description = section.querySelector(
-        ".doerdescription, .freelancedescription, .stemudescription"
+        ".doerdescription, .freelancedescription, .stemudescription",
       );
       const skills = section.querySelector(
-        ".doerskills, .freelanceskills, .stemuskills"
+        ".doerskills, .freelanceskills, .stemuskills",
       );
 
       animateElement(circle, section, {
@@ -145,7 +145,7 @@ export default function Experience() {
           scrub: true,
           toggleActions: "play none none reverse",
         },
-      }
+      },
     );
 
     setupScrollAnimation();
@@ -159,6 +159,7 @@ export default function Experience() {
 
   return (
     <section
+      id="experience"
       ref={containerRef}
       className="section w-full flex flex-col items-start relative p-1 gap-3 lg:p-6 overflow-hidden lg:h-svh lg:w-[96%]"
     >

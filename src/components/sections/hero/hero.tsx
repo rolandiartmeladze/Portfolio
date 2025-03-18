@@ -15,13 +15,12 @@ export default function Hero() {
         trigger=".hero"
         elements={[
           { selector: ".resume", x: 0, y: 250 },
-          { selector: ".github", x: -150, y: 120 },
-          { selector: ".linkedin", x: 120, y: 150 },
+          { selector: ".github-icon", x: -150, y: 120 },
+          { selector: ".linkedin-icon", x: 120, y: 150 },
           { selector: ".FULLSTACK", x: 200, y: 0 },
           { selector: ".MERNSTACK", x: -200, y: 0 },
           { selector: ".MrakedCircleInset", x: 750, y: 150 },
           { selector: ".MrakedCircle", x: -400, y: 250 },
-
         ]}
       />
       <span className="text-5xl text-slate-600 animate-slideDown">
@@ -44,8 +43,11 @@ export default function Hero() {
         className="MERNSTACK"
         text="MERN-Stack Developer | Node.js, Express, MongoDB"
       />
-      <MarkedCircle className="MrakedCircle  relative z-40 size-28  m-5" className2="MrakedCircleInset size-24">
-      <Icons.scrollDown className="size-16 text-primary drop-shadow-lg" />
+      <MarkedCircle
+        className="MrakedCircle  relative z-40 size-28  m-5"
+        className2="MrakedCircleInset size-24"
+      >
+        <Icons.scrollDown className="size-16 text-primary drop-shadow-lg" />
       </MarkedCircle>
     </section>
   );

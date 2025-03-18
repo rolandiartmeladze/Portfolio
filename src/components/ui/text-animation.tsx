@@ -1,7 +1,10 @@
 export default function TextAniation({
-    text,
-    className
-}:{text:string, className?:string}) {
+  text,
+  className,
+}: {
+  text: string;
+  className?: string;
+}) {
   return (
     <p className={`text-xs lg:text-base  ${className}`}>
       {text.split("").map((char, index) => (
