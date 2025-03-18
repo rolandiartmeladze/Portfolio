@@ -1,23 +1,56 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
-/node_modules
+# Node.js dependencies
+/node_modules/
 /.pnp
 .pnp.js
 
-# testing
+# Testing outputs
 /coverage
 
-# production
+# Build outputs
 /build
+/dist
+/target
 
-# misc
+# Production directories
+/.next
+/.nuxt
+/.vercel
+/.vscode
+
+# System files
 .DS_Store
+Thumbs.db
+
+# Environment files
+.env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
+.env.*.local
 
+# Logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+lerna-debug.log*
+
+# IDE specific
+.vscode/
+.idea/
+
+# Next.js and other temporary build folders
+.next/
+
+# Optional eslint, stylelint, prettier configurations (if you're not committing them)
+.eslintrc.js
+.stylelintrc.js
+.prettierrc.js
+
+# TypeScript declaration files (optional if you don't want to track them)
+*.d.ts
+
+# Backup files created by text editors
+*~
+*.swp
+*.swo
