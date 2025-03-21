@@ -3,7 +3,7 @@
 A modern and interactive **personal portfolio website** built with **Next.js** and **TypeScript**. This project showcases my skills, projects, and experience while delivering a smooth and dynamic user experience. The UI is styled with **Tailwind CSS**, and animations are powered by **GSAP ScrollTrigger** for engaging scroll-based effects.
 
 ## 🚀 Live Demo
-🔗 [View the Portfolio](https://portfolio-git-migrate-to-next-roland-artmeladzes-projects.vercel.app/)  
+🔗 [View the Portfolio](https://portfolio-inky-tau-14.vercel.app/)  
 
 ## 📌 Features
 - ⚡ **Next.js Performance** – Optimized for fast loading and SEO  
