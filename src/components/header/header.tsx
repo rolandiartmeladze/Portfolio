@@ -12,8 +12,8 @@ export default function Header({ className }: { className?: string }) {
     >
       <ContactButtons />
       <div className="flex justify-between items-center  gap-2 lg:gap-3">
-        <Link
-          href="/blog"
+        <Link target="blank"
+          href="https://my-blog-frontend-mocha.vercel.app/"
           className="hidden lg:bg-primary hover:bg-secondary lg:flex lg:p-1 items-center lg:border-b lg:border-b-foreground lg:rounded-md"
         >
           <Icons.blog className="size-9 z-20  lg:size-7" />
