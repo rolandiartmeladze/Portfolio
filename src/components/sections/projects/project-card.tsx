@@ -16,18 +16,8 @@ import {
 } from "@/components/ui/carousel";
 import { Separator } from "@/components/ui/separator";
 
-import image from "@/../public/placeholder.svg";
-
-import Image from "next/image";
 import { Project } from "@/types/project";
-import {
-  Dialog,
-  DialogTrigger,
-  DialogHeader,
-  DialogContent,
-  DialogTitle,
-  DialogDescription,
-} from "@/components/ui/dialog";
+import ProjectImages from "./project-images";
 
 interface ProjectCardProps {
   project: Project;
@@ -41,47 +31,11 @@ export default function ProjectCard({ project, className }: ProjectCardProps) {
     >
       <CardHeader className="p-2 border-b border-b-muted">
         <Carousel>
-          <Dialog>
-            <CarouselContent className="h-48 flex gap-3">
-              {[0, 1, 2].map((_, index) => (
-                <CarouselItem
-                  key={index}
-                  className="max-w-[230px] flex justify-center"
-                >
-                  <Dialog>
-                    <DialogTrigger asChild>
-                      <Image
-                        width={220}
-                        height={180}
-                        alt={project.title}
-                        src={image}
-                        className="rounded-md object-cover cursor-pointer"
-                      />
-                    </DialogTrigger>
-                    
-                    <DialogContent>
-                      <DialogHeader>
-                        <DialogTitle>{project.title}</DialogTitle>
-                        <DialogDescription>
-                          Image {index + 1} 
-                        </DialogDescription>
-                      </DialogHeader>
-                      <Image
-                        src={image}
-                        alt={project.title}
-                        width={600}
-                        height={400}
-                        className="rounded-md"
-                      />
-                    </DialogContent>
-
-                  </Dialog>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-          </Dialog>
-          <CarouselPrevious className="left-0 flex" />
-          <CarouselNext className="right-0 flex" />
+          <CarouselContent className="h-48 flex gap-3">
+            <ProjectImages albumHash={project.albumHash} projectName={project.title} />
+          </CarouselContent>
+          <CarouselPrevious className="left-0 flex z-10" />
+          <CarouselNext className="right-0 flex z-10" />
         </Carousel>
       </CardHeader>
 
