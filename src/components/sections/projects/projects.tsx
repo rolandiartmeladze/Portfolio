@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import ProjectImages from "./project-images";
 import SectionHeader from "@/components/ui/section-header";
 import {
   Carousel,
@@ -67,16 +66,6 @@ export default function Projects() {
     );
   }, []);
 
-
-
-  useEffect(() => {
-    const fetchImages = async () => {
-      const images = await ProjectImages();
-      console.log(images);
-    };
-
-    fetchImages();
-  }, []);
   return (
     <section
       ref={containerRef}
