@@ -66,8 +66,6 @@ export default function Projects() {
     );
   }, []);
 
-
-
   return (
     <section
       ref={containerRef}

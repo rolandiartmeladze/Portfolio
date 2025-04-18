@@ -31,7 +31,10 @@ export default function ProjectCard({ project, className }: ProjectCardProps) {
       <CardHeader className="p-2 border-b border-b-muted">
         <Carousel>
           <CarouselContent className="h-48 flex gap-3">
-            <ProjectImages albumHash={project.albumHash} projectName={project.title} />
+            <ProjectImages
+              albumHash={project.albumHash}
+              projectName={project.title}
+            />
           </CarouselContent>
           <CarouselPrevious className="left-0 flex z-10" />
           <CarouselNext className="right-0 flex z-10" />

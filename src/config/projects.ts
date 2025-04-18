@@ -10,7 +10,7 @@ export const ProjectsData: Project[] = [
     details:
       "This project highlights my ability to create modern, responsive websites, allowing potential employers to explore my professional background and skills.",
     link: "https://portfolio-git-migrate-to-next-roland-artmeladzes-projects.vercel.app/",
-    albumHash:"nu7lxPH",
+    albumHash: "nu7lxPH",
   },
   {
     title: "Data Management System",
@@ -21,7 +21,7 @@ export const ProjectsData: Project[] = [
     details:
       "This project demonstrates my ability to develop data management systems and automate business processes.",
     link: "https://portfolio-git-migrate-to-next-roland-artmeladzes-projects.vercel.app/",
-    albumHash:"nu7lxPH",
+    albumHash: "nu7lxPH",
   },
   {
     title: "REST API with Nest.js",
@@ -32,7 +32,7 @@ export const ProjectsData: Project[] = [
     details:
       "This project showcases my ability to develop scalable and efficient server-side applications and integrate with databases.",
     link: "https://portfolio-git-migrate-to-next-roland-artmeladzes-projects.vercel.app/",
-    albumHash:"Re7HtSJ",
+    albumHash: "Re7HtSJ",
   },
   {
     title: "E-Commerce Application Backend",
@@ -43,7 +43,7 @@ export const ProjectsData: Project[] = [
     details:
       "This project highlights my ability to build full-fledged REST APIs, handle user authentication, and ensure security.",
     link: "https://portfolio-git-migrate-to-next-roland-artmeladzes-projects.vercel.app/",
-    albumHash:"nu7lxPH",
+    albumHash: "nu7lxPH",
   },
   {
     title: "Pong Game",
@@ -54,6 +54,6 @@ export const ProjectsData: Project[] = [
     details:
       "This project demonstrates my ability to develop interactive user interfaces and simple games.",
     link: "https://portfolio-git-migrate-to-next-roland-artmeladzes-projects.vercel.app/",
-    albumHash:"nu7lxPH",
+    albumHash: "nu7lxPH",
   },
 ];

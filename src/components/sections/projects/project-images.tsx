@@ -22,7 +22,13 @@ interface ImgurImage {
   link: string;
 }
 
-export default function ProjectImages({ albumHash, projectName }: { albumHash: string, projectName: string }) {
+export default function ProjectImages({
+  albumHash,
+  projectName,
+}: {
+  albumHash: string;
+  projectName: string;
+}) {
   const [images, setImages] = useState<ImgurImage[]>([]);
   const [loading, setLoading] = useState(true);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -69,10 +75,13 @@ export default function ProjectImages({ albumHash, projectName }: { albumHash: s
         >
           <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
             <DialogTrigger asChild>
-              <div onClick={() => {
-                setCurrentIndex(index);
-                setIsDialogOpen(true);
-              }} className="flex items-center justify-center w-full h-full">
+              <div
+                onClick={() => {
+                  setCurrentIndex(index);
+                  setIsDialogOpen(true);
+                }}
+                className="flex items-center justify-center w-full h-full"
+              >
                 <Image
                   width={250}
                   height={180}

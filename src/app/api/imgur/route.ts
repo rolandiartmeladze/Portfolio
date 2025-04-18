@@ -9,10 +9,9 @@ export async function GET(req: NextRequest) {
   const albumHash = searchParams.get("album");
 
   if (!albumHash) {
-    return new NextResponse(
-      JSON.stringify({ error: "Missing album hash" }),
-      { status: 400 }
-    );
+    return new NextResponse(JSON.stringify({ error: "Missing album hash" }), {
+      status: 400,
+    });
   }
 
   const now = Date.now();
@@ -32,7 +31,7 @@ export async function GET(req: NextRequest) {
     const err = error as Error;
     return new NextResponse(
       JSON.stringify({ error: err.message || "Unknown error" }),
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
