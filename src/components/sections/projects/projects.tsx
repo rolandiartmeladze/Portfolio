@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import ProjectImages from "./project-images";
 import SectionHeader from "@/components/ui/section-header";
 import {
   Carousel,

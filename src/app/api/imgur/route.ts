@@ -1,8 +1,8 @@
 import { fetchImgurImages } from "@/lib/imgur";
 import { NextRequest, NextResponse } from "next/server";
 
-let cache: Record<string, any> = {};
-let lastFetch: Record<string, number> = {};
+const cache: Record<string, unknown> = {};
+const lastFetch: Record<string, number> = {};
 
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
@@ -28,9 +28,10 @@ export async function GET(req: NextRequest) {
     lastFetch[albumHash] = now;
 
     return NextResponse.json(images);
-  } catch (error: any) {
+  } catch (error) {
+    const err = error as Error;
     return new NextResponse(
-      JSON.stringify({ error: error.message || "Unknown error" }),
+      JSON.stringify({ error: err.message || "Unknown error" }),
       { status: 500 }
     );
   }
