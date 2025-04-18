@@ -69,14 +69,6 @@ export default function Projects() {
 
 
 
-  useEffect(() => {
-    const fetchImages = async () => {
-      const images = await ProjectImages();
-      console.log(images);
-    };
-
-    fetchImages();
-  }, []);
   return (
     <section
       ref={containerRef}
