@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
-    domains: ["github-profile-trophy.vercel.app"],
+    domains: ['i.imgur.com'],
   },
 };
 
