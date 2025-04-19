@@ -18,6 +18,9 @@ import { Separator } from "@/components/ui/separator";
 import { Project } from "@/types/project";
 import ProjectImages from "./project-images";
 
+import { Icons } from "@/components/icons";
+import Link from "next/link";
+
 interface ProjectCardProps {
   project: Project;
   className?: string;
@@ -67,13 +70,19 @@ export default function ProjectCard({ project, className }: ProjectCardProps) {
       </CardContent>
 
       <CardFooter className="flex justify-between">
-        <a
+        <Link
+          href={project.link}>
+
+          <Icons.github className="text-primary size-9" />
+        </Link>
+
+        <Link
           href={project.link}
           target="_blank"
           className="text-primary underline font-semibold transition-colors hover:text-secondary"
         >
-          View Project
-        </a>
+          Readme.md
+        </Link>
       </CardFooter>
     </Card>
   );
