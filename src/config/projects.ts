@@ -34,9 +34,9 @@ export const ProjectsData: Project[] = [
     ],
     media: "Source code available on GitHub: https://github.com/rolandiartmeladze/my-blog-frontend",
     details:
-      "This project highlights my ability to create modern, responsive websites, allowing potential employers to explore my professional background and skills.",
-    link: "https://portfolio-git-migrate-to-next-roland-artmeladzes-projects.vercel.app/",
-    albumHash: "nu7lxPH",
+      "This project showcases my frontend development skills using Vue 3 with TypeScript, styled using Tailwind CSS. It features responsive UI, efficient state management with Pinia, and client-side routing with Vue Router. The application dynamically fetches data from a Laravel-powered backend via RESTful APIs, and is optimized for speed and scalability using Vite.",
+    link: "https://github.com/rolandiartmeladze/my-blog-frontend",
+    albumHash: "nu7lxPH"
   },
   {
     title: "Blog and User Management System (Laravel)",
@@ -45,9 +45,9 @@ export const ProjectsData: Project[] = [
     skills: ["Laravel", "PHP", "MySQL", "MVC", "REST API", "Authentication"],
     media: "Full documentation and source code available on GitHub: https://github.com/rolandiartmeladze/my-blog-backend",
     details:
-      "This project demonstrates my ability to develop data management systems and automate business processes.",
-    link: "https://portfolio-git-migrate-to-next-roland-artmeladzes-projects.vercel.app/",
-    albumHash: "nu7lxPH",
+      "This project demonstrates my backend development skills using Laravel. It implements a complete user management system with secure login and registration using Laravel Sanctum. The blog system supports post creation, editing, and password reset functionality. The application follows a clean MVC structure and includes protected API routes, Blade templates, and proper database migration handling.",
+    link: "https://github.com/rolandiartmeladze/my-blog-backend",
+    albumHash: "nu7lxPH"
   },
   {
     title: "Blog Backend with Django",
@@ -56,9 +56,9 @@ export const ProjectsData: Project[] = [
     skills: ["Python", "Django", "Django REST Framework", "SQLite", "API Development"],
     media: "Source code available on GitHub: https://github.com/rolandiartmeladze/my-blog-backend",
     details:
-      "This project showcases my ability to develop scalable and efficient server-side applications and integrate with databases.",
-    link: "https://portfolio-git-migrate-to-next-roland-artmeladzes-projects.vercel.app/",
-    albumHash: "Re7HtSJ",
+      "This backend application powers the blog section of my portfolio. It includes CRUD operations for posts and comments, relational data modeling, and serializers for optimized API responses. It demonstrates my grasp of backend development and integration with frontend components.",
+    link: "https://github.com/rolandiartmeladze/my-blog-backend",
+    albumHash: "nu7lxPH",
   },
   {
     title: "E-Commerce Application (Frontend + Backend)",
@@ -67,8 +67,8 @@ export const ProjectsData: Project[] = [
     skills: ["React.js", "Node.js", "Express.js", "MongoDB", "JWT Authentication"],
     media: "Frontend: https://github.com/rolandiartmeladze/E-Commerce-Application_Frontend | Backend: https://github.com/rolandiartmeladze/E-Commerce-Application_Backend",
     details:
-      "This project highlights my ability to build full-fledged REST APIs, handle user authentication, and ensure security.",
-    link: "https://portfolio-git-migrate-to-next-roland-artmeladzes-projects.vercel.app/",
+      "This project demonstrates my full-stack development experience, including REST API design, secure authentication with JWT, database modeling with MongoDB, and React state management. It reflects my ability to architect, implement, and maintain scalable applications.",
+    link: "https://github.com/rolandiartmeladze/E-Commerce-Application_Frontend",
     albumHash: "nu7lxPH",
   },
   {
@@ -78,8 +78,8 @@ export const ProjectsData: Project[] = [
     skills: ["Nest.js", "TypeScript", "MongoDB", "Backend Architecture"],
     media: "Codebase available on GitHub: https://github.com/rolandiartmeladze/rest-api",
     details:
-      "This project demonstrates my ability to develop interactive user interfaces and simple games.",
-    link: "https://portfolio-git-migrate-to-next-roland-artmeladzes-projects.vercel.app/",
+      "This project is designed to show my understanding of backend system architecture using Nest.js. It integrates external APIs, implements error handling, and uses Mongoose for managing MongoDB schemas. The API structure emphasizes clean code and modular design.",
+    link: "https://github.com/rolandiartmeladze/rest-api",
     albumHash: "nu7lxPH",
   },
 
