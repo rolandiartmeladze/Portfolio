@@ -55,6 +55,12 @@ export default function ProjectImages({
     fetchImages();
   }, [albumHash]);
 
+  useEffect(() => {
+    if (isDialogOpen && carouselApi) {
+      carouselApi.scrollTo(currentIndex);
+    }
+  }, [isDialogOpen, currentIndex, carouselApi]);
+
 
   if (loading) return <p className="flex items-center w-full justify-center h-full">Loading images...</p>;
 
@@ -120,7 +126,7 @@ export default function ProjectImages({
                       <Image
                         width={600}
                         height={400}
-                        src={images[currentIndex].link}
+                        src={images[currentIndex]?.link}
                         alt={img.title || "Project Image"}
                         className="rounded-lg object-cover transition-all duration-300"
                       />
