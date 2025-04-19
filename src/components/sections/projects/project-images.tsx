@@ -130,7 +130,7 @@ export default function ProjectImages({
                 <CarouselPoints
                   total={images.length}
                   currentIndex={currentIndex}
-                  onDotClick={(index) => carouselApi?.scrollTo(index)}
+                  onDotClick={(idx) => carouselApi?.scrollTo(idx)}
                 />
               </Carousel>
             </DialogContent>
