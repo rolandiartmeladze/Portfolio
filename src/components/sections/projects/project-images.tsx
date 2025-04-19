@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 
 import {
@@ -112,7 +112,7 @@ export default function ProjectImages({
 
               <Carousel setApi={setCarouselApi} className="w-full">
                 <CarouselContent className="flex gap-3">
-                  {images.map((img, idx) => (
+                  {images.map((img) => (
                     <CarouselItem
                       key={img.id}
                       className="flex justify-center items-center"
@@ -130,7 +130,7 @@ export default function ProjectImages({
                 <CarouselPoints
                   total={images.length}
                   currentIndex={currentIndex}
-                  onDotClick={(idx) => carouselApi?.scrollTo(idx)}
+                  onDotClick={(index) => carouselApi?.scrollTo(index)}
                 />
               </Carousel>
             </DialogContent>
