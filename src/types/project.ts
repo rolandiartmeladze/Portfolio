@@ -5,4 +5,5 @@ export interface Project {
   media: string;
   details: string;
   link: string;
+  albumHash: string;
 }
