@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
@@ -32,8 +34,6 @@ export default function ProjectImages({
   albumHash: string;
   projectName: string;
 }) {
-
-
   const [images, setImages] = useState<ImgurImage[]>([]);
   const [loading, setLoading] = useState(true);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -42,7 +42,6 @@ export default function ProjectImages({
   const [carouselApi, setCarouselApi] = useState<CarouselApi | null>(null);
 
   useCarouselSync(carouselApi, setCurrentIndex);
-
 
   useEffect(() => {
     async function fetchImages() {
@@ -61,16 +60,19 @@ export default function ProjectImages({
     }
   }, [isDialogOpen, currentIndex, carouselApi]);
 
-
-  if (loading) return <p className="flex items-center w-full justify-center h-full">Loading images...</p>;
-
+  if (loading)
+    return (
+      <p className="flex items-center w-full justify-center h-full">
+        Loading images...
+      </p>
+    );
 
   return (
     <>
       {images.map((image, index) => (
         <CarouselItem
           key={image.id}
-          className="max-w-[230px] flex justify-center"
+          className="w-full sm:max-w-[230px] flex justify-center"
         >
           <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
             <DialogTrigger asChild>
@@ -79,11 +81,10 @@ export default function ProjectImages({
                   setCurrentIndex(index);
                   setIsDialogOpen(true);
                 }}
-                className="flex items-center justify-center w-full h-full"
+                className="relative w-full aspect-[4/3] max-w-xs"
               >
                 <Image
-                  width={250}
-                  height={180}
+                  fill
                   src={image.link}
                   alt={image.title || `Image ${index + 1}`}
                   className="rounded-md object-cover cursor-pointer"
@@ -91,7 +92,7 @@ export default function ProjectImages({
               </div>
             </DialogTrigger>
 
-            <DialogContent className="max-w-4xl">
+            <DialogContent className="max-w-6xl w-full">
               <DialogHeader>
                 <DialogTitle className="text-lg font-bold flex justify-start items-center">
                   <div className="flex items-center gap-3 px-4 py-2 rounded-lg bg-background shadow-md border border-border">
@@ -112,24 +113,24 @@ export default function ProjectImages({
                       <samp className="text-muted-foreground">{images.length}</samp>
                     </div>
                   </div>
-
                 </DialogTitle>
               </DialogHeader>
 
-              <Carousel setApi={setCarouselApi} className="w-full">
-                <CarouselContent className="flex gap-3">
+              <Carousel setApi={setCarouselApi} className="w-full mt-4">
+                <CarouselContent className="flex gap-4">
                   {images.map((img) => (
                     <CarouselItem
                       key={img.id}
-                      className="flex justify-center items-center"
+                      className="flex justify-center items-center w-full"
                     >
-                      <Image
-                        width={600}
-                        height={400}
-                        src={images[currentIndex]?.link}
-                        alt={img.title || "Project Image"}
-                        className="rounded-lg object-cover transition-all duration-300"
-                      />
+                      <div className="relative w-full aspect-video max-h-[80vh]">
+                        <Image
+                          fill
+                          src={img.link}
+                          alt={img.title || "Project Image"}
+                          className="rounded-lg object-contain"
+                        />
+                      </div>
                     </CarouselItem>
                   ))}
                 </CarouselContent>
