@@ -36,7 +36,7 @@ export const ProjectsData: Project[] = [
     details:
       "This project showcases my frontend development skills using Vue 3 with TypeScript, styled using Tailwind CSS. It features responsive UI, efficient state management with Pinia, and client-side routing with Vue Router. The application dynamically fetches data from a Laravel-powered backend via RESTful APIs, and is optimized for speed and scalability using Vite.",
     link: "https://github.com/rolandiartmeladze/my-blog-frontend",
-    albumHash: "nu7lxPH"
+    albumHash: "aNRMZAu"
   },
   {
     title: "Blog and User Management System (Laravel)",
