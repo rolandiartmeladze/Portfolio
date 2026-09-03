@@ -6,7 +6,7 @@ import AboutStatsSection from '@/app/components/AboutStatsSection';
 import SkillsDashboard from '@/app/components/SkillsDashboard';
 import ExperienceSection from '@/app/components/ExperienceSection';
 import ProjectsSection from '@/app/components/ProjectsSection';
-
+import EducationSection from '@/app/components/EducationSection';
 
 export default function HomePage() {
   return (
@@ -31,6 +31,7 @@ export default function HomePage() {
         <SkillsDashboard />
         <ExperienceSection />
         <ProjectsSection />
+        <EducationSection />
       </main>
 
       <Footer />
