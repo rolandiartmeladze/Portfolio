@@ -3,6 +3,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import HeroSection from '@/app/components/HeroSection';
 import AboutStatsSection from '@/app/components/AboutStatsSection';
+import SkillsDashboard from '@/app/components/SkillsDashboard';
 
 
 export default function HomePage() {
@@ -25,6 +26,7 @@ export default function HomePage() {
       <main className="relative z-10">
         <HeroSection />
         <AboutStatsSection />
+        <SkillsDashboard />
       </main>
 
       <Footer />
