@@ -1,8 +1,8 @@
-
-import Footer from "@/components/Footer";
 import React from 'react';
 import Header from '@/components/Header';
-import Image from "next/image";
+import Footer from '@/components/Footer';
+import HeroSection from '@/app/components/HeroSection';
+import Image from 'next/image';
 
 export default function HomePage() {
   return (
@@ -22,6 +22,7 @@ export default function HomePage() {
       <Header />
 
       <main className="relative z-10 h-screen flex flex-col items-center justify-center text-center px-4">
+        <HeroSection />
       </main>
 
       <Footer />
