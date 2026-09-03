@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer";
 import Image from "next/image";
 
 export default function Home() {
@@ -8,6 +9,8 @@ export default function Home() {
           Portfolio is updating         
         </h1>
       </main>
+
+      <Footer />
     </div>
   );
 }
