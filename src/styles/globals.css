@@ -1,0 +1,401 @@
+/* ==========================================================================
+   TAILWIND CSS DIRECTIVES (ბაზისური დირექტივები)
+   ========================================================================== */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==========================================================================
+   GLOBAL CSS VARIABLES (გლობალური ცვლადები და თემის ფერები)
+   ========================================================================== */
+:root {
+  /* ძირითადი ფონის და ტექსტის ფერები (Dark Mode) */
+  --background: #020617;          /* მთავარი ფონის ფერი (ძალიან მუქი ლურჯი/შავი) */
+  --foreground: #e2e8f0;          /* მთავარი ტექსტის ფერი */
+  
+  /* Primary (მთავარი აქცენტის) ფერები - მწვანე ტონალობა */
+  --primary: #0ea572;             /* მთავარი ბრენდის ფერი (ღილაკები, აქტიური ელემენტები) */
+  --primary-foreground: #020617;    /* ტექსტის ფერი, რომელიც ჯდება primary ფონზე */
+  
+  /* Secondary (მეორადი) ფერები */
+  --secondary: #1e293b;           /* მეორადი ელემენტების ფონი */
+  --secondary-foreground: #94a3b8; /* მეორადი ტექსტი */
+  
+  /* Accent (დამატებითი აქცენტის) ფერები - იასამნისფერი/ლურჯი ტონალობა */
+  --accent: #5b5bd6;              /* დამატებითი აქცენტი */
+  --accent-foreground: #e2e8f0;   /* ტექსტი accent ფონზე */
+  
+  /* Muted (ჩამქრალი/ნეიტრალური) ელემენტები */
+  --muted: #0f172a;               /* ჩამქრალი ფონი */
+  --muted-foreground: #64748b;    /* დამხმარე/პასიური ტექსტის ფერი */
+  
+  /* ბარათების (Cards) და საზღვრების (Borders) სტილები */
+  --card: #0f172a;                /* ბარათების/კონტეინერების ფონი */
+  --card-foreground: #e2e8f0;     /* ბარათის შიგნით ტექსტის ფერი */
+  --border: rgba(255, 255, 255, 0.08); /* გამჭვირვალე საზღვარი (Border) */
+  --input: #1e293b;               /* Input ველების ფონი */
+  --ring: #0ea572;                /* Focus მდგომარეობის მონახაზი (Outline ring) */
+  --radius: 0.75rem;              /* ელემენტების მომრგვალების რადიუსი (12px) */
+  
+  /* შრიფტების ცვლადები (Font Families) */
+  --font-sans: var(--font-manrope), 'Manrope', sans-serif;
+  --font-mono: var(--font-jetbrains-mono), 'JetBrains Mono', monospace;
+}
+
+/* ==========================================================================
+   BASE STYLES (საბაზისო HTML ელემენტების გადაფარვა)
+   ========================================================================== */
+@layer base {
+  /* გლობალური გადატვირთვა ყველა ელემენტისთვის */
+  * {
+    box-sizing: border-box;
+    border-color: var(--border);
+  }
+
+  /* გლუვი სქროლინგი გვერდზე ნავიგაციისას */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Body-ს ბაზისური სტილები */
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased; /* შრიფტის გლუვი რენდერი macOS/iOS-ზე */
+    -moz-osx-font-smoothing: grayscale;   /* შრიფტის გლუვი რენდერი Firefox-ზე */
+    overflow-x: hidden;                  /* ჰორიზონტალური სქროლის დაბლოკვა */
+  }
+
+  /* სათაურების და პარაგრაფების ნაგულისხმევი მარჯინების მოხსნა */
+  h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+  }
+
+  /* ტექსტის მონიშვნის (Selection) სტილი */
+  ::selection {
+    background: var(--primary);
+    color: var(--primary-foreground);
+  }
+
+  /* ინდივიდუალური Scrollbar-ის სტილიზაცია (WebKit ბრაუზერებისთვის) */
+  ::-webkit-scrollbar {
+    width: 2px;                          /* სქროლბარის სისქე */
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--background);      /* სქროლბარის ბილიკის ფონი */
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--muted-foreground); /* სქროლბარის მოძრავი ნაწილი */
+  }
+}
+
+/* ==========================================================================
+   UTILITY CLASSES (დამხმარე უტილიტური კლასები)
+   ========================================================================== */
+@layer utilities {
+  /* 1. ტექსტის გრადიენტები */
+  .text-gradient-primary {
+    background: linear-gradient(135deg, #0ea572 0%, #34d399 50%, #5b5bd6 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  .text-gradient-hero {
+    background: linear-gradient(to bottom, #e2e8f0 0%, #94a3b8 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  /* 2. მინის ეფექტის მქონე ბარათები (Glassmorphism) */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  /* Glassmorphism ბარათი ჰოვერის (Hover) ინტერაქციით */
+  .glass-card-hover {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .glass-card-hover:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(14, 165, 114, 0.3);
+    box-shadow: 0 0 30px rgba(14, 165, 114, 0.08);
+  }
+
+  /* 3. ნათების ეფექტები (Glow Effects) */
+  .glow-primary {
+    box-shadow: 0 0 20px rgba(14, 165, 114, 0.3);
+  }
+
+  .glow-accent {
+    box-shadow: 0 0 20px rgba(91, 91, 214, 0.3);
+  }
+
+  /* 4. ფონის ხმაურის ეფექტი (Noise Overlay) */
+  .noise-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  }
+
+  /* 5. ფონის ბადის ხაზები (Grid Background Lines) */
+  .grid-bg-lines {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  .grid-bg-inner {
+    width: 100%;
+    height: 100%;
+    max-width: 80rem;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem;
+  }
+
+  .grid-bg-line {
+    width: 1px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.02);
+  }
+
+  /* 6. ტერმინალის ციმციმა კურსორი */
+  .terminal-cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1.1em;
+    background: var(--primary);
+    animation: blink 1s step-end infinite;
+    vertical-align: text-bottom;
+    margin-left: 2px;
+  }
+
+  /* 7. უნარების / ტექნოლოგიების ბეჯები (Skill Badges) */
+  .skill-badge {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    padding: 0.25rem 0.625rem;
+    border-radius: 0.375rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--muted-foreground);
+    transition: all 0.25s ease;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+
+  .skill-badge:hover,
+  .skill-badge.active {
+    border-color: var(--primary);
+    color: var(--primary);
+    background: rgba(14, 165, 114, 0.08);
+  }
+
+  .skill-badge.accent-active {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: rgba(91, 91, 214, 0.08);
+  }
+
+  /* 8. პულსირებადი წერტილი (მაგ. Live Status Indicator) */
+  .pulsing-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--primary);
+    box-shadow: 0 0 0 0 rgba(14, 165, 114, 0.4);
+    animation: pulse-ring 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+  }
+
+  /* 9. SVG Noodle / Connection Lines სტილები */
+  .noodle-line {
+    stroke: rgba(255, 255, 255, 0.06);
+    fill: none;
+    stroke-width: 1px;
+  }
+
+  .noodle-beam-path {
+    stroke: var(--primary);
+    fill: none;
+    stroke-width: 1.5px;
+    stroke-dasharray: 60 400;
+    stroke-dashoffset: 460;
+    animation: noodle-flow 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    stroke-linecap: round;
+    opacity: 0.8;
+    filter: drop-shadow(0 0 4px rgba(14, 165, 114, 0.5));
+  }
+
+  /* 10. ნაბიჯ-ნაბიჯ (Step Process) და სავალდებულო არეების სტილები */
+  .step-indicator-line {
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    width: 2px;
+    height: 0%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+  }
+
+  .step-title-inactive {
+    color: #334155;
+    transition: color 0.5s ease;
+  }
+
+  .step-title-active {
+    color: #e2e8f0;
+    transition: color 0.5s ease;
+  }
+
+  /* 11. Workflow Visual ინტერაქციული ბლოკები */
+  .workflow-visual {
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    filter: blur(10px);
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  .workflow-visual.active-visual {
+    filter: blur(0px);
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  /* 12. ტექსტის ბრწყინვალების/მინათების ეფექტი (Shimmer Text) */
+  .text-shimmer {
+    background: linear-gradient(
+      to right,
+      #e2e8f0 20%,
+      #64748b 40%,
+      #e2e8f0 60%,
+      #64748b 80%
+    );
+    background-size: 200% auto;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: text-shimmer-anim 4s linear infinite;
+  }
+
+  /* 13. ნათელი თემის (Light Theme) გადაფარვები */
+  .theme-light body {
+    --background: #f8fafc;
+    --foreground: #0f172a;
+    --card: #ffffff;
+    --muted: #f1f5f9;
+    --muted-foreground: #64748b;
+    --border: rgba(0, 0, 0, 0.08);
+  }
+}
+
+/* ==========================================================================
+   KEYFRAME ANIMATIONS (ანიმაციები)
+   ========================================================================== */
+
+/* ტერმინალის კურსორის ციმციმი */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* პულსირებადი წერტილის რგოლის გაფართოება */
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 rgba(14, 165, 114, 0.4); }
+  70% { box-shadow: 0 0 0 8px rgba(14, 165, 114, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(14, 165, 114, 0); }
+}
+
+/* SVG ბილიკზე სინათლის ნაკადის მოძრაობა */
+@keyframes noodle-flow {
+  0% { stroke-dashoffset: 460; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { stroke-dashoffset: 0; opacity: 0; }
+}
+
+/* ტექსტის Shimmer გრადიენტის მოძრაობა */
+@keyframes text-shimmer-anim {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* ბეჯების/ორბების ტივტივი (Floating Effect) */
+@keyframes float-badge {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-6px) rotate(1deg); }
+  66% { transform: translateY(-3px) rotate(-1deg); }
+}
+
+/* ვერტიკალური სხივის ჩამოვარდნის ანიმაცია */
+@keyframes beam-drop {
+  0% { top: -20%; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+/* ვერტიკალური ნათების ხაზი (Beam) */
+.vertical-beam {
+  position: absolute;
+  left: -1px;
+  top: 0;
+  width: 1px;
+  height: 120px;
+  background: linear-gradient(to bottom, transparent, var(--primary), transparent);
+  animation: beam-drop 3s ease-in-out infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ფონის გრადიენტის ნელი გადანაცვლება */
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.animated-gradient-bg {
+  background: linear-gradient(-45deg, #020617, #0f172a, #020617, #071a2e);
+  background-size: 400% 400%;
+  animation: gradient-shift 15s ease infinite;
+}
+
+/* Hero სექციის განათების ბურთულები (Glow Orbs) */
+.hero-glow-orb-1 {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(14, 165, 114, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+  animation: float-badge 8s ease-in-out infinite;
+}
+
+.hero-glow-orb-2 {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(91, 91, 214, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+  animation: float-badge 10s ease-in-out infinite reverse;
+}
