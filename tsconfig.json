@@ -36,7 +36,7 @@
     "types/**/*.d.ts",
     ".next/next-build/types/**/*.ts",
     ".next/dev/types/**/*.ts"
-  ],
+, "src/app/components/BentoStatsSection.tss"  ],
   "exclude": [
     "node_modules"
   ]
