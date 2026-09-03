@@ -1,47 +1,84 @@
-# Next.js
+# 🚀 Roland Artmeladze — Interactive Web Developer Portfolio (v2.1)
 
-A modern Next.js 15 application built with TypeScript and Tailwind CSS.
+A modern, high-performance developer portfolio built with **Next.js 15 (App Router)**, **TypeScript**, **Tailwind CSS**, and modern UI primitives. Designed with a dark glassmorphic UI, smooth micro-interactions, responsive grid layouts, and custom noise/line overlays.
 
-## 🚀 Features
+🌐 **Live Demo:** [portfolio-inky-tau-14.vercel.app](https://portfolio-inky-tau-14.vercel.app/)
 
-- **Next.js 15** - Latest version with improved performance and features
-- **React 19** - Latest React version with enhanced capabilities
-- **Tailwind CSS** - Utility-first CSS framework for rapid UI development
+---
 
-## 🛠️ Installation
+## 🎨 What's New in Version 2.1 (Key Updates)
 
-1. Install dependencies:
-  ```bash
-  npm install
-  # or
-  yarn install
-  ```
+In this major update, the portfolio was completely restructured and modernized across several architectural and UI layers:
 
-2. Start the development server:
-  ```bash
-  npm run dev
-  # or
-  yarn dev
-  ```
-3. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Bento Grid Architecture:** Implemented standard desktop 3-column Bento layouts with responsive single-column fallbacks for mobile and tablet views.
+- **Enhanced Education & Growth Section (`EducationSection.tsx`):**
+  - Academic background at **Georgian Technical University (Computer Engineering)**.
+  - Professional certifications with dynamic accent styling and direct verification links.
+  - Interactive **Language Proficiency Progress Bars** (Georgian, English B2, Russian).
+  - Extended **Currently Learning Tech Stack**: Integrated **AI Engineering**, **Python**, **Google Cloud & APIs**, GraphQL, Docker, Kubernetes, AWS, React Native, Rust, and WebAssembly.
+- **Full Georgian Code Documentation:** Complete English-Georgian technical annotations added to core components (`HomePage`, `EducationSection`, etc.) for maintainability.
+- **Modern Canvas & Noise Backgrounds:** Custom layered noise texture (`.noise-overlay`) and dynamic background grid lines (`.grid-bg-lines`) for high-end aesthetic depth.
+
+---
+
+## 🛠️ Tech Stack & Ecosystem
+
+| Layer | Technologies Used |
+| :--- | :--- |
+| **Core Framework** | **Next.js 15** (App Router), **React 19**, **TypeScript** |
+| **Styling & UI** | **Tailwind CSS**, PostCSS, Custom Utilities, Lucide Icons |
+| **Package Manager** | `pnpm` (also compatible with `npm` / `yarn`) |
+| **Deployment & Hosting** | **Vercel** with automatic GitHub CI/CD integration |
+| **Code Quality & Formatting** | ESLint, Prettier, Husky |
+
+---
 
 ## 📁 Project Structure
 
 ```
-nextjs/
-├── public/             # Static assets
+Portfolio/
+├── public/
+│   └── assets/
+│       └── images/             # Project screenshots, logos, and branding assets
 ├── src/
-│   ├── app/            # App router components
-│   │   ├── layout.tsx  # Root layout component
-│   │   └── page.tsx    # Main page component
-│   ├── components/     # Reusable UI components
-│   ├── styles/         # Global styles and Tailwind configuration
-├── next.config.mjs     # Next.js configuration
-├── package.json        # Project dependencies and scripts
-├── postcss.config.js   # PostCSS configuration
-└── tailwind.config.js  # Tailwind CSS configuration
-
+│   ├── app/
+│   │   ├── components/         # Page sections & complex UI components
+│   │   │   ├── HeroSection.tsx
+│   │   │   ├── AboutStatsSection.tsx
+│   │   │   ├── SkillsDashboard.tsx
+│   │   │   ├── ExperienceSection.tsx
+│   │   │   ├── ProjectsSection.tsx
+│   │   │   └── EducationSection.tsx
+│   │   ├── layout.tsx          # App Router root layout & metadata
+│   │   └── page.tsx            # Portfolio landing page (HomePage)
+│   ├── components/             # Global layout elements (Header, Footer)
+│   └── styles/                 # Global CSS, noise overlays, and custom utilities
+├── .eslintrc.json              # ESLint rules configuration
+├── .prettierrc                 # Prettier code formatting setup
+├── next.config.mjs             # Next.js runtime configuration
+├── package.json                # Project dependencies and script runner
+├── postcss.config.js           # PostCSS setup for Tailwind CSS
+└── tailwind.config.js          # Tailwind design token overrides & theme configuration
 ```
+----
+
+## ⚡ Quick Start & Development Setup
+
+### 1. Prerequisites
+Ensure you have Node.js (v18+) and `pnpm` (or `npm`) installed.
+
+### 2. Installation
+Clone the repository and install project dependencies:
+
+```bash
+git clone [https://github.com/rolandiartmeladze/Portfolio.git](https://github.com/rolandiartmeladze/Portfolio.git)
+cd Portfolio
+pnpm install
+# or: npm install
+
+3. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+
 
 ## 🎨 Styling
 
