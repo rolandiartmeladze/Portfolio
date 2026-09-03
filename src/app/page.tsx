@@ -4,6 +4,8 @@ import Footer from '@/components/Footer';
 import HeroSection from '@/app/components/HeroSection';
 import AboutStatsSection from '@/app/components/AboutStatsSection';
 import SkillsDashboard from '@/app/components/SkillsDashboard';
+import ExperienceSection from '@/app/components/ExperienceSection';
+
 
 
 export default function HomePage() {
@@ -27,6 +29,7 @@ export default function HomePage() {
         <HeroSection />
         <AboutStatsSection />
         <SkillsDashboard />
+        <ExperienceSection />
       </main>
 
       <Footer />
