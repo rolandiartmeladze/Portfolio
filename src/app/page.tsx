@@ -5,7 +5,7 @@ import HeroSection from '@/app/components/HeroSection';
 import AboutStatsSection from '@/app/components/AboutStatsSection';
 import SkillsDashboard from '@/app/components/SkillsDashboard';
 import ExperienceSection from '@/app/components/ExperienceSection';
-
+import ProjectsSection from '@/app/components/ProjectsSection';
 
 
 export default function HomePage() {
@@ -30,6 +30,7 @@ export default function HomePage() {
         <AboutStatsSection />
         <SkillsDashboard />
         <ExperienceSection />
+        <ProjectsSection />
       </main>
 
       <Footer />
