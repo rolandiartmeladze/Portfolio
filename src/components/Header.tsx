@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import AppLogo from '@/components/ui/AppLogo';
 import { Menu, X, Sun, Moon } from 'lucide-react';
 
+// ნავიგაციის ბმულების მასივი (ადვილად დასამატებლად ან შესაცვლელად)
 const navLinks = [
   { label: 'About', href: '#about' },
   { label: 'Skills', href: '#skills' },
@@ -13,16 +14,21 @@ const navLinks = [
 ];
 
 export default function Header() {
+  // state 1: ადევნებს თვალყურს, ჩასქროლა თუ არა მომხმარებელმა გვერდზე
   const [scrolled, setScrolled] = useState(false);
+  // state 2: მართავს მობილურის მენიუს გაშლა/დაკეცვას
   const [menuOpen, setMenuOpen] = useState(false);
+  // state 3: ინახავს მიმდინარე თემის მდგომარეობას (Dark / Light)
   const [isDark, setIsDark] = useState(true);
 
+  // Hook 1: სქროლის მოსმენა - 40px-ზე მეტად ჩასქროლვისას იცვლება Header-ის ფონი
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Hook 2: თუ მობილურის მენიუ ღიაა და მომხმარებელი სქროლავს, მენიუ ავტომატურად იხურება
   useEffect(() => {
     if (menuOpen) {
       const handleScroll = () => setMenuOpen(false);
@@ -31,9 +37,11 @@ export default function Header() {
     }
   }, [menuOpen]);
 
+  // თემის გადართვის ფუნქცია (ცვლის CSS ცვლადებს <html> ელემენტზე)
   const toggleTheme = () => {
     const html = document.documentElement;
     if (isDark) {
+      // Light თემაზე გადართვა
       html?.classList?.remove('dark');
       html?.classList?.add('theme-light');
       html?.style?.setProperty('--background', '#f8fafc');
@@ -42,6 +50,7 @@ export default function Header() {
       html?.style?.setProperty('--muted', '#f1f5f9');
       html?.style?.setProperty('--border', 'rgba(0,0,0,0.08)');
     } else {
+      // Dark თემაზე დაბრუნება
       html?.classList?.remove('theme-light');
       html?.classList?.add('dark');
       html?.style?.setProperty('--background', '#020617');
@@ -54,6 +63,7 @@ export default function Header() {
   };
 
   return (
+    // მთავარი ფიქსირებული Header (სქროლისას იღებს ნახევრად გამჭვირვალე ფონს და ბლურს)
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
@@ -63,7 +73,9 @@ export default function Header() {
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between w-full">
         
-        {/* 1. LOGO & BRAND NAME */}
+        {/* ==========================================
+            1. ლოგო და ბრენდის სახელი
+           ========================================== */}
         <div 
           className="flex items-center gap-3 cursor-pointer group"
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
@@ -71,12 +83,15 @@ export default function Header() {
           <div className="flex items-center justify-center">
             <AppLogo size={28} />
           </div>
+          {/* ბრენდის ტექსტი (იმალება ძალიან პატარა ეკრანებზე) */}
           <span className="font-bold text-lg tracking-tight text-foreground hidden sm:inline-block">
             Roland<span className="text-primary">.</span>
           </span>
         </div>
 
-        {/* 2. DESKTOP NAVIGATION (გაშლილი მენიუ) */}
+        {/* ==========================================
+            2. DESKTOP ნავიგაცია (ჩანს მხოლოდ lg breakpoint-დან)
+           ========================================== */}
         <nav className="hidden lg:flex items-center gap-2" aria-label="Main navigation">
           {navLinks?.map((link) => (
             <a
@@ -85,14 +100,17 @@ export default function Header() {
               className="px-4 py-2 text-xs font-mono tracking-widest uppercase text-slate-400 hover:text-white transition-colors duration-200 relative group"
             >
               {link?.label}
+              {/* Hover ეფექტი: მწვანე ხაზი, რომელიც შუიდან იშლება */}
               <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-3/4" />
             </a>
           ))}
         </nav>
 
-        {/* 3. RIGHT CONTROLS (Theme Toggle & Hire Me) */}
+        {/* ==========================================
+            3. მარჯვენა მართვის პანელი (Theme, Hire Me, Hamburger)
+           ========================================== */}
         <div className="flex items-center gap-4">
-          {/* Theme Toggle Button */}
+          {/* თემის გადამრთველი ღილაკი (მზე / მთვარე) */}
           <button
             onClick={toggleTheme}
             aria-label="Toggle theme"
@@ -101,7 +119,7 @@ export default function Header() {
             {isDark ? <Sun size={16} /> : <Moon size={16} />}
           </button>
 
-          {/* Hire Me Button */}
+          {/* Hire Me ღილაკი (ჩანს სმარტფონზე ოდნავ დიდ ეკრანებზეც - sm:) */}
           <a
             href="#contact"
             className="hidden sm:inline-flex items-center justify-center bg-primary hover:bg-[#0c9364] text-[#020617] px-6 py-2.5 text-xs font-bold tracking-wider uppercase rounded-lg transition-all duration-200 shadow-lg shadow-primary/20 hover:shadow-primary/40"
@@ -109,7 +127,7 @@ export default function Header() {
             Hire Me
           </a>
 
-          {/* Mobile Menu Toggle Button (ჩანს მხოლოდ პატარა ეკრანებზე) */}
+          {/* მობილურის ჰამბურგერ ღილაკი (ჩანს მხოლოდ lg-ზე პატარა ეკრანებზე) */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Toggle menu"
@@ -120,7 +138,9 @@ export default function Header() {
         </div>
       </div>
 
-      {/* 4. MOBILE DROPDOWN MENU */}
+      {/* ==========================================
+          4. მობილურის ჩამოშლადი მენიუ (DROPDOWN)
+         ========================================== */}
       {menuOpen && (
         <div className="lg:hidden absolute top-full left-0 right-0 bg-[#0f172a]/95 backdrop-blur-2xl border-b border-white/10 px-6 py-6 flex flex-col gap-4 shadow-2xl">
           {navLinks?.map((link) => (
@@ -133,6 +153,7 @@ export default function Header() {
               {link?.label}
             </a>
           ))}
+          {/* Hire Me ღილაკი მობილურის მენიუს შიგნით */}
           <a
             href="#contact"
             onClick={() => setMenuOpen(false)}
